@@ -1,0 +1,67 @@
+% naložite dodatne pakete, ki jih potrebujete
+\usepackage{units}        % fizikalne enote kot \unit[12]{kg} s polovico nedeljivega presledka, glej primer v kodi
+\usepackage{graphicx}     % za slike
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+% VEČ ZANIMIVIH PAKETOV
+% \usepackage{array}      % več možnosti za tabele
+% \usepackage[list=true,listformat=simple]{subcaption}  % več kot ena slika na figure, omogoči slika 1a, slika 1b
+% \usepackage[all]{xy}    % diagrami
+% \usepackage{doi}        % za clickable DOI entrye v bibliografiji
+% \usepackage{enumerate}     % več možnosti za sezname
+
+% Za barvanje source kode
+% \usepackage{minted}
+% \renewcommand\listingscaption{Program}
+
+% Za pisanje psevdokode
+% \usepackage{algpseudocode}  % za psevdokodo
+% \usepackage{algorithm}
+% \floatname{algorithm}{Algoritem}
+% \renewcommand{\listalgorithmname}{Kazalo algoritmov}
+
+% deklarirajte vse matematične operatorje, da jih bo LaTeX pravilno stavil
+\DeclareMathOperator{\bh}{\mathcal{B} (\mathcal{H})}
+\DeclareMathOperator{\bk}{\mathcal{B} (\mathcal{K})}
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\im}{im}
+\newcommand{\quot}[2]{{\raisebox{0em}{$#1$}\left/\raisebox{0em}{$#2$}\right.}}
+\DeclareMathOperator{\sa}{sa}
+\DeclareMathOperator{\lin}{Lin}
+\DeclareMathOperator{\PP}{PP}
+\DeclareMathOperator{\po}{po}
+\DeclareMathOperator{\PO}{PO}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\co}{co}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\env}{env}
+\DeclareMathOperator{\ext}{ext}
+
+\DeclareMathOperator{\EPP}{EPP}
+\DeclareMathOperator{\diag}{diag}
+
+
+
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+
+% vstavite svoje definicije ...
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+% Lahko se zgodi, da je ukaz \C definiral že paket hyperref,
+% zato dobite napako: Command \C already defined.
+% V tem primeru namesto ukaza \newcommand uporabite \renewcommand
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\T}{\mathbb T}
+\newcommand{\F}{\mathbb F}
+\newcommand{\A}{\mathbb A}
+\newcommand{\D}{\mathbb D}
+\newcommand{\oa}{\mathbf{OA}}
+\newcommand{\os}{\mathbf{OS}}
+\newcommand{\osys}{\mathbf{OSys}}
+\hyphenation{al-geb-rah}
+
