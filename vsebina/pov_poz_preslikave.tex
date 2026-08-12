@@ -1,153 +1,25 @@
 
 
-\section{Dilatacije}
+\section{Povsem pozitivne preslikave}\label{sec:2}
 
-\begin{definicija}
-    \emph{Dilatacija} operatorja $T \in \bh$ je operator $S \in \bk$, pri čemer 
-    je $\mathcal{H}$ podprostor Hilbertovega prostora $\mathcal{K}$, $P_{\mathcal{H}}: \mathcal{K} \hookrightarrow \mathcal{H}$ njegova vložitev  
-    in $T = P_{\mathcal{H}} S\big|_{\mathcal{H}}$.
-    Pravimo, da je $T$ \emph{kompresija} $S$.
-\end{definicija}
+V tem magistrskem delu bomo, če ni izrecno napisano drugače,
+za vse $C^*$-algebre predpostavili, da so enotske in nad kompleksnimi skalarji.
+Prav tako bomo vsi $*$-homomorfizmi $C^*$-algeber $\varphi: \mathfrak{A} \to \mathfrak{B}$ enotski,
+torej bodo slikali $\varphi(1) = 1$. Vse vektorske prostore bomo obravnavali nad kompleksnimi skalarji. 
 
-Ker je $\mathcal{K} = \mathcal{H} \oplus \mathcal{H}^\perp$, lahko operator $S$ zapišemo v matrični obliki
-$$S = \begin{bmatrix}
-    T & *\\
-    * & *
-\end{bmatrix}.$$
-
-\begin{zgled}\label{zgl:1.1}
-    Dokažimo, da ima vsaka izometrija unitarno dilatacijo.
-    Naj bo $V \in \bh$ izometrija in $P := I - V V^*$
-    projekcija na $(\im V)^\perp$. Zapišimo $\mathcal{K} := \mathcal{H} \oplus \mathcal{H}$ ter 
-    definirajmo $U \in \bk$ v matrični obliki kot 
-    $$U := \begin{bmatrix}
-        V & P\\
-        0 & V^*
-    \end{bmatrix}.$$
-    Očitno je $U$ dilatacija $V$. Dokazati moramo še, da je tudi unitarna. Ker velja
-    \begin{align*}
-        U^* U &= \begin{bmatrix}
-            V^* & 0\\
-            P & V
-        \end{bmatrix} \begin{bmatrix}
-            V & P\\
-            0 & V^*
-        \end{bmatrix}\\
-        &= \begin{bmatrix}
-            V^* V &  V^* P\\
-            PV & P^2 + V V^*
-        \end{bmatrix}\\
-        &= \begin{bmatrix}
-            I & 0\\
-            0 & I
-        \end{bmatrix}
-    \end{align*}
-    in 
-    \begin{align*}
-         U U^* &= \begin{bmatrix}
-            V & P\\
-            0 & V^*
-        \end{bmatrix} \begin{bmatrix}
-            V^* & 0\\
-            P & V
-        \end{bmatrix} \\
-        &= \begin{bmatrix}
-             P^2 + V V^* &  P V\\
-            V^* P &V^* V 
-        \end{bmatrix}\\
-        &= \begin{bmatrix}
-            I & 0\\
-            0 & I
-        \end{bmatrix},
-    \end{align*}
-    je $U$ res unitarna dilatacija $V$. Še več, v tem primeru je 
-    $U$ \emph{potenčna dilatacija} $V$. To pomeni, da je za vsak $n \in \N$ operator
-    $$U^n = \begin{bmatrix}
-        V^n & *\\
-        0 & (V^*) ^n
-    \end{bmatrix}$$
-    dilatacija za $V^n$.
-\end{zgled}
-
-\begin{zgled}\label{zgl:1.2}
-    Dokažemo lahko tudi, da ima vsaka skrčitev izometrično dilatacijo.
-    Vzemimo $T \in \bh$, tako da je $\| T\| \leq 1$. Definirajmo 
-    $$D_T := (I - T^* T)^{\frac{1}{2}} \in \bh,$$tako da za vsak $x \in \mathcal{H}$ velja
-    \begin{align*}
-        \| T x \|^2 + \| D_T x\|^2 &= \langle Tx, Tx \rangle + \langle D_T x, D_T x \rangle\\
-        &= \langle T^* T x, x\rangle + \langle D_T ^2 x, x\rangle\\
-        &= \langle T^* T x, x\rangle + \langle (I - T^* T) x, x\rangle\\
-        &= \langle x, x \rangle = \| x\|^2.
-    \end{align*}
-    Nato definirajmo Hilbertov prostor $\mathcal{K} := \bigoplus_{n \in \N} \mathcal{H}$, ki je prostor zaporedij
-    $$\{(x_1, x_2, \dots)\ |\ x_n \in \mathcal{H},\ \sum_{n = 1} ^\infty \| x_n\|^2 < \infty\}$$
-    s skalarnim produktom
-    $$\langle (x_1, x_2, \dots), (y_1, y_2, \dots) \rangle := \sum_{n = 1} ^\infty \langle x_i, y_i \rangle.$$
-    Nazadnje definiramo še operator 
-    $$V: \mathcal{K} \to \mathcal{K},\quad (x_1, x_2,x_3, \dots) \mapsto (T x_1, D_T x_2, x_3, \dots),$$
-    ki je izometrija, saj velja
-    \begin{align*}
-        \| V(x_1, x_2, x_3, \dots)\|^2 &= \| T x_1\|^2 + \| D_T x_2\|^2 + \sum_{n = 3} ^\infty \| x_n\|^2 \\
-        &= \sum_{n = 1} ^\infty \| x_n\|^2 \\
-        &= \| (x_1, x_2, x_3, \dots )\|^2.
-    \end{align*}
-    Če identificiramo $\mathcal{H}$ s $\mathcal{H} \oplus 0 \oplus 0 \oplus \cdots \subseteq \mathcal{K}$, potem velja 
-    $$T^n = P_{\mathcal{H}} V^n \big|_{\mathcal{H}}$$
-    za vse $n \in \N$.
-\end{zgled}
-
-Kot posledico zgledov \ref{zgl:1.1} in \ref{zgl:1.2} dobimo naslednji izrek.
-
-\begin{izrek}[Sz.-Nagy]
-    Naj bo $T \in \bh$ skrčitev. Potem obstaja Hilbertov prostor $\mathcal{K} \supseteq \mathcal{H}$ 
-    in unitaren operator $U \in \bk$, tako da velja
-    $$T^n = P_{\mathcal{H}} U^n \big|_{\mathcal{H}}$$
-    za vse $n \in \N$.
-\end{izrek}
-
-Sz.-Nagyjev izrek nam omogoča, da trditev o skrčitvah reduciramo na trditev o unitarnih operatorjih.
-Za ilustracijo tega argumenta dokažimo naslednjo trditev.
-
-\begin{posledica}[von Neumannova neenakost]\label{pos:1.1}
-    Naj bo $T \in \bh$ skrčitev $p \in \C [z]$ kompleksen polinom. Potem imamo
-    $$\| p(T)\| \leq \sup \{|p(z)|\ |\ z \in \mathbb{T}\}.$$
-\end{posledica}
-
-\begin{dokaz}
-    Naj bo $U$ potenčna dilatacija $T$, torej
-    $T^n = P_{\mathcal{H}} U^n \big|_{\mathcal{H}}$
-    za vse $n \in \N \cup\{0\}$. Potem velja $p(T) = P_{\mathcal{H}} p(U)\big|_{\mathcal{H}}$
-    in posledično $\| p(T)\| \leq \| p(U)\|$. Ker je $U$ normalna, imamo po spektralnem izreku
-    $$\| p(U) \| = \sup \{|p(\lambda)|\ |\ \lambda \in \sigma(U)\}.$$
-    Nato upoštevamo še, da je $U$ unitarna in zanjo velja $\sigma(U) \subseteq \mathbb{T}$, torej
-    $$\sup \{|p(\lambda)|\ |\ \lambda \in \sigma(U)\} \leq \sup \{|p(\lambda)|\ |\ \lambda \in \mathbb{T}\}.$$
-    Vse to skupaj implicira
-    \begin{equation*}
-        \| p(T)\| \leq \| p(U)\| = \sup \{|p(\lambda)|\ |\ \lambda \in \sigma(U)\} \leq \sup \{|p(\lambda)|\ |\ \lambda \in \mathbb{T}\}. \qedhere
-    \end{equation*} 
-\end{dokaz}
-
-\section{Povsem pozitivne preslikave}\label{sec:1.1}
-
-\begin{comment}
-V splošnem lahko z dilatacijami dokažemo nekatere trditve o operatorjih, tako da reduciramo trditev na `lepše'
-operatorje. S povsem pozitivnimi preslikavami izpeljemo potrebne in zadostne pogoje za obstoj dilatacij.
-
-\end{comment}
-
-Naj bo $\mathfrak{A}$ $*$-algebra. Definiramo $M_n (\mathfrak{A})$ kot algebro $n \times n$ matrik z elementi v $\mathfrak{A}$, z običajnim matričnim seštevanjem in množenjem.
+Naj bo $\mathfrak{A}$ $C^*$-algebra. Definiramo $M_n (\mathfrak{A})$ kot algebro $n \times n$ matrik z elementi v $\mathfrak{A}$, z običajnim matričnim seštevanjem in množenjem.
 Na $M_n(\mathfrak{A})$ lahko definiramo matrično involucijo
 $$[a_{ij}]_{i, j} ^* := [a_{ji} ^*]_{i, j},$$
 s katero $M_n (\mathfrak{A})$ postane $*$-algebra.
 
 \begin{definicija}
-    Naj bosta $\mathfrak{A}, \mathfrak{B}$ $*$-algebri in $\phi: \mathfrak{A} \to \mathfrak{B}$ linearna preslikava.
+    Naj bosta $\mathfrak{A}, \mathfrak{B}$ $C^*$-algebri in $\phi: \mathfrak{A} \to \mathfrak{B}$ linearna preslikava.
     Za vsak $n \in \N$ definiramo 
     $$\phi^{(n)}: M_n (\mathfrak{A}) \to M_n (\mathfrak{B}),\quad [a_{ij}]_{i, j} \mapsto [\phi(a_{ij})]_{i, j}.$$
-    Preslikavi $\phi^{(n)}$ pravimo $n$-ta ampliacija $\phi$.
+    Preslikavi $\phi^{(n)}$ pravimo $n$-ta \emph{ampliacija} $\phi$.
 \end{definicija}
 
-Če je $\mathfrak{A}$ $C^*$-algebra, potem po Gelfand--Naimark--Segalovem (v nadaljevanju: GNS) izreku
+Če je $\mathfrak{A}$ $C^*$-algebra, potem po Gelfand--Naimark--Segalovem izreku (\cite[Theorem VIII.5.14., str. 250]{conway1990}, v nadaljevanju: izrek GNS)
 obstaja Hilbertov prostor $\mathcal{H}$ in injektivna upodobitev $\pi: \mathfrak{A} \to \bh$, kar inducira injektivni $*$-homomorfizem 
 $$\pi^{(n)}: M_n (\mathfrak{A}) \to M_n (\bh)$$
 za vsak $n \in \N$. To pomeni, da lahko $M_n (\mathfrak{A})$ identificiramo z
@@ -155,7 +27,7 @@ $*$-podalgebro $C^*$-algebre $M_n (\bh)$.
 Ker je slika $\pi^{(n)} (M_n (\mathfrak{A}))$ zaprta v $M_n (\bh)$,
 je tudi $C^*$-podalgebra v $M_n (\bh)$.
 To nam inducira normo na $M_n (\mathfrak{A})$, s katero $M_n (\mathfrak{A})$ postane $C^*$-algebra.
-Spomnimo, da vsaka $*$-algebra premore največ eno normo, za katero postane $C^*$-algebra,
+Spomnimo, da vsaka $*$-algebra premore največ eno normo, za katero postane $C^*$-algebra (glej recimo \cite[Corollary 2.1.2., str. 37]{murphy1990}),
 kar pomeni, da je zgoraj opisana norma na $M_n (\mathfrak{A})$ kanonična oziroma neodvisna od izbora upodobitve $\pi$.
 Kot bomo videli, nam kanonične norme na $M_n (\mathfrak{A})$ povedo dodatne informacije o začetni $C^*$-algebri $\mathfrak{A}$.
 
@@ -165,7 +37,8 @@ Kot bomo videli, nam kanonične norme na $M_n (\mathfrak{A})$ povedo dodatne inf
 \end{definicija}
 
 \begin{opomba}
-    Množica $\mathfrak{A}_+$ je konveksen stožec.
+    Množica $\mathfrak{A}_+$ je \emph{konveksen stožec}: to pomeni, da je $\mathfrak{A}_+ + \mathfrak{A}_+ \subseteq \mathfrak{A}_+$,
+    $c \mathfrak{A}_+ \subseteq \mathfrak{A}_+$ za $\alpha \geq 0$ ter $\mathfrak{A}_+ \cap - \mathfrak{A}_+ = \{0\}$.
 \end{opomba}
 
 \begin{definicija}
@@ -192,46 +65,32 @@ in njihovih osnovnih lastnosti. Model povsem pozitivnih preslikav so pozitivni f
 
 \begin{zgled}\label{zgl:1.3}
     Dokažimo, da je vsak pozitivni linearni funkcional $\varphi$ na $C^*$-algebri $\mathfrak{A}$ povsem pozitiven.
-    Dovolj je pokazati, da je 
-        $$\varphi^{(n)} : M_n (\mathfrak{A}) \to M_n (\C)$$
-        pozitivna preslikava. Vzemimo neko matriko $[a_{ij}]_{i, j} \in M_n (\mathfrak{A})_+$ in $\alpha \in \C^n$.
-        Ker je $[a_{ij}]_{i, j} \geq 0$, imamo
-        \begin{gather*}
-            \begin{bmatrix}
-                \alpha_1 & 0 & \cdots & 0\\
-                \vdots & \vdots & \ddots & \vdots\\
-                \alpha_n & 0 & \cdots & 0
-            \end{bmatrix}^* \begin{bmatrix}
-                a_{11} & \cdots & a_{1n}\\
-                \vdots & \ddots & \vdots\\
-                a_{n1} & \cdots & a_{nn}
-            \end{bmatrix} \begin{bmatrix}
-                \alpha_1 & 0 & \cdots & 0\\
-                \vdots & \vdots & \ddots & \vdots\\
-                \alpha_n & 0 & \cdots & 0
-            \end{bmatrix}\\ = \begin{bmatrix}
-                \sum_{i, j = 1} ^n \overline{\alpha_i} \alpha_j a_{ij} & 0 & \cdots & 0\\
-                \vdots & \vdots & \ddots & \vdots\\
-                0 & 0 & \cdots & 0 
-            \end{bmatrix} \geq 0            
-        \end{gather*}
-        in zato $\sum_{i, j = 1} ^n \overline{\alpha_i} \alpha_j a_{ij} \geq 0$ v $\mathfrak{A}$.
-        Ker je $\varphi$ pozitiven funkcional, dobimo
-        \begin{align*}
-            \langle \varphi^{(n)} ([a_{ij}]_{i, j}) \alpha, \alpha \rangle &= \langle [\varphi(a_{ij})]_{i, j} \alpha, \alpha \rangle\\
-            &= \left\langle \begin{bmatrix}
-                \sum_{j = 1} ^n \varphi(a_{1j}) \alpha_j\\
-                \vdots\\
-                \sum_{j = 1} ^n \varphi(a_{nj}) \alpha_j
-            \end{bmatrix}, \begin{bmatrix}
-                \alpha_1\\
-                \vdots\\
-                \alpha_n
-            \end{bmatrix} \right\rangle\\
-            &= \sum_{i, j} \overline{\alpha_i} \alpha_j \varphi(a_{ij})\\
-            &= \varphi \left(\sum_{i, j} \overline{\alpha_i} \alpha_j a_{ij}\right) \geq 0,
-        \end{align*}
-        zato je $\varphi^{(n)} ([a_{ij}]_{i, j}) \geq 0$.
+    Dovolj je pokazati, da je $$\varphi^{(n)} : M_n (\mathfrak{A}) \to M_n (\C)$$
+    pozitivna preslikava. Ključen je uvid, da za popolnoma poljuben funkcional $\varphi$, matriko $A = [a_{ij}]_{i, j} \in M_n (\mathfrak{A})$
+    in vektorja $$\alpha = \begin{bmatrix}
+        \alpha_1 \\ \vdots \\ \alpha_n
+    \end{bmatrix},\quad \beta = \begin{bmatrix}
+        \beta_1 \\ \vdots \\ \beta_n
+    \end{bmatrix} \in \C^n$$ velja 
+    \begin{align*}
+        \beta^* \varphi^{(n)} (A) \alpha &= \begin{bmatrix}
+            \beta_1  \\ \vdots \\ \beta_n 
+        \end{bmatrix}^*
+        \begin{bmatrix}
+            \varphi (a_{11}) & \cdots & \varphi(a_{1n})\\
+            \vdots & & \vdots\\
+            \varphi (a_{n1}) & \cdots & \varphi(a_{nn})
+        \end{bmatrix}
+        \begin{bmatrix}
+            \alpha_1 \\ \vdots \\ \alpha_n
+        \end{bmatrix} \\
+        &= \sum_{i, j} \overline{\beta_i} \varphi(a_{ij}) \alpha_j  = \varphi \left(\sum_{i, j} \overline{\beta_i} a_{ij} \alpha_j \right)\\
+        &= \varphi(\beta^* A \alpha).
+    \end{align*}
+    Če je sedaj matrika $A \in M_n (\mathfrak{A})$ pozitivna, potem je za vsak $\alpha \in \C^n$
+    tudi $\alpha^* A \alpha \in \mathfrak{A}$ pozitiven element in velja 
+    $$\alpha^* \varphi^{(n)}(A) \alpha = \varphi(\alpha^* A \alpha) \geq 0.$$
+    To pomeni, da je $\varphi^{(n)} (A) \in M_n (\C)$ pozitivna matrika, zato je $\varphi^{(n)}: M_n (\mathfrak{A}) \to M_n (\C)$ pozitivna preslikava.
 \end{zgled}
 
 To nam omogoča, da na povsem pozitivne preslikave gledamo kot na posplošitve stanj,
@@ -246,7 +105,7 @@ povsem pozitivne preslikave.
 \end{zgled}
 
 \begin{zgled}\label{zgl:1.4}
-    Obstajajo pozitivne preslikave, ki niso povsem pozitivne
+    Obstajajo pozitivne preslikave, ki niso povsem pozitivne.
     Primer take preslikave je $$\varphi: M_2 (\C) \to M_2 (\C),\quad A \mapsto A^\top$$
     (tukaj operacija $A^\top$ pomeni realno transpozicijo matrike brez konjugiranja, saj mora biti $\varphi$ linearna preslikava).
     Očitno je $\varphi$ pozitivna preslikava, kar pa ne velja za njeno drugo ampliacijo
@@ -313,57 +172,14 @@ povsem pozitivne preslikave.
 
     Če je $\mathfrak{A}$ $C^*$-algebra in $\psi: \mathfrak{A} \to \bh$ povsem pozitivna preslikava,
     potem je tudi kompozicija 
-    \begin{equation}
-        \mathfrak{A} \to  \bk,\quad A \mapsto V^* \psi (a) V \label{eq:1.1}
-    \end{equation}
-    povsem pozitivna.
-\end{zgled}
-
-\begin{zgled}
-    Denimo, da sta $\mathcal{H} \subseteq \mathcal{K}$ Hilbertova prostora.
-    Po zgledu \ref{zgl:1.5} sta preslikavi
     $$
-        \bk \to \bh,
-        \quad
-        A \mapsto P_{\mathcal{H}}A|_{\mathcal{H}},
-    $$
-    in
-    $$
-        \bh \to \bk,
-        \quad
-        A \mapsto
-        \begin{bmatrix}
-            A & 0\\
-            0 & 0
-        \end{bmatrix}
-    $$
-    povsem pozitivni. 
-    
-    Ker je kompozitum povsem pozitivnih preslikav
-    ponovno povsem pozitiven, je za vsako povsem pozitivno preslikavo
-    $\varphi : \mathfrak{A} \to \bh$
-    tudi preslikava
-    $$
-        \psi : \mathfrak{A} \to \bk,
-        \quad
-        a \mapsto
-        \begin{bmatrix}
-            \varphi(a) & 0\\
-            0 & 0
-        \end{bmatrix}
-    $$
-    povsem pozitivna.
-
-    Prav tako je za vsako povsem pozitivno preslikavo
-    $\psi : \mathfrak{A} \to \bk$
-    tudi preslikava
-    $$
-        \varphi : \mathfrak{A} \to \bh,
-        \quad
-        \varphi(a)=P_{\mathcal{H}}\psi(a)|_{\mathcal{H}}
+        \mathfrak{A} \to  \bk,\quad A \mapsto V^* \psi (a) V 
     $$
     povsem pozitivna.
 \end{zgled}
+
+Razdelek zaključimo z uporabno karakterizacijo povsem pozitivnih preslikav \eqref{eq:intro1}
+iz uvoda.
 
 
 \begin{comment}
@@ -391,17 +207,139 @@ povsem pozitivne preslikave.
 \end{zgled}
 \end{comment}
 
-\subsection{Operatorski sistemi}
+
+\begin{lema}\label{lem:1.2}
+    Če je $\mathfrak{A}$ $C^*$-algebra, potem je vsak pozitiven element $M_n (\mathfrak{A})$
+    vsota $n$ pozitivnih matrik oblike $[a_i ^* a_j]_{i, j}$ za 
+    neke $\{a_1, \dots, a_n\} \subseteq A$.
+\end{lema}
+
+\begin{dokaz}
+    Najprej opazimo, da če imamo matriko $$R = \begin{bmatrix}
+        0 & \cdots & 0\\
+        \vdots & & \vdots\\
+        a_1 & \cdots & a_n\\
+        \vdots & & \vdots\\
+        0 & \cdots & 0\\       
+    \end{bmatrix} \in M_n (\mathfrak{A}),$$
+    potem je $R^* R = [a_i^* a_j]_{i, j}$.
+    Naj bo sedaj $P \in M_n (\mathfrak{A})_+$ poljubna pozitivna matrika, torej $P = B^* B$ za nek $B \in M_n (\mathfrak{A})$.
+    Zapišemo $B = R_1 + \cdots + R_n$, kjer je $R_k$ matrika,
+    ki ima $k$-to vrstico enako kot $B$, drugje pa je ničelna.
+    Ker velja $R_k^* R_l = 0$ za poljubna različna indeksa $k \neq l$ iz $\{1, \dots, n\}$,
+    sledi
+    \begin{align*}
+        P = B^* B &= (R_1 ^* + \cdots + R_n ^*) (R_1 + \cdots + R_n) \\
+        &= R_1 ^* R_1 + \cdots + R_n ^* R_n. \qedhere
+    \end{align*}
+\end{dokaz}
+
+
+
+\begin{lema}\label{lem:1.3}
+    Naj bo $\mathfrak{B}$ $C^*$-algebra in $A = [a_{ij}]_{i, j} \in M_n(\mathfrak{B})$.
+    Potem je $A$ pozitivna natanko tedaj, ko velja $$\begin{bmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{bmatrix}^* A \begin{bmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j \geq 0$$
+    za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$.
+\end{lema}
+
+\begin{dokaz}
+    Implikacija v levo je trivialna, zato dokazujemo implikacijo v desno.
+    \begin{enumerate}
+        \item  V prvem koraku dokažemo, da če je $A = [a_{ij}]_{i, j} \in M_n (\mathfrak{B})$ takšna matrika, da velja $$\begin{bmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{bmatrix}^* A \begin{bmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j = 0$$
+    za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$, potem je $A = 0$.
+    Dokazali bomo, da je vsaka komponenta $A$ ničelna. Če v zgornjo enačbo vstavimo $b_i = 1$ in $b_j = 0$ za vse $j \neq i$, potem dobimo
+    $a_{ii} = 0$. Od tod sledi, da so vsi diagonalni elementi matrike $A$ ničelni. 
+    Preostane še pokazati, da je $a_{ij} = 0$ za poljubna indeksa $i \neq j$.
+    Če vstavimo $b_i := 1, b_j := c \in \mathfrak{B}$ in $b_k = 0$ za $k \neq i, j$, dobimo enakost
+    $$a_{ii} + a_{ij} c + c^* a_{ji}  + c^* a_{jj} c = 0.$$
+    Ker so diagonalni elementi ničelni, sledi
+    $$a_{ij} c + c^* a_{ji} = 0.$$
+    Če posebej vstavimo $c = 1$ in $c = i$, dobimo
+    $$a_{ij} + a_{ji} = 0, \quad i a_{ij} - i a_{ji} = 0,$$
+    od koder potem sledi $a_{ij} = a_{ji} = 0$. S tem smo dokazali, da je $A = 0$.
+        \item V drugem koraku dokažemo, da če je $$\begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix}^* A \begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j \in \mathfrak{B}$$
+        sebiadjungiran element za vsako $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$, potem je $A$ sebiadjungirana matrika.
+        Opazimo namreč, da velja
+        \begin{align*}
+            \sum_{i, j} ^n b_i ^* a_{ij} b_i &= \left(\sum_{i, j} ^n b_i ^* a_{ij} b_i\right)^* \\
+            &= \sum_{i, j} ^n b_j ^* a_{ij}^* b_i\\
+            &=  \sum_{i, j} ^n b_i ^* a_{ji}^* b_j,
+        \end{align*}
+        od koder sledi
+        $$\begin{bmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{bmatrix}^* (A - A^*) \begin{bmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{bmatrix} = \sum_{i, j} ^n b_i ^* (a_{ij} - a_{ji}^*) b_i = 0.$$ Po prvemu koraku tako dobimo $A - A^* = 0$.
+        \item Nazadnje dokažemo, da če je $$\begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix}^* A \begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j$$
+        pozitiven za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$, potem je $A$ pozitivna matrika.
+        Ker je $A$ po prejšnjem koraku sebiadjungirana, imamo po zveznem funkcijskem računu (glej recimo \cite[Section VIII.2, str. 236-240]{conway1990}) 
+        dekompozicijo $A = A_+ - A_-$,
+        kjer sta $A_+, A_-$ pozitivni matriki, tako da velja $A_+ A_- = A_- A_+ = 0$.
+        Po predpostavki imamo
+        $$\begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix}^* A_- A A_- \begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix}\geq 0,$$
+        hkrati pa je izraz na levi strani enak
+        $$- \begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix}^* A_- ^3 \begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix}\leq 0.$$ Od tod sledi
+        $$- \begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix}^* A_- ^3 \begin{bmatrix}
+            b_1 \\ \vdots \\ b_n
+        \end{bmatrix} = 0$$ za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$.
+        Po prvem koraku nato dobimo $A_- ^3 = 0$, od koder po zveznem funkcijskem računu sledi $A_- = 0$.
+        To pa pomeni, da je $A = A_+$ pozitivna matrika. \qedhere
+    \end{enumerate}
+\end{dokaz}
+
+Iz lem \ref{lem:1.2} in \ref{lem:1.3} sledi naslednja trditev.
+
+\begin{trditev}
+    Preslikava $\varphi: \mathfrak{A} \to \mathfrak{B}$ je povsem pozitivna natanko tedaj,
+    ko za vsak $n \in \N$ in $n$-terici $a_1, \dots, a_n \in \mathfrak{A}$ ter $b_1, \dots, b_n \in \mathfrak{B}$
+    velja $$\sum_{i, j} ^n b_i ^* \varphi (a_i ^* a_j) b_j \geq 0.$$
+\end{trditev}
+
+\section{Operatorski sistemi}\label{sec:3}
 
 V zgornjih zgledih smo obravnavali povsem pozitivne preslikave na $C^*$-algebrah.
 V praksi pa imamo pogosto opravka s povsem pozitivnimi preslikavami, ki so definirane zgolj na 
-podprostorih $C^*$-algebre. 
+podprostorih $C^*$-algebre, ki jim rečemo operatorski sistemi. V tem poglavju obravnavamo nekatere lastnosti 
+pozitivnih in povsem pozitivnih preslikav na operatorskih sistemih. 
 
 \begin{definicija}
     Naj bo $\mathfrak{A}$ enotska $C^*$-algebra. Njenemu podprostoru $\mathcal{M} \subseteq \mathfrak{A}$,
     ki vsebuje enico, pravimo \emph{operatorski prostor}. Operatorskemu prostoru $\mathcal{S} \subseteq \mathfrak{A}$,
     za katerega velja $\mathcal{S} = \mathcal{S}^*$, pravimo \emph{operatorski sistem}.
 \end{definicija}
+
+\begin{opomba}
+    V splošni literaturi (glej na primer \cite{paulsen2002}) so operatorski sistemi običajno definirani zgolj kot podprostori $C^*$-algebre,
+    torej brez zahteve, da vsebujejo enico. V tem magistrskem delu bomo obravnavali zgolj enotske operatorske prostore,
+    zato dodamo to kot del definicije.
+\end{opomba}
 
 \begin{zgled}
     Če je $\mathcal{M}$ operatorski prostor, potem je $\mathcal{S} = \mathcal{M} + \mathcal{M}^*$ operatorski sistem.
@@ -410,8 +348,14 @@ podprostorih $C^*$-algebre.
 Če je $\mathcal{M}$ (oziroma $\mathcal{S}$) operatorski prostor (sistem) v $\mathfrak{A}$,
 potem je $M_n (\mathcal{M})$ operatorski prostor (sistem) v $M_n (\mathfrak{A})$ za vse $n \in \N$.
 Pozitivni elementi v operatorskem prostoru so $\mathcal{M}_+ = \mathcal{M} \cap \mathfrak{A}_+$.
-Za poljubno $C^*$-algebro $\mathfrak{B}$ in linearno preslkavo $\varphi: \mathcal{M} \to \mathfrak{B}$,
-potem na enak način kot prej definiramo pojme pozitivne, $n$-pozitivne ter povsem pozitivne preslikave.
+Na enak način kot za $C^*$-algebre podamo tudi definicijo pozitivne, $n$-pozitivne ter povsem pozitivne preslikave
+$\varphi: \mathcal{M} \to \mathfrak{B}$ na operatorskem prostoru $\mathcal{M}$.
+
+\begin{zgled}
+    Če je $\varphi: \mathfrak{A} \to \mathfrak{B}$ povsem pozitivna preslikava
+    in $\mathcal{M} \subseteq \mathfrak{A}$ poljuben operatorski prostor,
+    potem je tudi $\varphi|_\mathcal{S}: \mathcal{S} \to \mathfrak{B}$ povsem pozitivna preslikava.
+\end{zgled}
 
 \begin{zgled}
     Če je $\mathcal{S} \subseteq \mathfrak{A}$ operatorski sistem in $\varphi: \mathcal{S} \to \C$
@@ -428,7 +372,7 @@ Poleg tega lahko vsak sebiadjungiran element zapišemo kot razliko dveh pozitivn
 $$a = \frac{1}{2} (\| a\| + a) - \frac{1}{2} (\| a\| - a),$$
 ki ležita v $\mathcal{S}$. 
 
-Operatorski sistemi so zato `naravna' domena za povsem pozitivne preslikave.
+Operatorski sistemi so zato `naraven' objekt, na katerem so morfizmi povsem pozitivne preslikave.
 Z oznako $\osys$ označimo kategorijo operatorskih sistemov, v kateri so morfizmi povsem pozitivne preslikave,
 v $\osys_1$ pa enotske povsem pozitivne preslikave.
 
@@ -443,19 +387,17 @@ v $\osys_1$ pa enotske povsem pozitivne preslikave.
     Sedaj lahko dokažemo, da so edini sebiadjungirani elementi v $\C[z]$ trivialni.
     Vzemimo poljuben sebiadjungiran polinom $p = \sum_{j = 0} ^l \alpha_j z^j$. Potem je
     \begin{align*}
-        \sum_{j = 0} ^l \alpha_j z^j &= \overline{\sum_{j = 0} ^l \alpha_j z^j}\\
-        &= \sum_{j = 0} ^l \overline{\alpha_j} \overline{z}^j\\
-        &= \sum_{j = 0} ^l \overline{\alpha_j} z^{-j}.
+        \sum_{j = 0} ^l \alpha_j z^j = \overline{\sum_{j = 0} ^l \alpha_j z^j} = \sum_{j = 0} ^l \overline{\alpha_j} \overline{z}^j = \sum_{j = 0} ^l \overline{\alpha_j} z^{-j}.
     \end{align*} 
     Od tod sledi $\alpha_0 \in \R$ in $\alpha_j = 0$ za $j \geq 1$.
 \end{zgled}
 
-Zgornji zgled nam pove, da operatorski prostori pogosto ne premorejo `dovolj'
-pozitivnih elementov. V naslednjih dveh razdelkih odgovorimo na vprašanje, kdaj lahko preslikavo 
-na operatorskem prostoru $\mathcal{M}$ razširimo do povsem pozitivne preslikave na operatorskem sistemu $\mathcal{M} + \mathcal{M}^*$.
-Te preslikave bodo služile kot analogija povsem pozitivnih preslikav za operatorske prostore.
-
-Za začetek podajmo nekaj osnovnih lastnosti pozitivnih in povsem pozitivnih preslikav.
+Kot nam pove zgornji zgled, imajo operatorski sistemi lahko premalo 
+pozitivnih elementov, da bi povsem pozitivne preslikave na njih bile zanimive.
+Kljub temu pa obstaja vrsta preslikav
+na operatorskem prostoru $\mathcal{M}$, ki jih lahko razširimo do povsem pozitivnih preslikav na operatorskem sistemu $\mathcal{M} + \mathcal{M}^*$.
+Takšne preslikave bodo potem naravni morfizem na operatorskih prostorih.
+V nadaljevanju tega razdelka bomo opisali to konstrukcijo.
 
 \begin{lema}
     Naj bo $\mathcal{S}$ operatorski sistem in $\mathfrak{B}$ $C^*$-algebra.
@@ -548,8 +490,7 @@ Za poljubno pozitivno preslikavo $\varphi: \mathcal{S} \to \mathfrak{B}$ imamo n
     \end{align*}
 \end{dokaz}
 
-Naslednji zgled pokaže, da je konstanta $2$ v oceni iz trditve \ref{trd:1.1} tudi dosežena.
-
+Naslednji zgled (\cite[Appendix A.2, str. 221]{arveson1969}) pokaže, da je konstanta $2$ v oceni iz trditve \ref{trd:1.1} tudi dosežena.
 \begin{zgled}[Arveson]\label{zgl:1.6}
     Naj bo $\mathcal{S} \subseteq C(\mathbb{T})$ operatorski sistem, ki ga razpenjajo funkcije $1, z, \overline{z}$.
     Definirajmo preslikavo
@@ -590,12 +531,12 @@ Naslednji zgled pokaže, da je konstanta $2$ v oceni iz trditve \ref{trd:1.1} tu
 
 \begin{opomba}
     V zgornjem zgledu sta dve težavi: kodomena $M_2 (\C)$ je nekomutativna (glej lemo \ref{lem:1.1})
-    in operatorski sistem $\mathcal{S}$ `ne premore' dovolj pozitivnih elementov (glej trditev \ref{trd:1.3}).
+    in operatorski sistem $\mathcal{S}$ `ne premore' dovolj pozitivnih elementov (glej trditev \ref{pos:russo-dye}).
     Zgled \ref{zgl:1.6} nam pove, da za posplošitev stanj na preslikave $\varphi: \mathfrak{A} \to \mathfrak{B}$
     ni dovolj predpostaviti zgolj pozitivnost, temveč potrebujemo povsem pozitivnost. 
 \end{opomba}
 
-Podrazdelek zaključimo s trditvijo, da je enotsko skrčitev na operatorskem prostoru $\mathcal{M}$
+Poglavje zaključimo s trditvijo, da je enotsko skrčitev na operatorskem prostoru $\mathcal{M}$
 moč razširiti do pozitivne preslikave na operatorskem sistemu $\mathcal{M} + \mathcal{M}^*$.
 
 \begin{trditev}
@@ -669,7 +610,7 @@ moč razširiti do pozitivne preslikave na operatorskem sistemu $\mathcal{M} + \
     $$\tilde{\rho}_x : \mathcal{M} + \mathcal{M}^* \to \C,\quad \tilde{\rho}_x (a) = \langle \tilde{\varphi} (a) x, x\rangle.$$
     Dovolj je dokazati, da je $\tilde{\rho}_x$ pozitiven funkcional.
     Ker velja $ 1 = \rho_x (1) = \| \rho_x\|$, je $\rho_x$ po lemi \ref{lem:1.1} pozitiven funkcional. 
-    Po Hahn-Banachovem izreku ga lahko
+    Po Hahn-Banachovem izreku (\cite[Corollary III.6.5., str. 79]{conway1990}) ga lahko
     razširimo do funkcionala $\rho_x ': \mathcal{M} + \mathcal{M}^* \to \C$,
     za katerega prav tako velja $\| \rho_x '\| = 1 = \rho_x '(1)$.
     Slednji je zato pozitiven in posledično $*$-linearen.
@@ -680,23 +621,12 @@ moč razširiti do pozitivne preslikave na operatorskem sistemu $\mathcal{M} + \
     Torej je $\tilde{\rho}_x = \rho_x '$ pozitiven.
 \end{dokaz}
 
-\begin{zgled}\label{zgl:1.7}
-    Naj bo $T \in \bh$ skrčitev in
-    $$\mathcal{M} = \C [z] \subseteq \C (T)$$
-    operatorski sistem. Potem je preslikava 
-    $$\varphi: \mathcal{M} \to \bh,\quad p \mapsto p(T)$$
-    enotska skrčitev po von Neumannovi neenakosti (posledica \ref{pos:1.1}). To pa pomeni, da 
-    jo lahko razširimo do pozitivne preslikave $$\tilde{\varphi}: \mathcal{M} + \mathcal{M}^* \to \bh,\quad p + q^* \mapsto p(T) + q(T)^*,$$
-    kjer je 
-    \begin{equation*}
-        \mathcal{M} + \mathcal{M}^* = \{p (z) + \overline{q ({z})}\ |\ \text{$p, q$ polinoma}\}. \qedhere
-    \end{equation*}
-\end{zgled}
 
-\section{Povsem omejene preslikave}
+\section{Povsem omejene preslikave}\label{sec:4}
 
 Sedaj lahko postavimo zadostni pogoj za preslikavo $\varphi: \mathcal{M} \to \mathfrak{B}$,
 da jo lahko razširimo do povsem pozitivne preslikave $\tilde{\varphi}: \mathcal{M} + \mathcal{M}^* \to \mathfrak{B}$.
+Takšnim preslikavam pravimo povsem omejene preslikave. Ta razdelek je namenjen osnovnim lastnostim in zgledom povsem omejenih preslikav.
 
 \begin{definicija}
     Naj bosta $\mathfrak{A}, \mathfrak{B}$ $C^*$-algebri in $\mathcal{M} \subseteq \mathfrak{A}$ operatorski prostor.
@@ -709,43 +639,8 @@ da jo lahko razširimo do povsem pozitivne preslikave $\tilde{\varphi}: \mathcal
     Množico vseh povsem omejenih preslikav označujemo s $\PO (\mathcal{M}, \mathfrak{B})$.
 \end{definicija}
 
-\begin{posledica}
-    Naj bo $\mathcal{S}$ operatorski sistem in $\mathfrak{B}$ $C^*$-algebra.
-    Potem je vsaka enotska povsem skrčitev $\varphi: \mathcal{S} \to \mathfrak{B}$ povsem pozitivna.
-\end{posledica}
-
-\begin{dokaz}
-    Za vsak $n \in \N$ je $\varphi^{(n)}: M_n (\mathcal{S}) \to M_n (\mathfrak{B})$ enotska skrčitev,
-    zato je pozitivna.
-\end{dokaz}
-
-\begin{posledica}\label{pos:1.2}
-    Vsaka enotska povsem skrčitev $\varphi: \mathcal{M} \to \mathfrak{B}$ premore enolično določeno povsem pozitivno razširitev 
-    $\tilde{\varphi}: \mathcal{M} + \mathcal{M}^* \to \mathfrak{B}$.
-\end{posledica}
-
-\begin{dokaz}
-    Za poljuben $n \in \N$ je $\varphi^{(n)}: M_n (\mathcal{M}) \to M_n (\mathfrak{B})$ enotska skrčitev, 
-    torej je $\widetilde{(\varphi^{(n)})}: M_n (\mathcal{M}) + M_n (\mathcal{M})^* \to M_n (\mathfrak{B})$ pozitivna.
-    Ker je $M_n (\mathcal{M}) + M_n (\mathcal{M})^* = M_n (\mathcal{M} + \mathcal{M}^*)$, zadošča dokazati, da 
-    $\widetilde{(\varphi^{(n)})}$ sovpada s $(\tilde{\varphi})^{(n)}: M_n (\mathcal{M} + \mathcal{M}^*) \to M_n (\mathfrak{B})$.
-    Vzemimo matriki $[a_{ij}]_{i, j} \in M_n (\mathcal{M}), [b_{ij} ^*]_{i, j} \in M_n (\mathcal{M})$. Potem je 
-    \begin{align*}
-        \widetilde{(\varphi^{(n)})} ([a_{ij}]_{i, j} + [b_{ij} ^*]_{i, j}) &= \varphi^{(n)} ([a_{ij}]_{i, j}) + \varphi^{(n)} ([b_{ji}]_{i, j})^*\\
-        &= [\varphi(a_{ij})]_{i, j} + [\varphi(b_{ji})]_{i, j}^*\\
-        &= [\varphi(a_{ij})]_{i, j} + [\varphi(b_{ij})^*]_{i, j}\\
-        &= [\varphi(a_{ij})]_{i, j} + [\varphi(b_{ij}^*)]_{i, j}\\
-        &= [\varphi(a_{ij} + b_{ij}^*)]_{i, j}\\
-        &= [\tilde{\varphi} (a_{ij} + b_{ij}^*)]_{i,j}\\
-        &= \tilde{\varphi}^{(n)} ([ a_{ij} + b_{ij}^*]_{i,j})\\
-        &= \tilde{\varphi}^{(n)} ([ a_{ij}]_{i, j} + [b_{ij}^*]_{i,j}),
-    \end{align*}
-    torej je $\tilde{\varphi}^{(n)}$ pozitivna za vsak $n \in \N$.
-\end{dokaz}
-
 \begin{opomba}
-    Z oznako $\os$ označujemo kategorijo operatorskih prostorov, v kateri so morfizmi povsem omejene preslikave, 
-    v $\os_1$ pa enotske povsem omejene preslikave.
+    Če je $n \geq m$, potem je $\| \varphi^{(n)} \| \leq \| \varphi^{(m)}\|$.
 \end{opomba}
  
 \begin{trditev}
@@ -764,9 +659,65 @@ da jo lahko razširimo do povsem pozitivne preslikave $\tilde{\varphi}: \mathcal
     To pomeni, da $\varphi_k \to \psi$ tudi v normi $\| \cdot \|_{\po}$.    
 \end{dokaz}
 
-V nadaljevanju obravnavamo povezavo med povsem pozitivnimi in povsem omejenimi preslikavami?
+\begin{trditev}
+    Naj bo $\mathcal{S}$ operatorski sistem in $\mathfrak{B}$ $C^*$-algebra.
+    Potem je vsaka enotska povsem skrčitev $\varphi: \mathcal{S} \to \mathfrak{B}$ povsem pozitivna.
+\end{trditev}
+
+\begin{dokaz}
+    Za vsak $n \in \N$ je $\varphi^{(n)}: M_n (\mathcal{S}) \to M_n (\mathfrak{B})$ enotska skrčitev,
+    zato je pozitivna.
+\end{dokaz}
+
+\begin{posledica}\label{pos:1.2}
+    Vsaka enotska povsem skrčitev $\varphi: \mathcal{M} \to \mathfrak{B}$ premore enolično določeno povsem pozitivno razširitev 
+    $\tilde{\varphi}: \mathcal{M} + \mathcal{M}^* \to \mathfrak{B}$.
+\end{posledica}
+
+\begin{dokaz}
+    Za poljuben $n \in \N$ je $\varphi^{(n)}: M_n (\mathcal{M}) \to M_n (\mathfrak{B})$ enotska skrčitev, 
+    torej je $\widetilde{(\varphi^{(n)})}: M_n (\mathcal{M}) + M_n (\mathcal{M})^* \to M_n (\mathfrak{B})$ pozitivna.
+    Ker je $M_n (\mathcal{M}) + M_n (\mathcal{M})^* = M_n (\mathcal{M} + \mathcal{M}^*)$ in preslikava
+    $\widetilde{(\varphi^{(n)})}$ sovpada s $(\tilde{\varphi})^{(n)}: M_n (\mathcal{M} + \mathcal{M}^*) \to M_n (\mathfrak{B})$,
+    je slednja preslikava prav tako pozitivna.
+    \begin{comment}
+    Vzemimo matriki $[a_{ij}]_{i, j} \in M_n (\mathcal{M}), [b_{ij} ^*]_{i, j} \in M_n (\mathcal{M})$. Potem je 
+    \begin{align*}
+        \widetilde{(\varphi^{(n)})} ([a_{ij}]_{i, j} + [b_{ij} ^*]_{i, j}) &= \varphi^{(n)} ([a_{ij}]_{i, j}) + \varphi^{(n)} ([b_{ji}]_{i, j})^*\\
+        &= [\varphi(a_{ij})]_{i, j} + [\varphi(b_{ji})]_{i, j}^*\\
+        &= [\varphi(a_{ij})]_{i, j} + [\varphi(b_{ij})^*]_{i, j}\\
+        &= [\varphi(a_{ij})]_{i, j} + [\varphi(b_{ij}^*)]_{i, j}\\
+        &= [\varphi(a_{ij} + b_{ij}^*)]_{i, j}\\
+        &= [\tilde{\varphi} (a_{ij} + b_{ij}^*)]_{i,j}\\
+        &= \tilde{\varphi}^{(n)} ([ a_{ij} + b_{ij}^*]_{i,j})\\
+        &= \tilde{\varphi}^{(n)} ([ a_{ij}]_{i, j} + [b_{ij}^*]_{i,j}),
+    \end{align*}
+    torej je $\tilde{\varphi}^{(n)}$ pozitivna za vsak $n \in \N$.
+    \end{comment}
+\end{dokaz}
+
+\begin{opomba}
+    Z oznako $\os$ bomo označevali kategorijo operatorskih prostorov, v kateri so morfizmi povsem omejene preslikave, 
+    v $\os_1$ pa enotske povsem omejene preslikave.
+\end{opomba}
+
 Oglejmo si nekatere zglede povsem omejenih preslikav.
 
+\begin{zgled}
+    Dokažimo, da je vsak omejen funkcional $\varphi: \mathcal{M} \to \C$ povsem omejen.
+    Za poljubna enotska vektorja $\alpha, \beta \in \C^n$ in $A \in M_m (\mathcal{M})$ imamo
+    \begin{align*}
+        \left| \beta^* \varphi^{(n)} (A) \alpha \right| &= \left| \varphi(\beta^* A \alpha)\right|\\
+        &\leq \| \varphi\| \cdot \| \beta^* A \alpha\|\\
+        &\leq \| \varphi\| \cdot \| A\| \cdot \| \alpha \| \cdot \| \beta\|\\
+        &= \| \varphi\| \cdot \| A\|.
+    \end{align*}
+    Če vzamemo supremum obeh strani po $\alpha, \beta$, dobimo 
+    $$\| \varphi^{(n)} (A)\| \leq \| \varphi\| \cdot \| A\|$$
+    in posledično $\| \varphi^{(n)} \| = \| \varphi\|= \| \varphi \|_{\po}$.
+\end{zgled}
+
+\begin{comment}
 \begin{zgled}
     Iz zgleda \ref{zgl:1.3} že vemo, da je vsak pozitivni funkcional $\varphi: \mathcal{S} \to \C$ povsem pozitiven.
     Dokazujemo, da je povsem omejena, in sicer da velja $\| \varphi^{(n)}\| = \| \varphi\|$ za vsak $n \in \N$.
@@ -788,6 +739,7 @@ Oglejmo si nekatere zglede povsem omejenih preslikav.
     \end{align*}
     torej $\varphi^{(n)} (A)^* \varphi^{(n)} (A) \leq \varphi^{(n)} (A^* A)$.
 \end{zgled}
+\end{comment}
 
 \begin{zgled}
     Vemo že, da je vsak enotski $*$-homomorfizem $\varphi: \mathfrak{A} \to \mathfrak{B}$ povsem pozitiven.
@@ -796,9 +748,8 @@ Oglejmo si nekatere zglede povsem omejenih preslikav.
     Torej je vsak enotski $*$-monomorfizem med $C^*$-algebrama povsem izometrija.
 \end{zgled}
 
-Opazimo, da so vse povsem pozitivne preslikave, ki jih do sedaj poznamo, tudi povsem omejene.
-V preostanku tega podrazdelka dokažemo, da to velja tudi v splošnem. Ključno bo dokazati Cauchy-Schwarzevo neenakost tipa 
-\eqref{eq:1.3}. 
+Opazimo, da so vse povsem pozitivne preslikave, ki jih do sedaj poznamo (pozitivni funkcionali, $*$-homomorfizmi itd.), tudi povsem omejene.
+V preostanku tega poglavja dokažemo, da to velja tudi v splošnem. Argumentom, ki sledijo, pravimo tudi \emph{dilatacijski triki}.
 
 \begin{lema}\label{lem:random1}
     Naj bo $\mathcal{H}$ Hilbertov prostor in $P, Q, A \in \bh$.
@@ -866,20 +817,15 @@ V preostanku tega podrazdelka dokažemo, da to velja tudi v splošnem. Ključno 
 \end{dokaz}
 
 \begin{posledica}
-    Naj bo $$\begin{bmatrix}
+    Če je $$\begin{bmatrix}
             P & A\\
              A^* & Q
-        \end{bmatrix} \geq 0.$$
-    Potem velja:
-    \begin{enumerate}
-        \item $A^* A \leq \| P\| Q$ in $A^* A \leq \| Q\| P$.
-        \item $\| P + A + A^* + Q \| \leq (\| P\|^{\frac{1}{2}} + \| Q\|^{\frac{1}{2}})^2.$
-    \end{enumerate}
+        \end{bmatrix} \geq 0,$$
+    potem velja $A^* A \leq \| P\| Q$ in $A^* A \leq \| Q\| P$.
 \end{posledica}
 
 \begin{dokaz}
-    \begin{enumerate}
-        \item Ker je $0 \leq P \leq \| P\|$, imamo
+    Ker je $0 \leq P \leq \| P\|$, imamo
         $$\begin{bmatrix}
             \| P\| & A\\
              A^* & Q
@@ -894,75 +840,7 @@ V preostanku tega podrazdelka dokažemo, da to velja tudi v splošnem. Ključno 
         \end{bmatrix} \geq 0$$ in 
         $$\frac{A^*}{\| P\|} \frac{A}{\| P\|} \leq \frac{Q}{\| P\|}$$
         po prejšnji lemi. Od tod sledi $A^* A \leq \| P\| Q$.
-        Po enakem argumentu dokažemo tudi drugo trditev.
-        \item Za vse $x \in \mathcal{H}$ je po prejšnji lemi
-        $$|\langle Ax, x\rangle|^2 \leq \langle Px, x\rangle \cdot \langle Qx, x \rangle.$$
-        Sedaj velja
-        \begin{align*}
-            0 \leq \left\langle \begin{bmatrix}
-                P & A\\
-                 A^* & Q
-            \end{bmatrix} \begin{bmatrix}
-                x\\ x
-            \end{bmatrix}, \begin{bmatrix}
-                x \\ x
-            \end{bmatrix} \right\rangle 
-            &= \langle (P + A + A^* + Q) x, x \rangle\\
-            &= \langle Px, x \rangle + 2 \real \langle Ax, x \rangle + \langle Qx, x\rangle\\
-            &\leq \langle Px, x \rangle + 2 \langle P x, x \rangle^{\frac{1}{2}} \langle Q x, x \rangle^{\frac{1}{2}}  + \langle Qx, x\rangle\\
-            &= (\langle Px, x \rangle^{\frac{1}{2}} + \langle Qx, x \rangle^{\frac{1}{2}})^2.
-        \end{align*}
-        Če vzamemo supremum obeh strani po $\|x\| = 1$, dobimo
-        \begin{align*}
-            \| P + A + A^* + Q \| &= \sup_{\| x \| = 1} \langle (P + A + A^* + Q)x, x \rangle\\
-            &\leq \sup_{\| x \| = 1}  (\langle Px, x \rangle^{\frac{1}{2}} + \langle Qx, x \rangle^{\frac{1}{2}})^2\\
-            &\leq (\sup_{\| x \| = 1} \langle Px, x \rangle^{\frac{1}{2}} + \sup_{\| x \| = 1} \langle Qx, x \rangle^{\frac{1}{2}})^2\\
-            &= (\| P\|^{\frac{1}{2}}+ \| Q \| ^{\frac{1}{2}})^2. \qedhere
-        \end{align*}
-    \end{enumerate}
-\end{dokaz}
-
-Na tej točki omenimo še eno uporabno neenakost.
-
-\begin{lema}
-    Če so $A, B, C, D \in \bh$, potem
-    $$\left\| \begin{bmatrix}
-        A & B\\
-        C & D
-    \end{bmatrix} \right\| \leq \left\| \begin{bmatrix}
-        \| A\| & \| B\| \\
-         \|C\| & \|D\|
-    \end{bmatrix} \right\|.$$
-\end{lema}
-
-\begin{dokaz}
-    Vzemimo enotski vektor $[x, y]^\top \in \mathcal{H}^2$. Potem je 
-        \begin{align*}
-            \left\|
-            \begin{bmatrix}
-                A & B\\
-                C & D
-            \end{bmatrix} \begin{bmatrix}
-                x \\ y
-            \end{bmatrix} \right\|^2 &= \left\| \begin{bmatrix}
-                A x + B y\\  Cx + Dy
-            \end{bmatrix} \right\|^2 \\
-            &= \| A x + B y \|^2 + \| Cx + Dy \|^2 \\
-            &\leq (\| A\| \| x\| + \| B\| \| y\|)^2 + (\| C\| \| x\| + \| D\| \| y\|)^2 \\
-            &= \left\| \begin{bmatrix}
-                \| A\| \| x\| + \| B\| \| y\| \\ \| C\| \| x\| + \| D\| \| y\|
-            \end{bmatrix} \right\|^2\\
-            &= \left\| \begin{bmatrix}
-                \| A\| & \| B\|\\
-                \| C\| & \| D\|
-            \end{bmatrix} \begin{bmatrix}
-                \| x\| \\ \| y\|
-            \end{bmatrix} \right\|^2\\
-            &\leq \left\| \begin{bmatrix}
-                \| A\| & \| B\|\\
-                \| C\| & \| D\|
-            \end{bmatrix} \right\|^2. \qedhere
-        \end{align*}
+        Po enakem argumentu dokažemo tudi drugo neenakost.
 \end{dokaz}
 
 \begin{posledica}\label{pos:1.3}
@@ -1014,10 +892,7 @@ Na tej točki omenimo še eno uporabno neenakost.
     in posledično $\varphi (a^* b) \varphi(b a^*) \leq \| \varphi(a^* a) \| \varphi(b^* b)$.
 \end{dokaz}
 
-Dokaza prejšnjih dveh posledic sta standardna za to področje.
-Argumentom takšnega tipa pravimo `dilatacijski triki'.
-
-Sedaj lahko zapišemo glavno trditev tega podrazdelka.
+Sedaj lahko zapišemo glavno trditev tega poglavja.
 
 \begin{trditev}
     Naj bo $\mathcal{S} \subseteq \mathfrak{A}$ operatorski sistem in $\mathfrak{B}$ $C^*$-algebra.
@@ -1082,8 +957,7 @@ Naslednja trditev je posplošitev leme \ref{lem:1.1} za povsem pozitivne preslik
     Sledi direktno iz posledice \ref{pos:1.2} in prejšnje trditve.
 \end{dokaz}
 
-Ker je vsaka povsem pozitivna preslikava povsem omejena, se je naravno vprašati, ali velja tudi obratno.
-Odgovor je negativen.
+\begin{comment}
 
 \begin{lema}
     Če je $\mathcal{M}$ operatorski prostor in $\varphi: \mathcal{M} \to M_n (\C)$ omejena preslikava,
@@ -1131,148 +1005,33 @@ Odgovor je negativen.
     pri čemer $\| \cdot \|_F$ označuje Frobeniusovo matrično normo.
 \end{dokaz}
 
+
+
 \begin{zgled}
     Preslikava $$\varphi: M_2 (\C) \to M_2 (\C),\quad A \mapsto A^\top$$
     iz zgleda \ref{zgl:1.4} je po prejšnji lemi povsem omejena, toda ni povsem pozitivna.
 \end{zgled}
+\end{comment}
 
-\section{Povsem pozitivne preslikave na $C(X)$}
+\section{Povsem pozitivne preslikave na $C(X)$}\label{sec:5}
 
 
-V prejšnjih podrazdelkih smo že srečali primere povsem pozitivnih preslikav 
-$\varphi: \mathfrak{A} \to \mathfrak{B}$, kot na primer pozitivni funkcionale, $*$-homomorfizme
-in enotske povsem skrčitve. V tem podrazdelku se omejimo na primer, ko je vsaj ena izmer $C^*$-algeber $\mathfrak{A}, \mathfrak{B}$
-komutativna.
-
-\begin{opomba}
-    Po Gelfandovi transformaciji vemo, da je vsaka enotska komutativna $C^*$-algebra $*$-izomorfna $C(X)$,
-    kjer je $X$ nek kompakten Hausdorffov topološki prostor.
-\end{opomba}
-
-Naslednja trditev se prvič pojavi v \cite{stinespring1955}.
+V prejšnjih poglavjih smo že srečali primere povsem pozitivnih preslikav 
+$\varphi: \mathfrak{A} \to \mathfrak{B}$, kot na primer pozitivne funkcionale, $*$-homomorfizme
+in enotske povsem skrčitve. V tem poglavju se omejimo na primer, ko je vsaj ena izmer $C^*$-algeber $\mathfrak{A}, \mathfrak{B}$
+komutativna. Po Gelfandovi transformaciji (\cite[Theorem VIII.2.1., str. 236]{conway1990}) je vsaka komutativna $C^*$-algebra
+$*$-izomorfna $C(X)$, kjer je $X$ nek kompakten Hausdorffov topološki prostor (če ni izrecno napisano drugače,
+bomo v tem magistrskem delu za $C(X)$ vedno implicitno predpostavili, da je $X$ kompakten ter Hausdorfov).
+Stinespring (\cite{stinespring1955}) je dokazal, da za povsem pozitivne preslikave
+$\varphi: C(X) \to \mathfrak{B}$ in $\varphi: \mathfrak{A} \to C(X)$ obstaja preprosta karakterizacija.
 
 \begin{trditev}\label{trd:1.2}
-    Naj bo $\varphi: \mathfrak{A} \to \mathfrak{B}$ pozitivna preslikava.
-    Če je vsaj ena izmed $\mathfrak{A}, \mathfrak{B}$ komutativna, potem je $\varphi$ povsem pozitivna.
+    Preslikava $\varphi: C(X) \to \mathfrak{B}$ je povsem pozitivna natanko tedaj, ko je pozitivna. 
 \end{trditev}
 
-Za dokaz te trditve potrebujemo naslednji lemi.
-
-\begin{lema}\label{lem:1.2}
-    Če je $\mathfrak{A}$ $C^*$-algebra, potem je vsak pozitiven element $M_n (\mathfrak{A})$
-    vsota $n$ pozitivnih matrik oblike $[a_i ^* a_j]_{i, j}$ za 
-    neke $\{a_1, \dots, a_n\} \subseteq A$.
-\end{lema}
-
 \begin{dokaz}
-    Najprej opazimo, da če imamo matriko $$R = \begin{bmatrix}
-        0 & \cdots & 0\\
-        \vdots & & \vdots\\
-        a_1 & \cdots & a_n\\
-        \vdots & & \vdots\\
-        0 & \cdots & 0\\       
-    \end{bmatrix} \in M_n (\mathfrak{A}),$$
-    potem je $R^* R = [a_i^* a_j]_{i, j}$.
-    Naj bo sedaj $P \in M_n (\mathfrak{A})_+$ poljubna pozitivna matrika, torej $P = B^* B$ za nek $B \in M_n (\mathfrak{A})$.
-    Zapišemo $B = R_1 + \cdots + R_n$, kjer je $R_k$ matrika,
-    ki ima $k$-to vrstico enako kot $B$, drugje pa je ničelna.
-    Ker velja $R_k^* R_l = 0$ za poljubna različna indeksa $k \neq l$ iz $\{1, \dots, n\}$,
-    sledi
-    \begin{align*}
-        P = B^* B &= (R_1 ^* + \cdots + R_n ^*) (R_1 + \cdots + R_n) \\
-        &= R_1 ^* R_1 + \cdots + R_n ^* R_n. \qedhere
-    \end{align*}
-\end{dokaz}
-
-\begin{lema}\label{lem:1.3}
-    Naj bo $\mathfrak{B}$ $C^*$-algebra in $A = [a_{ij}]_{i, j} \in M_n(\mathfrak{B})$.
-    Potem je $A$ pozitivna natanko tedaj, ko velja $$\begin{bmatrix}
-        b_1 \\ \vdots \\ b_n
-    \end{bmatrix}^* A \begin{bmatrix}
-        b_1 \\ \vdots \\ b_n
-    \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j \geq 0$$
-    za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$.
-\end{lema}
-
-\begin{dokaz}
-    Implikacija v levo je trivialna, zato dokazujemo implikacijo v desno.
-    \begin{enumerate}
-        \item  V prvem koraku dokažemo, da če je $A = [a_{ij}]_{i, j} \in M_n (\mathfrak{B})$ takšna matrika, da velja $$\begin{bmatrix}
-        b_1 \\ \vdots \\ b_n
-    \end{bmatrix}^* A \begin{bmatrix}
-        b_1 \\ \vdots \\ b_n
-    \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j = 0$$
-    za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$, potem je $A = 0$.
-    Dokazali bomo, da je vsaka komponenta $A$ ničelna. Če v zgornjo enačbo vstavimo $b_i = 1$ in $b_j = 0$ za vse $j \neq i$, potem dobimo
-    $a_{ii} = 0$. Od tod sledi, da so vsi diagonalni elementi matrike $A$ ničelni. 
-    Preostane še pokazati, da je $a_{ij} = 0$ za poljubna indeksa $i \neq j$.
-    Če vstavimo $b_i := 1, b_j := c \in \mathfrak{B}$ in $b_k = 0$ za $k \neq i, j$, dobimo enakost
-    $$a_{ii} + a_{ij} c + c^* a_{ji}  + c^* a_{jj} c = 0.$$
-    Ker so diagonalni elementi ničelni, sledi
-    $$a_{ij} c + c^* a_{ji} = 0.$$
-    Če posebej vstavimo $c = 1$ in $c = i$, dobimo
-    $$a_{ij} + a_{ji} = 0, \quad i a_{ij} - i a_{ji} = 0,$$
-    od koder potem sledi $a_{ij} = a_{ji} = 0$. S tem smo dokazali, da je $A = 0$.
-        \item V drugem koraku dokažemo, da če je $$\begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix}^* A \begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j \in \mathfrak{B}$$
-        sebiadjungiran element za vsako $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$, potem je $A$ sebiadjungirana matrika.
-        Opazimo namreč, da velja
-        \begin{align*}
-            \sum_{i, j} ^n b_i ^* a_{ij} b_i &= \left(\sum_{i, j} ^n b_i ^* a_{ij} b_i\right)^* \\
-            &= \sum_{i, j} ^n b_j ^* a_{ij}^* b_i\\
-            &=  \sum_{i, j} ^n b_i ^* a_{ji}^* b_j,
-        \end{align*}
-        od koder sledi
-        $$\begin{bmatrix}
-        b_1 \\ \vdots \\ b_n
-    \end{bmatrix}^* (A - A^*) \begin{bmatrix}
-        b_1 \\ \vdots \\ b_n
-    \end{bmatrix} = \sum_{i, j} ^n b_i ^* (a_{ij} - a_{ji}^*) b_i = 0.$$ Po prvemu koraku tako dobimo $A - A^* = 0$.
-        \item Nazadnje dokažemo, da če je $$\begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix}^* A \begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix} = \sum_{i, j} ^n b_i ^* a_{ij} b_j$$
-        pozitiven za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$, potem je $A$ pozitivna matrika.
-        Ker je $A$ po prejšnjem koraku sebiadjungirana, imamo po zveznem funkcijskem računu dekompozicijo $A = A_+ - A_-$,
-        kjer sta $A_+, A_-$ pozitivni matriki, tako da velja $A_+ A_- = A_- A_+ = 0$.
-        Po predpostavki imamo
-        $$\begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix}^* A_- A A_- \begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix}\geq 0,$$
-        hkrati pa je izraz na levi strani enak
-        $$- \begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix}^* A_- ^3 \begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix}\leq 0.$$ Od tod sledi
-        $$- \begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix}^* A_- ^3 \begin{bmatrix}
-            b_1 \\ \vdots \\ b_n
-        \end{bmatrix} = 0$$ za poljubno $n$-terico $b_1, \dots, b_n \in \mathfrak{B}$.
-        Po prvem koraku nato dobimo $A_- ^3 = 0$, od koder po zveznem funkcijskem računu sledi $A_- = 0$.
-        To pa pomeni, da je $A = A_+$ pozitivna matrika. \qedhere
-    \end{enumerate}
-\end{dokaz}
-
-Lema \ref{lem:1.2} nam pove, da je za dokazovanje $n$-pozitivnosti preslikave $\varphi: \mathfrak{A} \to \mathfrak{B}$
-dovolj pokazati, da je $\varphi_n ([a_i ^* a_j]_{i, j}) \geq 0$ za vsako $n$-terico $a_1, \dots, a_n \in \mathfrak{A}$.
-Po lemi \ref{lem:1.3} pa nato sledi, da je dovolj preveriti, da je
-$$\sum_{i, j} ^n b_i ^* \varphi_n ([a_i ^* a_j]_{i, j}) b_j \geq 0$$
-za poljubni $n$-terici $a_1, \dots, a_n \in \mathfrak{A}$ in $b_1, \dots, b_n \in \mathfrak{B}$.
-
-\begin{dokaz}[Dokaz trditve \ref{trd:1.2}]
-    \begin{enumerate}
-        \item[(a)] Najprej dokažimo trditev za primer, ko je $\mathfrak{A}$
-        komutativna. Brez škode za splošnost predpostavimo, da je $\mathfrak{A} = C(X)$ za nek kompakten Hausdorffov prostor $X$
-            in $\mathfrak{B} = \bh$ za nek Hilbertov prostor $\mathcal{H}$.
-            Fiksirajmo neka vektorja $u, v\in \mathcal{H}$. Po izreku Riesz-Markova obstaja (enolična) 
+    Brez škode za splošnost predpostavimo, da je $\mathfrak{B} = \bh$ za nek Hilbertov prostor $\mathcal{H}$.
+            Fiksirajmo neka vektorja $u, v\in \mathcal{H}$. Po Rieszovem reprezentacijskem izreku \cite[Theorem 6.18, str. 129]{rudin1987} obstaja (enolična) 
             regularna kompleksna Borelova mera $\mu_{u, v}$,
             tako da velja
             $$\langle \varphi(a) v, u \rangle = \int_X a \, d\mu_{u, v},\quad \forall a \in \mathfrak{A}.$$
@@ -1297,7 +1056,7 @@ za poljubni $n$-terici $a_1, \dots, a_n \in \mathfrak{A}$ in $b_1, \dots, b_n \i
             Dokazali smo, da je za vsak $\lambda \in \C^n$ funkcija $\langle H(x) \lambda, \lambda \rangle$ nenegativna $\mu$-skoraj povsod.
             Vzemimo nek gost števen podprostor $D \subseteq \C^n$, recimo $D = (\Q + i \Q)^n$.
             Za vsak $\lambda \in D$ označimo $$N_{\lambda} := \{x \in X\ |\ \langle H(x) \lambda, \lambda \rangle < 0\}$$
-            ter $N := \bigcup_{\lambda \in D}$.
+            ter $N := \bigcup_{\lambda \in D} N_\lambda$.
             Ker je $\mu(N_\lambda) = 0$ za vsak $\lambda \in D$ in je $D$ števna množica, je tudi $\mu(N) = 0$.
             Vzemimo poljuben $x \notin N$.
             Potem je zvezna funkcija $\lambda \mapsto \langle H(x) \lambda, \lambda \rangle$ nenegativna na $D \subseteq \C^n$, torej je nenegativna na celotnem
@@ -1324,10 +1083,30 @@ za poljubni $n$-terici $a_1, \dots, a_n \in \mathfrak{A}$ in $b_1, \dots, b_n \i
                 \end{bmatrix}, \begin{bmatrix}
                     a_1 (x) \\ \vdots \\ a_n (x)
                 \end{bmatrix} \right\rangle\, d\mu\\ 
-                &\geq 0. 
-            \end{align*} 
-        \item[(b)] Predpostavimo sedaj, da je $\mathfrak{B} = {C}(X)$ za nek kompakten Hausdorffov prostor $X$.
-        Vzemimo poljubno pozitivno matriko $A = [a_{ij}] \in M_n(\mathfrak{A})$ in $b_1, \dots, b_n \in C(X)$. Dokazati želimo, da velja
+                &\geq 0.  \qedhere
+            \end{align*}
+\end{dokaz}
+
+\begin{opomba}
+    Če je $\mathcal{S} \subseteq C(X)$ operatorski sistem, potem pozitivna preslikava $\varphi: \mathcal{S} \to \mathfrak{B}$
+    še ni nujno povsem pozitivna.
+    Protiprimer smo že srečali v zgledu \ref{zgl:1.6}, kjer smo definirali 
+    pozitivno preslikavo $\varphi: \mathcal{S} \to M_2 (\C)$ na operatorskem sistemu $\mathcal{S} = \lin\{1, z, \overline{z}\} \subseteq C(\T)$,
+    tako da $\varphi$ ni povsem pozitivna.
+    Težava je v tem, da razcep iz leme \ref{lem:1.2} ne velja za poljuben operatorski sistem, temveč zgolj za celotno $C^*$-algebro $\mathfrak{A}$.
+\end{opomba}
+
+Sedaj dokažimo podobno trditev še za primer, ko je kodomena $C(X)$.
+
+\begin{trditev}
+    Naj bo $\mathcal{S} \subseteq \mathfrak{A}$ poljuben operatorski sistem.
+    Potem je preslikava $\varphi: \mathcal{S} \to C(X)$ povsem pozitivna natanko tedaj, ko je pozitivna.
+\end{trditev}
+
+
+\begin{dokaz}
+    \begin{enumerate}
+        Vzemimo poljubno pozitivno matriko $A = [a_{ij}] \in M_n(\mathcal{S})$ in $b_1, \dots, b_n \in C(X)$. Dokazati želimo, da velja
         $\sum_{i, j} ^n b_j^* \varphi(a_{ij}) b_i \geq 0$. Za poljuben $x \in X$ imamo
         \begin{align*}
             \left(\sum_{i, j} ^n b_j^* \varphi(a_{ij}) b_i \right) (x) &= \sum_{i, j} ^n \overline{b_j} (x) \cdot \varphi(a_{ij}) (x) \cdot b_i (x)\\
@@ -1342,63 +1121,192 @@ za poljubni $n$-terici $a_1, \dots, a_n \in \mathfrak{A}$ in $b_1, \dots, b_n \i
     \end{enumerate}
 \end{dokaz}
 
-\begin{opomba}
-    V točki (b) dokaza nismo nikjer uporabili dejstva, da $\varphi$ slika iz celotne $C^*$-algebre $\mathfrak{A}$.
-    S popolnoma enakim argumentom lahko dokažemo, da je pozitivna preslikava $\varphi: \mathcal{S} \to C(X)$
-    tudi povsem pozitivna, pri čemer je $\mathcal{S} \subseteq \mathfrak{A}$ poljuben operatorski sistem.
-
-    Za trditev (a) pa to ne velja.
-    Protiprimer že srečali v zgledu \ref{zgl:1.6}, kjer smo definirali 
-    pozitivno preslikavo $\varphi: \mathcal{S} \to M_2 (\C)$ na operatorskem sistemu $\mathcal{S} \subseteq C(\T)$,
-    tako da $\varphi$ ni povsem pozitivna.
-    Težava je v tem, da razcep iz leme \ref{lem:1.2} ne velja za poljuben operatorski sistem, temveč zgolj za celotno $C^*$-algebro $\mathfrak{A}$.
-\end{opomba}
-
 \begin{posledica}
-    Naj bosta $\mathfrak{A}, \mathfrak{B}$ $C^*$-algebri in $\varphi: \mathfrak{A} \to \mathfrak{B}$ enotska skrčitev.
-    Če je ena izmed $C^*$-algeber $\mathfrak{A}, \mathfrak{B}$ komutativna, potem je $\varphi$ povsem skrčitev.
+    Če je $\varphi: C(X) \to \mathfrak{B}$ enotska skrčitev, potem je povsem skrčitev.
+    Enako velja tudi za enotsko skrčitev $\varphi: \mathcal{M} \to C(X)$,
+    kjer je $\mathcal{M} \subseteq \mathfrak{A}$ poljuben operatorski prostor.
 \end{posledica}
 
 \begin{dokaz}
-    Ker je $\varphi$ enotska skrčitev, je pozitivna.
+    Ker je $\varphi: C(X) \to \mathfrak{B}$ enotska skrčitev, je pozitivna.
     Po trditvi \ref{trd:1.2} je tudi povsem pozitivna in zato povsem skrčitev. 
+    Enak argument velja tudi za enotsko skrčitev $\varphi: \mathcal{M} \to C(X)$.
 \end{dokaz}
 
-\begin{opomba}\label{opo:1.1}
-    Po prejšnji opombi je vsaka enotska skrčitev $\varphi: \mathcal{M} \to C(X)$ na poljubnem operatorskem prostoru
-    povsem skrčitev.
-\end{opomba}
+Naslednjo posledico bomo večkrat uporabili kasneje.
 
-Sedaj se vrnemo na primer \ref{zgl:1.7}.
+\begin{posledica}\label{pos:aux}
+    Naj bo $\mathcal{S} \subseteq C(X)$ operatorski sistem.
+    Če je $\varphi: \mathcal{S} \to C(Y)$ enotska izometrija, potem je povsem izometrija.
+\end{posledica}
 
-\begin{zgled}\label{zgl:1.8}
-    Naj bo $T \in \bh$ skrčitev in 
-    $$\tilde{\varphi} : \mathcal{M} + \mathcal{M}^*,\quad p + q^* \mapsto p(T) + q(T)^*,$$
-    pozitivna preslikava iz primera \ref{zgl:1.5}. Ker je $\mathcal{M} + \mathcal{M}^*$ enotska algebra v $C(\T)$, ki loči točke in je zaprta za adjungiranje, 
-    je po Stone-Weierstrassovem izreku gosta v $C(\T)$.
-    Ker je $\tilde{\varphi}$ pozitivna preslikava na $\mathcal{M} + \mathcal{M}^*$, 
-    jo lahko razširimo do pozitivne preslikave $\psi: C(\T) \to \bh$.
-    Da to dokažemo, vzamemo poljuben $x \in \mathcal{H}$ z $\| x\| = 1$. Potem je 
-    $$\rho_x: \mathcal{M} + \mathcal{M}^* \to \C,\quad \rho_x (a) = \langle \tilde{\varphi} (a) x, x \rangle$$
-    pozitiven funkcional, torej $\| \rho_x \| = \rho_x(1)$. 
-    To pomeni, da enako velja tudi za njegovo razširitev $\langle \psi (a)x, x \rangle$,
-    ki je zato tudi pozitivna. S tem smo dokazali, da je preslikava $\psi: C(\T) \to \bh$ pozitivna.
-    Po trditvi \ref{trd:1.2} pa sledi, da je tudi povsem pozitivna.
+\begin{dokaz}
+    Ker je $\varphi: \mathcal{S} \to C(X)$ enotska skrčitev, je po prejšnji posledici povsem skrčitev.
+    Po drugi strani pa je njen inverz $\varphi^{-1}: \varphi(\mathcal{S}) \to C(X)$ prav tako enotska skrčitev,
+    zato je povsem skrčitev. Ker sta tako $\varphi$ in $\varphi^{-1}$ povsem skrčitvi, je $\varphi$ povsem izometrija.
+\end{dokaz}
+
+\section{Dilatacije}\label{sec:6}
+
+Dilatacije so orodje, s katerimi operator na Hilbertovem prostoru razširimo do `pohlevnejšega' operatorja na večjem Hilbertovem prostoru.
+To nam omogoča, da lahko nekatere trditve za splošne operatorje reduciramo na bolj poseben razred operatorjev. 
+V tem razdelku dokažemo Stinespringov izrek (\cite{stinespring1955}), ki dilatacije poveže s povsem pozitivnimi preslikavami.
+
+
+\begin{definicija}
+    \emph{Dilatacija} operatorja $T \in \bh$ je operator $S \in \bk$, pri čemer 
+    je $\mathcal{H}$ podprostor Hilbertovega prostora $\mathcal{K}$, $P_{\mathcal{H}}$ ortogonalna projekcija na $\mathcal{H}$
+    in $T = P_{\mathcal{H}} S\big|_{\mathcal{H}}$.
+    Pravimo tudi, da je $T$ \emph{kompresija} $S$.
+    Ker je $\mathcal{K} = \mathcal{H} \oplus \mathcal{H}^\perp$, lahko operator $S$ zapišemo v matrični obliki
+    $$S = \begin{bmatrix}
+        T & *\\
+        * & *
+    \end{bmatrix}.$$    
+\end{definicija}
+
+
+Pogosto lahko za operator $T$ najdemo dilatacijo, ki ima določene dodatne lastnosti.
+To ilustriramo v naslednjih dveh zgledih.
+
+
+\begin{zgled}\label{zgl:1.1}
+    Dokažimo, da ima vsaka izometrija unitarno dilatacijo.
+    Naj bo $V \in \bh$ izometrija in $P := I - V V^*$
+    projekcija na $(\im V)^\perp$. Zapišimo $\mathcal{K} := \mathcal{H} \oplus \mathcal{H}$ ter 
+    definirajmo $U \in \bk$ v matrični obliki kot 
+    $$U := \begin{bmatrix}
+        V & P\\
+        0 & V^*
+    \end{bmatrix}.$$
+    Očitno je $U$ dilatacija $V$. Dokazati moramo še, da je tudi unitarna. Ker velja
+    \begin{align*}
+        U^* U &= \begin{bmatrix}
+            V^* & 0\\
+            P & V
+        \end{bmatrix} \begin{bmatrix}
+            V & P\\
+            0 & V^*
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            V^* V &  V^* P\\
+            PV & P^2 + V V^*
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            I & 0\\
+            0 & I
+        \end{bmatrix}
+    \end{align*}
+    in 
+    \begin{align*}
+         U U^* &= \begin{bmatrix}
+            V & P\\
+            0 & V^*
+        \end{bmatrix} \begin{bmatrix}
+            V^* & 0\\
+            P & V
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+             P^2 + V V^* &  P V\\
+            V^* P &V^* V 
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            I & 0\\
+            0 & I
+        \end{bmatrix},
+    \end{align*}
+    je $U$ res unitarna dilatacija $V$. Še več, v tem primeru je 
+    $U$ \emph{potenčna dilatacija} $V$. To pomeni, da je za vsak $n \in \N$ operator
+    $$U^n = \begin{bmatrix}
+        V^n & *\\
+        0 & (V^*) ^n
+    \end{bmatrix}$$
+    dilatacija za $V^n$.
 \end{zgled}
 
-\begin{opomba}
-    Po prejšnjem zgledu za vsako skrčitev $T \in \bh$
-    obstaja enolična povsem pozitivna preslikava $\psi: C(\T) \to \bh$,
-    tako da velja $\psi (p) = p(T)$ za poljuben polinom $p \in C(\T)$.
-\end{opomba}
+\begin{zgled}\label{zgl:1.2}
+    Dokažemo lahko tudi, da ima vsaka skrčitev izometrično dilatacijo.
+    Vzemimo $T \in \bh$, tako da je $\| T\| \leq 1$. Definirajmo 
+    $$D_T := (I - T^* T)^{\frac{1}{2}} \in \bh,$$tako da za vsak $x \in \mathcal{H}$ velja
+    \begin{align*}
+        \| T x \|^2 + \| D_T x\|^2 &= \langle Tx, Tx \rangle + \langle D_T x, D_T x \rangle\\
+        &= \langle T^* T x, x\rangle + \langle D_T ^2 x, x\rangle\\
+        &= \langle T^* T x, x\rangle + \langle (I - T^* T) x, x\rangle\\
+        &= \langle x, x \rangle = \| x\|^2.
+    \end{align*}
+    Nato definirajmo Hilbertov prostor $\mathcal{K} := \bigoplus_{n \in \N} \mathcal{H}$, ki je prostor zaporedij
+    $$\{(x_1, x_2, \dots)\ |\ x_n \in \mathcal{H},\ \sum_{n = 1} ^\infty \| x_n\|^2 < \infty\}$$
+    s skalarnim produktom
+    $$\langle (x_1, x_2, \dots), (y_1, y_2, \dots) \rangle := \sum_{n = 1} ^\infty \langle x_i, y_i \rangle.$$
+    Nazadnje definiramo še operator 
+    $$V: \mathcal{K} \to \mathcal{K},\quad (x_1, x_2,x_3, \dots) \mapsto (T x_1, D_T x_2, x_3, \dots),$$
+    ki je izometrija, saj velja
+    \begin{align*}
+        \| V(x_1, x_2, x_3, \dots)\|^2 &= \| T x_1\|^2 + \| D_T x_2\|^2 + \sum_{n = 3} ^\infty \| x_n\|^2 \\
+        &= \sum_{n = 1} ^\infty \| x_n\|^2 \\
+        &= \| (x_1, x_2, x_3, \dots )\|^2.
+    \end{align*}
+    Če identificiramo $\mathcal{H}$ s $\mathcal{H} \oplus 0 \oplus 0 \oplus \cdots \subseteq \mathcal{K}$, potem velja 
+    $$T^n = P_{\mathcal{H}} V^n \big|_{\mathcal{H}}$$
+    za vse $n \in \N$.
+\end{zgled}
 
-Podrazdelek zaključimo z naslednjo trditvijo.
+Kot posledico zgledov \ref{zgl:1.1} in \ref{zgl:1.2} dobimo naslednji izrek.
 
-\begin{trditev}[Russo-Dye]\label{trd:1.3}
+\begin{izrek}[Sz.-Nagy]
+    Naj bo $T \in \bh$ skrčitev. Potem obstaja Hilbertov prostor $\mathcal{K} \supseteq \mathcal{H}$ 
+    in unitaren operator $U \in \bk$, tako da velja
+    $$T^n = P_{\mathcal{H}} U^n \big|_{\mathcal{H}}$$
+    za vse $n \in \N$.
+\end{izrek}
+
+Sz.-Nagyjev izrek nam omogoča, da nekatere trditve o skrčitvah reduciramo na trditve o unitarnih operatorjih.
+Za ilustracijo tega argumenta dokažimo naslednjo trditev.
+
+\begin{posledica}[von Neumannova neenakost]\label{pos:1.1}
+    Naj bo $T \in \bh$ skrčitev $p \in \C [z]$ kompleksen polinom. Potem imamo
+    $$\| p(T)\| \leq \sup \{|p(z)|\ |\ z \in \mathbb{T}\}.$$
+\end{posledica}
+
+\begin{dokaz}
+    Naj bo $U$ potenčna dilatacija $T$, torej
+    $T^n = P_{\mathcal{H}} U^n \big|_{\mathcal{H}}$
+    za vse $n \in \N \cup\{0\}$. Potem velja $p(T) = P_{\mathcal{H}} p(U)\big|_{\mathcal{H}}$
+    in posledično $\| p(T)\| \leq \| p(U)\|$. Ker je $U$ normalna, imamo po spektralnem izreku
+    $$\| p(U) \| = \sup \{|p(\lambda)|\ |\ \lambda \in \sigma(U)\}.$$
+    Nato upoštevamo še, da je $U$ unitarna in zanjo velja $\sigma(U) \subseteq \mathbb{T}$, torej
+    $$\sup \{|p(\lambda)|\ |\ \lambda \in \sigma(U)\} \leq \sup \{|p(\lambda)|\ |\ \lambda \in \mathbb{T}\}.$$
+    Vse to skupaj implicira
+    \begin{equation*}
+        \| p(T)\| \leq \| p(U)\| = \sup \{|p(\lambda)|\ |\ \lambda \in \sigma(U)\} \leq \sup \{|p(\lambda)|\ |\ \lambda \in \mathbb{T}\}. \qedhere
+    \end{equation*} 
+\end{dokaz}
+
+\begin{zgled}\label{zgl:1.7}
+    Naj bo $T \in \bh$ skrčitev in
+    $$\mathcal{M} := \C [z] \subseteq \C (T)$$
+    operatorski sistem. Potem je preslikava 
+    $$\varphi: \mathcal{M} \to \bh,\quad p \mapsto p(T)$$
+    enotska skrčitev po von Neumannovi neenakosti. To pomeni, da 
+    jo lahko razširimo do pozitivne preslikave $$\tilde{\varphi}: \mathcal{M} + \mathcal{M}^* \to \bh,\quad p + q^* \mapsto p(T) + q(T)^*.$$
+    Po Stone-Weierstrassovem izreku je
+    \begin{equation*}
+        \mathcal{M} + \mathcal{M}^* = \{p (z) + \overline{q ({z})}\ |\ \text{$p, q$ polinoma}\}. 
+    \end{equation*}
+    gosta podmnožica v $C(\T)$, zato lahko $\tilde{\varphi}$ razširimo do pozitivne preslikave $\psi: C(\T) \to \bh$.
+    Po trditvi \ref{trd:1.2} sledi, da je tudi povsem pozitivna.
+\end{zgled}
+
+V prejšnjem zgledu smo dokazali, da za vsako skrčitev $T \in \bh$
+obstaja enolična povsem pozitivna preslikava $\psi: C(\T) \to \bh$,
+tako da velja $\psi (p) = p(T)$ za poljuben polinom $p \in C(\T)$.
+Takoj lahko navedemo dve posledici tega dejstva.
+
+\begin{posledica}[Russo-Dye]\label{pos:russo-dye}
     Če sta $\mathfrak{A}, \mathfrak{B}$ $C^*$-algebri in 
     $\varphi: \mathfrak{A} \to \mathfrak{B}$ pozitivna preslikava, 
     potem je $\| \varphi \| = \| \varphi(1)\|$.
-\end{trditev}
+\end{posledica}
 
 \begin{dokaz}
     Brez škode za splošnost predpostavimo, da je $\mathfrak{A} \subseteq \bh$.
@@ -1414,12 +1322,6 @@ Podrazdelek zaključimo z naslednjo trditvijo.
     in posledično $\| \varphi \| = \| \varphi(1)\|$.
 \end{dokaz}
 
-\begin{opomba}
-    Trditev \ref{trd:1.3} velja tudi pri šibkejših predpostavkah.
-    Za domeno $\varphi$ lahko namreč vzamemo $\mathcal{A} + \mathcal{A}^*$,
-    kjer je $\mathcal{A} \subseteq \mathfrak{A}$ enotska podalgebra.
-\end{opomba}
-
 \begin{posledica}[Matrična von Neumannova neenakost]
     Naj bo $T \in \bh$ skrčitev in $p = [p_{ij}]_{i, j} \in M_n(\C [z])$ kompleksna matrični polinom. 
     Potem velja
@@ -1434,14 +1336,65 @@ Podrazdelek zaključimo z naslednjo trditvijo.
     \end{equation*}
 \end{proof}
 
-\section{Stinespringov izrek}
+Vrnimo se nazaj k dilatacijam.
+Na tej točki še ni popolnoma očitno, kaj imajo te skupnega s povsem pozitivnimi preslikavami, na kar smo namignili 
+v začetku tega poglavja. Vemo pa, da je za povsem pozitivno preslikavo $\psi: \mathfrak{A} \to \bh$ in $V \in \mathcal{B}(\mathcal{K}, \mathcal{H})$ tudi 
+\begin{equation}
+    \mathfrak{A} \to  \bk,\quad A \mapsto V^* \psi (a) V \label{eq:1.1}
+\end{equation}
+povsem pozitivna preslikava. To pomeni, da sta dilatacija in kompresija povsem pozitivni preslikavi na $\bh$.
 
-V tem podrazdelku povežemo povsem pozitivne preslikave z dilatacijami. 
-Ključni rezultat je Stinespringov izrek, ki je prvič dokazan v članku \cite{stinespring1955}. 
-Stinespringov izrek implicira, da je vsaka povsem pozitivna preslikava 
+\begin{zgled}
+    Denimo, da sta $\mathcal{H} \subseteq \mathcal{K}$ Hilbertova prostora.
+    Potem sta po \eqref{eq:1.1} tudi preslikavi
+    $$
+        \bk \to \bh,
+        \quad
+        A \mapsto P_{\mathcal{H}}A|_{\mathcal{H}},
+    $$
+    in
+    $$
+        \bh \to \bk,
+        \quad
+        A \mapsto
+        \begin{bmatrix}
+            A & 0\\
+            0 & 0
+        \end{bmatrix}
+    $$
+    povsem pozitivni. 
+    
+    Ker je kompozitum povsem pozitivnih preslikav
+    ponovno povsem pozitiven, je za vsako povsem pozitivno preslikavo
+    $\varphi : \mathfrak{A} \to \bh$
+    tudi preslikava
+    $$
+        \psi : \mathfrak{A} \to \bk,
+        \quad
+        a \mapsto
+        \begin{bmatrix}
+            \varphi(a) & 0\\
+            0 & 0
+        \end{bmatrix}
+    $$
+    povsem pozitivna.
+
+    Prav tako je za vsako povsem pozitivno preslikavo
+    $\psi : \mathfrak{A} \to \bk$
+    tudi preslikava
+    $$
+        \varphi : \mathfrak{A} \to \bh,
+        \quad
+        \varphi(a)=P_{\mathcal{H}}\psi(a)|_{\mathcal{H}}
+    $$
+    povsem pozitivna. 
+\end{zgled}
+
+Stinespringov izrek nam pove, da je 
+vsaka povsem pozitivna preslikava 
 $\varphi : \mathcal{A} \to \bh$
-oblike \eqref{eq:1.1}. Razdelek zaključimo z dokazom Choijevega izreka, 
-ki nam pove, da so vse povsem pozitivne preslikave $\varphi: M_n (\C) \to M_m (\C)$ vsote preslikav iz zgleda \ref{zgl:1.5}.
+oblike \eqref{eq:1.1}. 
+Pravzaprav velja še več.
 
 \begin{izrek}[Stinespring]\label{izr:1.1}
     Naj bo $\mathfrak{A}$ $C^*$-algebra in $\varphi: \mathfrak{A} \to \bh$ povsem pozitivna preslikava.
@@ -1452,19 +1405,18 @@ ki nam pove, da so vse povsem pozitivne preslikave $\varphi: M_n (\C) \to M_m (\
     Če je $\varphi$ enotska preslikava, potem je $V$ izometrija.
 \end{izrek}
 
-\begin{opomba}
-    Če je preslikava $\varphi: \mathfrak{A} \to \bh$ iz Stinespringovega izreka enotska, 
-    lahko
-    Hilbertov prostor $\mathcal{H}$ identificiramo s podprostorom
-    $V\mathcal{H} \leq \mathcal{K}$, saj je $V$ izometrija.
-    S to identifikacijo operator $V^*$ sovpada s projekcijo
-    $P_{\mathcal{H}}$ iz $\mathcal{K}$ na $\mathcal{H}$, zato velja
-    $$
-        \varphi(a)=P_{\mathcal{H}}\pi(a)|_{\mathcal{H}},\quad \forall a \in \mathfrak{A}.
-    $$
-    Stinespringov izrek nam torej pove, da lahko vsako enotsko povsem pozitivno preslikavo $\varphi: \mathfrak{A} \to \bh$ dilatiramo do
-    $*$-homomorfizma.
-\end{opomba}
+
+Za trenutek se ustavimo na primeru, ko je $\varphi: \mathfrak{A} \to \bh$ enotska povsem pozitivna preslikava.
+Tedaj je $V$ izometrija, zato lahko
+Hilbertov prostor $\mathcal{H}$ identificiramo s podprostorom
+$V\mathcal{H} \leq \mathcal{K}$.
+S to identifikacijo operator $V^*$ sovpada s projekcijo
+$P_{\mathcal{H}}$ iz $\mathcal{K}$ na $\mathcal{H}$, zato velja
+$$
+    \varphi(a)=P_{\mathcal{H}}\pi(a)|_{\mathcal{H}},\quad \forall a \in \mathfrak{A}.
+$$
+Stinespringov izrek nam torej pove, da lahko vsako enotsko povsem pozitivno preslikavo $\varphi: \mathfrak{A} \to \bh$ dilatiramo do
+$*$-homomorfizma.
 
 \begin{dokaz}[Dokaz izreka \ref{izr:1.1}]
     Oglejmo si algebraični tenzorski produkt vektorskih prostorov $\mathfrak{A} \otimes \mathcal{H}$.
@@ -1592,6 +1544,7 @@ in $(\pi_1, V, \mathcal{K}_1)$ je še ena Stinespringova upodobitev za $\varphi$
     gosta v svoji napolnitvi $\mathcal{K}$, torej v dokazu konstruiramo minimalno Stinespringovo upodobitev.
 \end{opomba}
 
+
 \begin{posledica}[Sz.-Nagyjeva minimalna unitarna dilatacija] \label{pos:1.4}
     Naj bo $T \in \bh$ skrčitev. Potem obstaja Hilbertov prostor $\mathcal{K} \supseteq \mathcal{H}$
     in unitaren operator $U \in \bk$, tako da je $\mathcal{K}$ najmanjši reducirajoč prostor za $U$, da velja 
@@ -1603,8 +1556,8 @@ in $(\pi_1, V, \mathcal{K}_1)$ je še ena Stinespringova upodobitev za $\varphi$
 \end{posledica}
 
 \begin{dokaz}
-    Stinespringov izrek uporabimo na pozitivni preslikavi $\psi: C(\T) \to \bh$ iz zgleda \ref{zgl:1.8},
-    ki preslika poljuben polinom $p \in \C[z]$ v $p(T) \in \bh$ 
+    Stinespringov izrek uporabimo na pozitivni preslikavi $\psi: C(\T) \to \bh$ iz zgleda \ref{zgl:1.7},
+    ki preslika poljuben polinom $p \in \C[z]$ v $p(T) \in \bh$. 
     Potem obstaja minimalna Stinespringova upodobitev $(\pi, V, \mathcal{K})$,
     pri čemer je $V$ izometrija, saj je $\psi$ enotska preslikava. 
     Posledično lahko identificiramo $\mathcal{H} \equiv V \mathcal{H}$.
@@ -1619,12 +1572,14 @@ in $(\pi_1, V, \mathcal{K}_1)$ je še ena Stinespringova upodobitev za $\varphi$
     Zadnja trditev v izreku nato sledi direktno iz unitarne ekvivalence minimalnih Stinespringovih upodobitev.
 \end{dokaz}
 
-Nadaljujemo s posplošitvijo Radon-Nikodymovega izreka za povsem pozitivne preslikave.
 
-\begin{definicija}
-    Na množici $\PP(\mathfrak{A}, \mathfrak{B})$ lahko definiramo delno urejenost  
-    $$\varphi \leq \psi \quad \Leftrightarrow \quad \psi - \varphi \in \PP(\mathfrak{A}, \mathfrak{B}).$$
-\end{definicija}
+Razdelek zaključimo s posledico Stinespringovega izreka, ki jo bomo potrebovali kasneje.
+Gre za `nekomutativno posplošitev' Radon-Nikodymovega izreka.
+Najprej na množici $\PP(\mathfrak{A}, \mathfrak{B})$ definiramo delno urejenost  
+$$\varphi \leq \psi \quad \Leftrightarrow \quad \psi - \varphi \in \PP(\mathfrak{A}, \mathfrak{B}).$$
+Nadalje za poljubno podmnožico $C^*$-algebre $\mathcal{S} \subseteq \mathfrak{A}$ definiramo njen \emph{komutant} kot
+$$\mathcal{S}' := \{a \in A\ |\ as = sa,\ \forall s \in \mathcal{S}\}.$$
+Sedaj velja naslednje.
 
 \begin{trditev} \label{trd:1.4}
     Naj bosta $\varphi, \psi \in \PP(\mathfrak{A},\bh)$ in
@@ -1633,11 +1588,6 @@ Nadaljujemo s posplošitvijo Radon-Nikodymovega izreka za povsem pozitivne presl
     tako da je
     $$\varphi(a) = V^* T \pi(a) V$$ in $0 \leq T \leq 1$.
 \end{trditev}
-
-\begin{opomba}
-    Za poljubno množico $\mathcal{S} \subseteq \mathfrak{A}$ definiramo njen \emph{komutant} kot
-    $$\mathcal{S}' := \{a \in A\ |\ as = sa,\ \forall s \in \mathcal{S}\}.$$
-\end{opomba}
 
 \begin{dokaz}
     Denimo, da je $\varphi = V^* T \pi(a) V$, pri čemer velja $0 \leq T \leq 1$ in $T \in \pi(\mathfrak{A})'$.
@@ -1697,6 +1647,19 @@ Nadaljujemo s posplošitvijo Radon-Nikodymovega izreka za povsem pozitivne presl
     zato je $\langle Tu, v \rangle_{\psi} = \langle T' u, v\rangle_{\psi}$ za poljubna $u, v \in \mathcal{K}$.
     Od tod dobimo $T' = T$.
 \end{dokaz}
+
+
+
+\begin{comment}
+
+
+Nadaljujemo s posplošitvijo Radon-Nikodymovega izreka za povsem pozitivne preslikave.
+
+\begin{definicija}
+    Na množici $\PP(\mathfrak{A}, \mathfrak{B})$ lahko definiramo delno urejenost  
+    $$\varphi \leq \psi \quad \Leftrightarrow \quad \psi - \varphi \in \PP(\mathfrak{A}, \mathfrak{B}).$$
+\end{definicija}
+
 
 Za zaključek podrazdelka dokažemo uporabno posledico Stinespringovega izreka, ki klasificira vse povsem pozitivne preslikave med 
 prostori končno razsežnih matrik.
@@ -1836,25 +1799,55 @@ od koder sledi $U^* \pi(A) U = \bigoplus_{i \in I} A$.
     za vsako matriko $A \in M_n (\C)$.
 \end{dokaz}
 
-\section{Povsem pozitivne preslikave na $M_n (\C)$}
+\end{comment}
 
-V tem podrazdelku obravnavamo povsem pozitivne preslikave $\varphi: \mathfrak{A} \to \mathfrak{B}$,
-kjer je vsaj ena izmed algeber $\mathfrak{A},\mathfrak{B}$ oblike $M_n (\C)$.
-
-Najprej si oglejmo primer, ko je $\mathfrak{A} = M_n (\C)$. 
-Za začetek navedemo še en dokaz Choijevega izreka \ref{izr:1.2}.
+\section{Povsem pozitivne preslikave na $M_n (\C)$}\label{sec:7}
 
 
-\begin{dokaz}[Dokaz Choijevega izreka]
-    Označimo z $E_{ij} \in M_n (\C)$ standardne bazne matrike v $M_n (\C)$.
-    Definirajmo vektor $$e = \begin{bmatrix}
-        e_1 \\ \vdots \\ e_n
-    \end{bmatrix} \in \C^{n^2}.$$
-    Potem je 
-    $$e e^* = [E_{ij}]_{i, j} \in M_n (M_n (\C))$$
-    pozitivna matrika.
-    Ker je $\varphi$ povsem pozitivna, je \emph{Choijeva matrika} 
-    $[\varphi(E_{ij})]_{i, j} = \varphi^{(n)} ([E_{ij}]_{i, j}) \in M_{mn}(\C)$ prav tako pozitivna.
+V tem oglavju karakteriziramo povsem pozitivne preslikave $\varphi: \mathfrak{A} \to \mathfrak{B}$,
+kjer je $\mathfrak{A}$ ali $\mathfrak{B}$ oblike $M_n (\C)$. 
+Kot posledica izpeljane teorije bo sledilo, da lahko vsako povsem pozitivno preslikavo $\varphi: \mathcal{S} \to M_n (\C)$ 
+na poljubnem operatorskem sistemu $\mathcal{S} \subseteq \mathfrak{A}$ razširimo do povsem pozitivne preslikave na celotni $C^*$-algebri $\mathfrak{A}$.
+To je ključni rezultat, ki ga bomo potrebovali za dokaz Arvesonovega razširitvenega izreka v naslednjem poglavju.
+
+Začnimo najprej s karakterizacijo povsem pozitivnih preslikav $\varphi: M_n (\C) \to M_m (\C)$.
+Ključen pojem bo \emph{Choijeva matrika} $\varphi^{(n)}([E_{ij}]_{i, j})$, kjer $E_{ij}$ označujejo standardne matrične bazne enote v $M_n (\C)$.
+Če definiramo vektor 
+$$e = \begin{bmatrix}
+    e_1 \\ \vdots \\ e_n
+\end{bmatrix} \in \C^{n^2},$$
+kjer so $e_i$ standardni bazni vektorji v $\C^n$, potem vidimo, da je 
+$$e e^* = [E_{ij}]_{i, j} \in M_n (M_n (\C))$$
+pozitivna matrika. 
+Od tod sledi, da ima povsem pozitivna preslikava $\varphi: M_n (\C) \to M_m(\C)$ vedno pozitivno Choijevo matriko.
+Naslednja trditev, ki je bila dokazana v \cite{kraus1971} in \cite{choi1975}, nam pove, da velja tudi obratno.
+
+
+\begin{comment}
+\begin{opomba}
+    V zgornjem dokazu smo dokazali, da za vsako pozitivno matriko $A \in M_{mn} (\C)$ obstajajo matrike 
+    $V_1, \dots, V_{mn} \in \C^{n \times m}$, tako da je 
+    $$A = \sum_{k = 1} ^{mn} (I_n \otimes V_k)^* [E_{ij}]_{i, j} (I_n \otimes V_k).$$
+\end{opomba}
+\end{comment}
+
+\begin{izrek}[Choi-Kraus]\label{izr:1.2}
+    Za linearno preslikavo $\varphi: M_n (\C) \to M_m (\C)$ so naslednje trditve ekvivalentne:
+    \begin{enumerate}
+        \item $\varphi$ je povsem pozitivna;
+        \item $\varphi$ je $n$-pozitivna;
+        \item {Choijeva matrika} $\varphi^{(n)}([E_{ij}]_{i, j})$ je pozitivna;
+        \item $\varphi$ je oblike 
+        \begin{equation}
+            \varphi(A) = \sum_{k = 1} ^r V_k ^* A V_k,\quad \forall A \in M_n (\C). \label{eq:1.6}
+        \end{equation}
+    \end{enumerate}
+\end{izrek}
+
+
+\begin{dokaz}
+    Edina netrivialna implikacija je $(3.) \Rightarrow (4.)$, zato predpostavimo,
+    da je Choijeva matrika $\varphi^{(n)}([E_{ij}]_{i, j})$ pozitivna.
     Po lemi \ref{lem:1.2} obstajajo vrstični vektorji $v_1, \dots, v_{mn} \in \C^{mn}$, tako da je 
     $$[\varphi (E_{ij})]_{i, j} = \sum_{k = 1} ^{mn} v_k v_k ^* \in M_n (M_m (\C)) = M_{mn} (\C).$$
     Vsakemu stolpcu
@@ -1873,35 +1866,12 @@ Za začetek navedemo še en dokaz Choijevega izreka \ref{izr:1.2}.
     $$\varphi^{(n)} ([E_{ij}]_{i, j}) = \sum_{k = 1} ^{mn} (I_n \otimes V_k)^* [E_{ij}]_{i, j} (I_n \otimes V_k).$$ 
     Sedaj za vsako matriko $A = \sum_{i, j = 1} ^n a_{ij} E_{ij} \in M_{n} (\C)$ velja
     \begin{align*}
-        \varphi (A) &= \varphi \left(\sum_{i, j = 1} ^n a_{ij} E_{ij}\right)\\
-        &= \sum_{i, j = 1} ^n a_{ij} \varphi \left(E_{ij}\right)\\
-        &= \sum_{i, j = 1} ^n a_{ij} \sum_{k = 1}^{mn} V_k ^* E_{ij} V_k\\
-        &= \sum_{k = 1}^{mn} \sum_{i, j = 1} ^n a_{ij} V_k ^* E_{ij} V_k\\
-        &= \sum_{k = 1}^{mn} V_k ^* \left( \sum_{i, j = 1} ^n a_{ij} E_{ij} \right) V_k\\
-        &= \sum_{k = 1}^{mn} V_k ^* A V_k. \qedhere
+        \varphi (A) &= \varphi \left(\sum_{i, j = 1} ^n a_{ij} E_{ij}\right) = \sum_{i, j = 1} ^n a_{ij} \varphi \left(E_{ij}\right)\\
+        &= \sum_{i, j = 1} ^n a_{ij} \sum_{k = 1}^{mn} V_k ^* E_{ij} V_k = \sum_{k = 1}^{mn} \sum_{i, j = 1} ^n a_{ij} V_k ^* E_{ij} V_k\\
+        &= \sum_{k = 1}^{mn} V_k ^* \left( \sum_{i, j = 1} ^n a_{ij} E_{ij} \right) V_k = \sum_{k = 1}^{mn} V_k ^* A V_k. \qedhere
     \end{align*}
 \end{dokaz}
-\begin{comment}
-\begin{opomba}
-    V zgornjem dokazu smo dokazali, da za vsako pozitivno matriko $A \in M_{mn} (\C)$ obstajajo matrike 
-    $V_1, \dots, V_{mn} \in \C^{n \times m}$, tako da je 
-    $$A = \sum_{k = 1} ^{mn} (I_n \otimes V_k)^* [E_{ij}]_{i, j} (I_n \otimes V_k).$$
-\end{opomba}
-\end{comment}
 
-V zgornjem dokazu nismo uporabili celotne predpostavke, da je $\varphi$ povsem pozitivna,
-temveč zgolj to, da je njena Choijeva matrika $\varphi^{(n)} ([E_{ij}]_{i, j})$ pozitivna.
-Od tod sledi naslednja trditev.
-
-\begin{trditev}\label{trd:1.5}
-    Za linearno preslikavo $\varphi: M_n (\C) \to M_m (\C)$ so naslednje trditve ekvivalentne:
-    \begin{enumerate}
-        \item $\varphi$ je povsem pozitivna;
-        \item $\varphi$ je $n$-pozitivna;
-        \item Choijeva matrika $\varphi^{(n)}([E_{ij}]_{i, j})$ je pozitivna;
-        \item $\varphi$ je oblike \eqref{eq:1.5}.
-    \end{enumerate}
-\end{trditev}
 
 Naj bo $\mathfrak{B}$ sedaj poljubna $C^*$-algebra.
 S pomočjo Choijeve matrike lahko karakteriziramo povsem pozitivne preslikave $\varphi: M_n (\C) \to \mathfrak{B}$.
@@ -1926,14 +1896,14 @@ S pomočjo Choijeve matrike lahko karakteriziramo povsem pozitivne preslikave $\
     $$\psi : M_n (\C) \to M_m (\C),\quad \psi (A) = V^* \varphi(A) V.$$
     Ker je Choijeva matrika 
     $$\psi^{(n)} ([E_{ij}]_{i, j}) = [V^* \varphi (E_{ij}) V]_{i, j} = (I_n \otimes V)^* [\varphi (E_{ij})]_{i, j} (I_n \otimes V)$$
-    po predpostavki pozitivna, je po prejšnji trditvi $\psi$ povsem pozitivna preslikava. 
+    po predpostavki pozitivna, je po Choijevem izreku $\psi$ povsem pozitivna preslikava. 
     Od tod pa sledi 
     \begin{equation*}
         \sum_{i, j} ^m \langle \varphi (A_{ij}) x_j, x_i \rangle = \sum_{i, j} ^m \langle V^* \varphi (A_{ij}) V e_j, e_i \rangle = \sum_{i, j} ^m \langle \psi (A_{ij}) e_j, e_i \rangle \geq 0. \qedhere
     \end{equation*}
 \end{dokaz}
 
-Naš cilj za preostanek tega podrazdelka je pridobiti podobno karakterizacijo povsem pozitivnih preslikav $\varphi: \mathfrak{A} \to M_n (\C)$.
+Naš cilj za preostanek tega poglavja je pridobiti podobno karakterizacijo povsem pozitivnih preslikav $\varphi: \mathfrak{A} \to M_n (\C)$.
 
 Naj bo $\mathcal{M} \subseteq \mathfrak{A}$ operatorski prostor.
 Za poljubno linearno preslikavo $\varphi \in \mathcal{L} (\mathcal{M}, M_n (\C))$
@@ -1951,21 +1921,16 @@ sta linearni in druga drugi inverzni.
     Linearnost je očitna, zato dokažimo, da je $\Psi \circ \Phi = \id_{\mathcal{B} (\mathcal{M}, M_n (\C))}$.
     Vzemimo poljuben $\varphi \in \mathcal{B} (\mathcal{M}, M_n (\C))$. Potem je za vsak $a \in \mathcal{M}$
     \begin{align*}
-        \varphi_{s_{\varphi}} (a) &= n \cdot (s_{\varphi}) ^{(n)} ([a E_{ij}]_{i, j})\\
-        &= n \cdot [s_{\varphi}(a E_{ij})]_{i, j} \\
-        &= n \cdot \frac{1}{n}[\varphi (a)_{ij} ]_{i, j} \\
-        &= [\varphi (a)_{ij} ]_{i, j}\\
+        \varphi_{s_{\varphi}} (a) &= n \cdot (s_{\varphi}) ^{(n)} ([a E_{ij}]_{i, j}) = n \cdot [s_{\varphi}(a E_{ij})]_{i, j} \\
+        &= n \cdot \frac{1}{n}[\varphi (a)_{ij} ]_{i, j} = [\varphi (a)_{ij} ]_{i, j}\\
         &= \varphi(a).
     \end{align*}
-
-    Sedaj dokažimo še $\Phi \circ \Psi = \id_{M_n (\mathcal{M})^*}$. Za $A = [a_{ij}]_{i, j} \in M_n (\mathcal{M})$ je 
+    Dokažimo še $\Phi \circ \Psi = \id_{M_n (\mathcal{M})^*}$. Za $A = [a_{ij}]_{i, j} \in M_n (\mathcal{M})$ je 
     \begin{align*}
-        s_{\varphi_s} (A) &= \frac{1}{n} \sum_{i, j} ^n \varphi_s (a_{ij})_{ij}\\
-        &= \frac{1}{n} \sum_{i, j} ^n n \cdot (s^{(n)} ([a_{ij} E_{ij}]_{i, j}))_{ij}\\
-        &= \sum_{i, j} ^n ([ s(a_{ij} E_{ij})]_{i, j})_{ij}\\
-        &= \sum_{i, j} ^n  s(a_{ij} E_{ij}) = s(A).
+        s_{\varphi_s} (A) &= \frac{1}{n} \sum_{i, j} ^n \varphi_s (a_{ij})_{ij} = \frac{1}{n} \sum_{i, j} ^n n \cdot (s^{(n)} ([a_{ij} E_{ij}]_{i, j}))_{ij}\\
+        &= \sum_{i, j} ^n ([ s(a_{ij} E_{ij})]_{i, j})_{ij} = \sum_{i, j} ^n  s(a_{ij} E_{ij}) = s(A).
     \end{align*}
-
+    Sedaj lahko dokažemo naslednjo trditev.
 
 \begin{trditev}\label{trd:1.7}
     Za linearno preslikavo $\varphi: \mathcal{S} \to M_n (\C)$ so naslednje trditve ekvivalentne:
@@ -2016,7 +1981,7 @@ sta linearni in druga drugi inverzni.
     Od tod pa sledi, da velja enako za njeno zožitev $\varphi$.
 \end{dokaz}
 
-Naslednja trditev je analog trditve \ref{trd:1.6} za preslikave na operatorskem sistemu.
+Trditev \ref{trd:1.7} nam omogoča, da podamo trditev \ref{trd:1.6} za preslikave na operatorskem sistemu.
 
 \begin{posledica}
     Naj bo $\mathcal{S} \subseteq M_n (\C)$ operatorski sistem. 
@@ -2040,21 +2005,11 @@ Naslednja trditev je analog trditve \ref{trd:1.6} za preslikave na operatorskem 
     \end{equation*}
 \end{dokaz}
 
-\begin{posledica}
-    Naj bo $\mathcal{S} \subseteq M_n (\C)$ operatorski sistem.
-    Za linearno preslikavo $\varphi: \mathcal{S} \to M_m (\C)$ so naslednje trditve ekvivalentne:
-    \begin{enumerate}
-        \item $\varphi$ je povsem pozitivna;
-        \item $\varphi$ je $n$-pozitivna;
-        \item $\varphi$ je oblike \eqref{eq:1.5}.
-    \end{enumerate}
-\end{posledica}
-
-Naj bo $\mathcal{S} \subseteq \mathfrak{A}.$
-V nadaljevanju bomo dokazali, da lahko povsem pozitivno preslikavo $\varphi: \mathcal{S} \to M_n (\C)$
+Naj bo $\mathcal{S} \subseteq \mathfrak{A}$ poljuben operatorski sistem.
+Dokazujemo glavni izrek tega razdelka, ki nam pove, da lahko povsem pozitivno preslikavo $\varphi: \mathcal{S} \to M_n (\C)$
 razširimo do povsem pozitivne preslikave $\psi: \mathfrak{A} \to M_n (\C)$.
 
-Najprej to dokažemo za $n = 1$: naslednji rezultat je različica Hahn-Banachovega izreka za pozitivne funkcionale.
+Najprej to dokažemo za $n = 1$: naslednji rezultat je zgolj različica Hahn-Banachovega izreka za pozitivne funkcionale.
 
 \begin{lema}[Krein-Riesz]\label{lem:1.4}
     Če je $\varphi: \mathcal{S} \to \C$
@@ -2070,11 +2025,11 @@ Najprej to dokažemo za $n = 1$: naslednji rezultat je različica Hahn-Banachove
     torej je po lemi \ref{lem:1.1} tudi $\psi$ pozitiven funkcional.
 \end{dokaz}
 
-\begin{trditev}\label{trd:1.8}
+\begin{izrek}\label{izr:aux}
     Če je $\varphi: \mathcal{S} \to M_n (\C)$ povsem pozitivna preslikava,
     potem ima povsem pozitivno razširitev $\psi: \mathfrak{A} \to M_n (\C)$,
     tako da velja $\| \psi \|_{\po} = \| \varphi\|_{\po} = \| \varphi (1)\|$.
-\end{trditev}
+\end{izrek}
 
 \begin{dokaz}
     Ker je $\varphi$ povsem pozitivna preslikava, je $s_{\varphi}: M_n(\mathcal{S}) \to \C$
@@ -2102,7 +2057,7 @@ Najprej to dokažemo za $n = 1$: naslednji rezultat je različica Hahn-Banachove
     ki jo nato lahko razširimo do povsem pozitivne preslikave $\psi: \mathfrak{A} \to M_n (\C)$ po trditvi \ref{trd:1.7}.
 \end{dokaz}
 
-Podrazdelek zaključimo z verzijo trditve \ref{trd:1.5} za operatorske sisteme.
+Poglavje zaključimo z verzijo izreka \ref{izr:1.2} za operatorske sisteme.
 
 \begin{trditev}
     Naj bo $\mathcal{S} \subseteq M_n (\C)$ operatorski sistem.
@@ -2115,37 +2070,28 @@ Podrazdelek zaključimo z verzijo trditve \ref{trd:1.5} za operatorske sisteme.
 \end{trditev}
 
 \begin{dokaz}
-    Dovolj je dokazati implikacijo $(1.) \Rightarrow (3.)$. Če je $\varphi$ povsem pozitivna,
-    potem jo lahko po trditvi \ref{trd:1.8} razširimo do povsem pozitivne preslikave $\psi: M_n (\C) \to M_m (\C)$, ki mora biti oblike \eqref{eq:1.5}.
+    Dovolj je dokazati implikacijo $(2.) \Rightarrow (3.)$. Če je $\varphi$ $n$-pozitivna,
+    je po trditvi \ref{trd:1.7} povsem pozitivna,
+    zato jo lahko po trditvi \ref{izr:aux} razširimo do povsem pozitivne preslikave $\psi: M_n (\C) \to M_m (\C)$, ki mora biti oblike \eqref{eq:1.5}.
     Torej je tudi $\varphi$ oblike \eqref{eq:1.5}.
 \end{dokaz}
 
-\section{Arvesonov razširitveni izrek}\label{sec:1.2}
+\section{Arvesonov razširitveni izrek}\label{sec:8}
 
-V podrazdelku \ref{sec:1.1} smo dokazali, da lahko vsako povsem pozitivno preslikavo
+V poglavju \ref{sec:2} smo dokazali, da lahko vsako povsem pozitivno preslikavo
 na operatorskem prostoru razširimo do povsem pozitivne preslikave na pripadajočem operatorskem sistemu.
-Iz tamkajšnje diskusije je sledilo, da so operatorski sistemi naravna domena za teorijo povsem pozitivnih preslikav.
+Iz tamkajšnje diskusije je sledilo, da so operatorski sistemi naraven objekt, na katerem so morfizmi povsem pozitivne preslikave.
 
-Vendar pa delo na splošnih operatorskih sistemih pogosto otežuje dejstvo,
-da nimamo na voljo vseh orodij iz teorije $C^*$-algeber.
-Zato je naravno vprašanje, kdaj lahko povsem pozitivno preslikavo razširimo
-do celotne $C^*$-algebre, v kateri je operatorski sistem vsebovan.
-
-Naj bo $\mathfrak{A}$ $C^*$-algebra in $\mathcal{S} \subseteq \mathfrak{A}$
-operatorski sistem.
-V tem podrazdelku dokažemo Arvesonov razširitveni izrek, ki trdi,
-da lahko vsako povsem pozitivno preslikavo
-$$
+Naravno vprašanje je, če imamo 
+izrek Hahn-Banachovega tipa, ki bi nam povedal, da 
+lahko povsem pozitivno preslikavo $$
 \varphi : \mathcal{S} \to \bh
-$$
-razširimo do povsem pozitivne preslikave
-$$
+$$ na operatorskem sistemu $\mathcal{S} \subseteq \mathfrak{A}$ razširimo do povsem pozitivne preslikave $$
 \psi : \mathfrak{A} \to \bh.
-$$
-Arvesonov izrek lahko razumemo kot analog Hahn--Banachovega izreka
-za povsem pozitivne preslikave.
+$$ na celotni $C^*$-algebri.
+To je vsebina Arvesonovega razširitvenega izreka (\cite{arveson1969}).
 
-V končno dimenzionalnem primeru smo to že dokazali v trditvi \ref{trd:1.8}.
+V končno dimenzionalnem primeru smo to že dokazali v izreku \ref{izr:aux}.
 Natančneje, če je $\mathcal{H}$ končno dimenzionalen,
 lahko vsako povsem pozitivno preslikavo
 $$
@@ -2166,7 +2112,7 @@ $$
 $$
 kompaktna za vsak $r \ge 0$.
 Ta topologija bo izhajala iz šibke-$*$ topologije,
-zato bo ključna uporaba Banach--Alaoglujevega izreka.
+zato bo ključna uporaba Banach-Alaoglujevega izreka iz funkcionalne analize (\cite[Theorem V.3.1., str. 130]{conway1990}).
 
 Naš prvi cilj je zato opisati ustrezno preddualno strukturo prostora
 $\mathcal{B}(X,Y^*)$.
@@ -2316,8 +2262,7 @@ pri čemer $L^1 (\mathcal{H})$ označuje Banachov prostor operatorjev s sledjo, 
     Ker je vsota na levi nenegativna za vsak $\lambda$, mora veljati enako za vsoto na desni.
 \end{proof}
 
-Sedaj lahko dokažemo glavni izrek v tem podrazdelku.
-Arvesonov razširitveni izrek izvira iz članka \cite{arveson1969}.
+Sedaj lahko dokažemo glavni izrek poglavja.
 
 \begin{izrek}[Arveson]\label{izr:1.3}
     Naj bo $\mathfrak{A}$ $C^*$-algebra, $\mathcal{S} \subseteq \mathfrak{A}$ operatorski sistem in $\varphi: \mathcal{S} \to \bh$ povsem pozitivna.
@@ -2331,7 +2276,7 @@ Arvesonov razširitveni izrek izvira iz članka \cite{arveson1969}.
     definiramo povsem pozitivno preslikavo $$\varphi_{\mathcal{F}}: \mathcal{S} \to \mathcal{B}(\mathcal{F}),\quad a \mapsto P_{\mathcal{F}} \varphi(a)\big|_{\mathcal{F}},$$
     kjer je $P_\mathcal{F}: \mathcal{H} \to \mathcal{F}$ projekcija.
     Ker je $\dim (\mathcal{F}) = n < \infty$, lahko identificiramo $\mathcal{B} (\mathcal{F}) \equiv M_n (\C)$.
-    Po trditvi \ref{trd:1.8} lahko $\varphi_{\mathcal{F}}$ razširimo do povsem pozitivne preslikave $\varphi_\mathcal{F} ' : \mathfrak{A} \to \mathcal{B}(\mathcal{F})$,
+    Po trditvi \ref{izr:aux} lahko $\varphi_{\mathcal{F}}$ razširimo do povsem pozitivne preslikave $\varphi_\mathcal{F} ' : \mathfrak{A} \to \mathcal{B}(\mathcal{F})$,
     tako da je $\| \varphi_{\mathcal{F}} '\| = \| \varphi_\mathcal{F}\|$.
     Nazadnje za razcep $\mathcal{H} = \mathcal{F} \oplus \mathcal{F}^\perp$ definiramo povsem pozitivno preslikavo
     $$\psi_{\mathcal{F}}: \mathfrak{A} \to \bh,\quad \psi_{\mathcal{F}} (a) = \begin{bmatrix}
@@ -2363,8 +2308,7 @@ Arvesonov razširitveni izrek izvira iz članka \cite{arveson1969}.
     Predpostavka o povsem pozitivnosti v Arvesonovem razširitvenem izreku je ključna,
     saj v splošnem ne moremo razširiti pozitivne preslikave na operatorskem sistemu do pozitivne preslikave na celotni $C^*$-algebri.
     Vzemimo na primer pozitivno preslikavo $\varphi$ iz zgleda \ref{zgl:1.6}, za katero velja $\| \varphi \| = 2 \cdot \| \varphi(1)\|$.
-    Po trditvi \ref{trd:1.3} za vsako pozitivno preslikavo na $C^*$-algebri velja $\| \varphi \| = \| \varphi(1)\|$.
-    To pomeni, da $\varphi$ ne moremo razširiti do pozitivne preslikave na celotni $C^*$-algebri.
+    Po trditvi \ref{pos:russo-dye} pa za vsako pozitivno preslikavo na $C^*$-algebri velja $\| \varphi \| = \| \varphi(1)\|$.
 \end{opomba}
 
 \begin{posledica}

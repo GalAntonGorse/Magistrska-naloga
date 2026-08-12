@@ -1,10 +1,10 @@
-\section{Abstraktni operatorski sistemi}
+\section{Abstraktni operatorski sistemi}\label{sec:9}
 
 V funkcionalni analizi imajo konkretni objekti pogosto tudi abstraktno karakterizacijo.
 Konkretne $C^*$-algebre (oziroma von Neumannove algebre) operatorjev na Hilbertovem prostoru lahko abstraktno karakteriziramo 
 kot $C^*$-algebre (oziroma $W^*$-algebre).
-Choi in Effros sta pokazala (\cite{ruan1988}), da tudi operatorski sistemi, ki jih definiramo kot konkretne prostore operatorjev v $C^*$-algebri, 
-premorejo abstraktno karakterizacijo. To nam omogoča, da lahko na operatorski sisteme gledamo kot na abstrakten vektorski prostor
+Choi in Effros sta pokazala (\cite{choieffros1977}), da tudi operatorski sistemi, ki jih definiramo kot konkretne prostore operatorjev v $C^*$-algebri, 
+premorejo abstraktno karakterizacijo. To nam omogoča, da lahko na operatorske sisteme gledamo kot na abstrakten vektorski prostor
 ali pa na neko njegovo konkretno realizacijo v $C^*$-algebri.
 
 Začnimo z nekaterimi potrebnimi lastnostmi, ki jih pričakujemo od abstraktnih operatorskih sistemov.
@@ -13,10 +13,10 @@ $*: \mathcal{S} \to \mathcal{S}$, tako da velja $a^{**} = a$ za vse $a \in \math
 Takšnemu vektorskemu prostoru pravimo \emph{$*$-vektorski prostor}. 
 Če je $\mathcal{S}$ $*$-vektorski prostor, velja enako tudi za $M_n (\mathcal{S})$.
 Množico sebiadjungiranih elementov v $*$-vektorskem sistemu označimo s 
-$\mathcal{S}_h := \{s \in \mathcal{S}\ |\ s = s^*\}$.
+$\mathcal{S}_{\sa} := \{s \in \mathcal{S}\ |\ s = s^*\}$.
 
 Tudi v abstraktnem operatorskem sistemu želimo imeti ustrezne elemente, ki imajo vlogo pozitivnih elementov.
-Zato mora za vsak $n \in \N$ obstajati konveksen stožec $\mathcal{C}_n \subseteq M_n (\mathcal{S})_h$, tako da velja $\mathcal{C}_n \cap -\mathcal{C}_n = \{0\}$. 
+Zato mora za vsak $n \in \N$ obstajati konveksen stožec $\mathcal{C}_n \subseteq M_n (\mathcal{S})_h$.
 Elementi stožcev $\mathcal{C}_n$ bodo imeli vlogo pozitivnih operatorjev, zato morajo biti ti stožci med seboj na ustrezen način usklajeni:
 za poljubna $m, n \in \N$ in $A \in \C^{m \times n}$ mora veljati $A^* \mathcal{C}_m A \subseteq \mathcal{C}_n$.
 Za $*$-vektorski prostor $\mathcal{S}$, opremljen s stožci $\{\mathcal{C}_n\}_{n \in \N}$,
@@ -28,20 +28,20 @@ ponovno označujemo s $\PP (\mathcal{S}, \mathcal{S}')$
 ($\EPP (\mathcal{S}, \mathcal{S}')$).
 
 Nazadnje v abstraktnem operatorskem prostoru potrebujemo še enico.
-Element $e \in \mathcal{S}_h$ je \emph{enota za urejenost} v $\mathcal{S}$, 
-če za vsak $a \in \mathcal{S}_h$ obstaja pozitivno realno število $r > 0$, tako da je 
+Element $e \in \mathcal{S}_{\sa}$ je \emph{enota za urejenost} v $\mathcal{S}$, 
+če za vsak $a \in \mathcal{S}_{\sa}$ obstaja pozitivno realno število $r > 0$, tako da je 
 $er + a \in \mathcal{C}_1$. Če velja, da iz $re + a \in \mathcal{C}_1$ za vse $r > 0$
-sledi, da je $a \in \mathcal{C}_1$, potem $e$ rečemo \emph{arhimedska enota}.
+sledi, da je $a \in \mathcal{C}_1$, potem $e$ rečemo \emph{Arhimedova enota}.
 Če je $I_n \in M_n (\mathcal{S})$ enota za urejenost za vse $n \in \N$, potem je $e$ \emph{enota za matrično urejenost}.
-V primeru, ko je $I_n $ arhimedska za vsak $n \in \N$, je $e$ \emph{arhimedska enota za matrično urejenost} za $\mathcal{S}$.
+V primeru, ko je $I_n $ Arhimedova za vsak $n \in \N$, je $e$ \emph{Arhimedova enota za matrično urejenost} za $\mathcal{S}$.
 
 Opazimo lahko, da obstaja $r > 0$, tako da je $re + e \in \mathcal{C}_1$,
 zato je $e = (r + 1)^{-1} (re + e) \in \mathcal{C}_1$. Na enak način dobimo tudi $I_n  \in \mathcal{C}_n$
 za vsak $n \in \N$. Če velja $re + a \in \mathcal{C}_1$, potem za vsak $s > r$ velja 
-$se + a = (s - r)e + (re + a) \in \mathcal{C}_1 $. Če je $a \in \mathcal{S}_h$, potem obstaja dovolj velik $r > 0$,
+$se + a = (s - r)e + (re + a) \in \mathcal{C}_1 $. Če je $a \in \mathcal{S}_{\sa}$, potem obstaja dovolj velik $r > 0$,
 tako da je $re \pm a \in \mathcal{C}_1$ in posledično 
 $$a = \frac{re + a}{2} - \frac{re - a}{2} \in \mathcal{C}_1 - \mathcal{C}_1.$$
-Od tod sledi, da je $\mathcal{S}_h = \mathcal{C}_1 - \mathcal{C}_1$.
+Od tod sledi, da je $\mathcal{S}_{\sa} = \mathcal{C}_1 - \mathcal{C}_1$.
 
 \begin{definicija}
     Matrično urejenemu $*$-vektorskemu prostoru $\mathcal{S}$ z arhimedsko 
@@ -204,7 +204,7 @@ Ker so konkretni operatorski sistemi vedno normirani, bi enako pričakovali tudi
         Od tod sledi $\| a\|_1 = \| a^*\|_1$. 
         \item Dokažimo še, da je $\mathcal{C}_1$ zaprta množica.
         Vzemimo zaporedje $\{a_n\}_{n \in \N} \subseteq \mathcal{C}_n$, ki konvergira v normi k nekemu $a \in \mathcal{S}$.
-        Najprej dokažimo, da je $a \in \mathcal{S}_h$. Ker je $\lim_{n \to \infty} \| a - a_n\|_1 = 0$,
+        Najprej dokažimo, da je $a \in \mathcal{S}_{\sa}$. Ker je $\lim_{n \to \infty} \| a - a_n\|_1 = 0$,
         je po prejšnji točki tudi $\lim_{n \to \infty} \| (a - a_n)^*\|_1 = \lim_{n \to \infty} \| a^* - a_n\| = 0$,
         zato je $a = a^*$.
         Sedaj dokazujemo, da za poljuben $r > 0$ velja $a + re \in \mathcal{C}_1$.
@@ -227,29 +227,40 @@ Ker so konkretni operatorski sistemi vedno normirani, bi enako pričakovali tudi
     \end{enumerate}
 \end{dokaz}
 
-Vsak konkreten operatorski sistem $\mathcal{S} \subseteq \mathfrak{A}$ je na kanoničen način abstrakten operatorski sistem:
-involucija $*$ je inducirana s $C^*$-algebro, konveksni stožci pa so $\mathcal{C}_n = M_n (\mathcal{S})_+$.
-Dokažimo še, da je $1 \in \mathcal{S}$ arhimedska enota za matrično urejenost.
-Brez škode za splošnost naj bo $\mathfrak{A} = \bh$ za nek Hilbertov prostor $\mathcal{H}$.
+Do sedaj nismo spoznali še nobenega primera abstraktnega operatorskega sistema,
+vendar pa bi po konstrukciji pričakovali, da lahko vsakemu 
+konkretnemu operatorskemu sistemu $\mathcal{S} \subseteq \mathfrak{A}$ na kanoničen način podamo strukturo abstraktnega operatorskega sistema.
+Involucija $*$ je seveda inducirana s $C^*$-algebro, konveksni stožci pa so $\mathcal{C}_n = M_n (\mathcal{S})_+$.
+Dokažimo še, da je $1 \in \mathcal{S}$ Arhimedova enota za matrično urejenost.
 Za poljubno sebiadjungirano matriko $A \in M_n (\mathcal{S})$ je $\| A\| \cdot I_n - A \geq 0$, torej je $1$ enota za matrično urejenost.
-Dokazati moramo še, da je $1 \in \mathcal{S}$ arhimedska enota.
-Denimo, da velja $r \cdot I_n + A \geq 0$ za vse $r > 0$. Če $A$ ni pozitivna matrika,
-potem obstaja enotski vektor $x \in \mathcal{H}^n$, tako da je $\langle Ax, x \rangle = - \varepsilon < 0$.
-Če vzamemo sedaj $r < \varepsilon$, potem je $\langle (r \cdot I_n + A)x, x \rangle = r - \varepsilon < 0$,
-zato tudi $r \cdot I_n + A$ ni pozitivna, protislovje. 
+Dokazati moramo še, da je $1 \in \mathcal{S}$ Arhimedova enota.
+Denimo, da velja $r \cdot I_n + A \geq 0$ za vse $r > 0$. 
+Potem je $A$ sebiadjungirana, zato ima realen spekter: $\sigma(A) \subseteq \R$.
+Ker za vsak $r > 0$ velja $\sigma(r \cdot I_n + A) = r + \sigma(A) \subseteq [0, \infty)$,
+sledi $\sigma(A) \subseteq [0, \infty)$ in zato je $A \in M_n (\mathfrak{A})_+$.
 
-Velja pa tudi obratno: vsak abstrakten operatorski sistem je izomorfen konkretnemu operatorskemu sistemu, 
-ki ima na zgoraj opisani način dano strukturo abstraktnega operatorskega sistema.
-To je vsebina naslednjega izreka.
+Takoj sledi, da je vsaka povsem pozitivna preslikava $\varphi: \mathcal{S}_1 \to \mathcal{S}_2$ med konkretnima operatorskima prostoroma tudi povsem pozitivna,
+če $\mathcal{S}_1, \mathcal{S}_2$ obravnavamo kot abstraktna operatorska sistema z zgoraj opisano strukturo.
+V nadaljevanju tega poglavja bomo torej vsak konkreten operatorski sistem implicitno obravnavali kot abstrakten operatorski sistem s strukturo, opisano v zgornjem odstavku.
+
+\begin{zgled}
+    Če je $\mathcal{S}$ abstrakten operatorski sistem in $\varphi: \mathcal{S} \to \C$
+    pozitiven funkcional (torej $\varphi (\mathcal{C}_1) \subseteq [0, \infty)$),
+    potem je $\varphi$ povsem pozitivna preslikava. Dokaz poteka popolnoma enako kot v zgledu \ref{zgl:1.3}.
+\end{zgled}
+
+Glavni izrek tega poglavja nam pove, da velja tudi delni obrat: vsak abstrakten operatorski sistem je izomorfen (kot abstrakten operatorski sistem)
+nekemu konkretnemu operatorskemu sistemu.
 
 \begin{izrek}[Choi-Effros]\label{izr:choi-effros}
     Za vsak abstrakten operatorski sistem $\mathcal{S}$ obstaja (konkreten) operatorski sistem $\mathcal{S}_1 \subseteq \mathfrak{A}$
     in izomorfizem $\varphi: \mathcal{S} \to \mathcal{S}_1$, ki slika $e \in \mathcal{S}$ v $1 \in \mathcal{S}_1$.
 \end{izrek}
 
-Za dokaz tega izreka bomo potrebovali analog trditve \ref{trd:1.7}.
-Tudi če je $\mathcal{S}$ abstrakten operatorski prostor, 
-lahko poljubni preslikavi $\varphi \in \mathcal{L}(\mathcal{S}, M_n (\C))$
+Za dokaz potrebujemo pomožno trditev.
+Kot pri dokazu trditve \ref{trd:1.7} lahko tudi za
+abstrakten operatorski prostor $\mathcal{S}$
+poljubni preslikavi $\varphi \in \mathcal{L}(\mathcal{S}, M_n (\C))$
 priredimo linearen funkcional 
 $$s_\varphi \in \mathcal{L}(M_n (\mathcal{S}), \C),\quad s_\varphi ([a_{i, j}]_{i, j}) = \sum_{i, j} ^n \varphi(a_{ij})_{ij} = e^* \varphi^{(n)} ([a_{ij}]_{i, j}) e,$$
 pri čemer je $$e = \begin{bmatrix}
@@ -258,9 +269,10 @@ pri čemer je $$e = \begin{bmatrix}
 (tokrat izpustimo faktor $\frac{1}{n}$, saj ga ne potrebujemo).
 Obratno lahko vsakemu linearnemu funkcionalu $s \in \mathcal{L}(M_n (\mathcal{S}), \C)$
 priredimo $$\varphi \in \mathcal{L}(\mathcal{S}, M_n (\C)),\quad \varphi (a) = s^{(n)} ([a E_{ij}]_{i, j}) = n \cdot s^{(n)} (e a e^*).$$
-Na enak način kot prej (glej odstavek pred trditvijo \ref{trd:1.7}) lahko dokažemo, da sta preslikavi 
+Tudi tokrat sta preslikavi 
 $\varphi \mapsto s_{\varphi}$ in $s \mapsto \varphi_s$ druga drugi inverzni.
-Naslednjo trditev dokažemo na enak način kot \ref{trd:1.7}, zato dokaz izpustimo.
+Ponovno velja analog trditve \ref{trd:1.7}. 
+Dokaz je popolnoma enak, zato ga izpustimo.
 
 \begin{trditev}
     Naj bo $\mathcal{S}$ abstrakten operatorski sistem in $\varphi \in \mathcal{L}(\mathcal{S}, M_n (\C))$. Naslednje trditve so ekvivalentne:
@@ -289,12 +301,14 @@ Sedaj lahko dokažemo Choi-Effrosov izrek.
     
     Najprej bomo dokazali, da obstaja pozitiven linearen funkcional $s: M_n (\mathcal{S}) \to \C$,
     tako da $s(A_0) \not\geq 0$.
-    Po Hahn-Banachovem separacijskem izreku (DOPOLNI) obstaja realen linearen funkcional
-    $s_0: M_n (\mathcal{S}) \to \R$, ki loči zaprto konveksno množico $\mathcal{C}_n$ od $A_0$, torej obstajata
-    $$ s_0(A_0) < \sup \{ s_0(B)\ |\ B \in \mathcal{C}_n\}.$$
-    Najprej opazimo, da je $s_0 (B) \geq 0$ za vsak $B \in \mathcal{C}_n$. Če bi namreč obstajal $B \in \mathcal{C}_n$,
+    Po Hahn-Banachovem separacijskem izreku (\cite[Theorem IV.3.9, str. 111]{conway1990}) obstaja realen linearen funkcional
+    $s_0: M_n (\mathcal{S}) \to \R$, ki loči zaprto konveksno množico $\mathcal{C}_n$ od $A_0$, torej 
+    $$ s_0(A_0) < \inf \{ s_0(B)\ |\ B \in \mathcal{C}_n\}.$$
+    Najprej opazimo, da mora veljati $s_0 (A_0) < 0$.
+    Nadalje je $s_0 (B) \geq 0$ za vsak $B \in \mathcal{C}_n$. Če bi namreč obstajal $B \in \mathcal{C}_n$,
     tako da je $s_0 (B) < 0$, potem je $\frac{s_0 (A_0)}{s_0(B)} > 0$ in zato $\frac{s_0 (A_0)}{s_0(B)} B \in \mathcal{C}_n$.
-    To pa bi pomenilo, da je $$s_0 (A_0) < s_0 \left(\frac{s_0 (A_0)}{s_0(B)} B\right) = s_0 (A_0),$$ kar vodi v protislovje.
+    To pa bi pomenilo, da je 
+    $$s_0 (A_0) < s_0 \left(\frac{s_0 (A_0)}{s_0(B)} B\right) = s_0 (A_0),$$ kar vodi v protislovje.
     Sedaj pa lahko definiramo želen kompleksen funkcional
     $$s : M_n (\mathcal{S}) \to \C,\quad s(A) = s_0 (\real A) + i s_0 (\imag A).$$
 
@@ -332,22 +346,22 @@ Sedaj lahko dokažemo Choi-Effrosov izrek.
     $$V := U^* \begin{bmatrix}
         \diag (\lambda_1 ^{-\frac{1}{2}}, \dots, \lambda_k ^{-\frac{1}{2}})\\ 
         0
-    \end{bmatrix} \in \C^{n \cdot k},$$
+    \end{bmatrix} \in \C^{n \times k},$$
     tako da je $V^* P V = I_k$. Nadalje definiramo 
     $$W := \begin{bmatrix}
         \diag (\lambda_1 ^{\frac{1}{2}}, \dots, \lambda_k ^{\frac{1}{2}}) & 0
     \end{bmatrix} U \in \C^{k \times n},$$
-    tako da velja 
+    tako da je 
     $$V W = U^* \begin{bmatrix}
         I_k & 0\\ 
         0 & 0
     \end{bmatrix} U = Q.$$
-    Sedaj definiramo $\varphi := V^* \varphi_s V \in \EPP (\mathcal{S}, M_k (\C))$, tako da je 
+    Potem je $\varphi := V^* \varphi_s V \in \EPP (\mathcal{S}, M_k (\C))$ prelikava, za katero velja
     $$e^* (I_n \otimes W)^* \varphi^{(n)} (A_0) (I_n \otimes W) e = e^* (I_n \otimes Q)^* \varphi_s ^{(n)} (A_0) (I_n \otimes Q) e =e^* \varphi_s ^{(n)} (A_0) e < 0,$$
     torej $\varphi^{(n)} (A_0)$ ni pozitivna matrika.
 \end{dokaz}
 
-\section{$C^*$-ogrinjače}
+\section{$C^*$-ogrinjače}\label{sec:10}
 
 
 
@@ -357,8 +371,8 @@ Zato se naravno pojavi vprašanje, ali obstaja $C^*$-algebra,
 v katero lahko vložimo abstrakten operatorski sistem $\mathcal{S}$, in ki je na nek način `minimalna'. 
 V ta namen bomo za vsako vložitev $i: \mathcal{S} \to \mathfrak{A}$ zahtevali, da je $\mathfrak{A} = C^*(i(\mathcal{S}))$.
 
-To vprašanje lahko ekvivalentno prevedemo na (konkretna) operatorske sisteme. $\mathcal{S} \subseteq C^* (\mathcal{S})$. 
-Spomnimo, da je izomorfizem v kategoriji $\osys_1$ enotska povsem izometrična bijekcija med operatorskima sistemoma.
+To vprašanje lahko ekvivalentno prevedemo na (konkretne) operatorske sisteme. 
+Od sedaj naprej bomo delali v kategoriji $\osys_1$, v kateri so izomorfizmi enotske povsem izometrične bijekcije med operatorskimi sistemomi.
 Za konkreten operatorski sistem $\mathcal{S} \subseteq C^* (\mathcal{S})$ torej iščemo `minimalno' $C^*$-algebro $\mathfrak{A}$, za katero obstaja 
 povsem izometrična enotska preslikava $i: \mathcal{S} \to \mathfrak{A}$, tako da je $\mathfrak{A} = C^*(i(\mathcal{S}))$.
 
@@ -383,7 +397,7 @@ povsem izometrična enotska preslikava $i: \mathcal{S} \to \mathfrak{A}$, tako d
 
 
 \begin{definicija}
-    \emph{$C^*$-ogrinjača} operatorske algebre $\mathcal{S}$ definiramo kot končni objekt $(i, C_{\env} ^* (\mathcal{S}))$ v kategoriji $C^*$-pokritij $\mathcal{S}$:
+    \emph{$C^*$-ogrinjačo} operatorske algebre $\mathcal{S}$ definiramo kot končni objekt $(i, C_{\env} ^* (\mathcal{S}))$ v kategoriji $C^*$-pokritij $\mathcal{S}$:
     če je $(j, \mathfrak{A})$ poljubno $C^*$-pokritje $\mathcal{S}$, potem obstaja $*$-homomorfizem $\pi: \mathfrak{A} \to C_{\env} ^* (\mathcal{S})$,
     tako da je $\pi \circ j = i$.
     \begin{equation*}
@@ -394,10 +408,10 @@ povsem izometrična enotska preslikava $i: \mathcal{S} \to \mathfrak{A}$, tako d
         \node (Q) at (4,0) {$C^* _{\env} (\mathcal{S})$};
         
         % top arrow (unlabeled)
-        \draw[->]  (S) -- node[left] {$j$} (A);
+        \draw[->]  (S) -- node[above] {$j$} (A);
         
         % left diagonal arrow
-        \draw[->] (S) -- node[left] {$i$} (Q);
+        \draw[->] (S) -- node[below left] {$i$} (Q);
         
         % right vertical arrow
         \draw[->] (A) -- node[right] {$\pi$} (Q);
@@ -406,7 +420,7 @@ povsem izometrična enotska preslikava $i: \mathcal{S} \to \mathfrak{A}$, tako d
     \end{equation*}
 \end{definicija}
 
-V tem podrazdelku dokažemo, da $C^*$-ogrinjača (in posledično ideal Šilova) res obstaja za vsak operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$.
+V tem podrazdelku dokažemo, da $C^*$-ogrinjača res obstaja za vsak operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$.
 Pri tem sledimo argumentom Dritschell-McCollougha (\cite{dritschel2005}) in Arvesona (\cite{arveson2003}).
 Začnemo z naslednjo definicijo.
 
@@ -778,8 +792,6 @@ Sedaj lahko dokažemo glavni rezultat tega razdelka.
 \end{opomba}
 
 Pomembna lastnost $C^*$-ogrinjače je, da je invariantna za izomorfne operatorske sisteme. 
-Od tod sledi, da je $C^*$-ogrinjača dobro definirana tudi
-za abstraktne operatorske sisteme.
 
 \begin{trditev}
     Naj bosta $\mathcal{S}_1, \mathcal{S}_2$ operatorska sistema in $\varphi: \mathcal{S}_1 \to \mathcal{S}_2$ 
@@ -828,7 +840,7 @@ V zadnjem podrazdelku posplošimo še soroden pojem Choquetovega robu iz funkcij
 in dokažemo njegov obstoj s pomočjo Davidson-Kennedyjevega izreka.
 \end{comment}
 
-\section{Nekomutativen rob Šilova}
+\section{Nekomutativen rob Šilova}\label{sec:11}
 
 Naj bo $\mathcal{S} \subseteq C^*(\mathcal{S})$ operatorski sistem.
 V tem podrazdelku vpeljemo ideal Šilova, kot ga je definiral Arveson v \cite{arveson1969}.
@@ -838,7 +850,7 @@ Da bi motivirali definicijo in utemeljili terminologijo, si najprej oglejmo poje
 
 Naj bo torej $\mathcal{S} \subseteq C(X)$ operatorski sistem, za katerega zahtevamo še, da \emph{loči točke na $X$}:
 to pomeni, da za poljubni točki $x \neq y \in X$ obstaja $f \in \mathcal{S}$, tako da je $f(x) \neq f(y)$.
-Po Stone-Weierstrassovem izreku (DOPOLNI) je to ekvivalentno $C^*(\mathcal{S}) = C(X)$.
+Po Stone-Weierstrassovem izreku (\cite[Theorem V.8.1., str. 145]{conway1990}) je to ekvivalentno $C^*(\mathcal{S}) = C(X)$.
 
 \begin{definicija}
     Naj bo $\mathcal{S} \subseteq C(X)$ operatorski sistem, ki loči točke na $X$.
@@ -848,11 +860,17 @@ Po Stone-Weierstrassovem izreku (DOPOLNI) je to ekvivalentno $C^*(\mathcal{S}) =
     Robni množici $\mathcal{S}$ pravimo \emph{rob Šilova}, če vsebuje vse ostale robne množice.
 \end{definicija}
 
+\begin{comment}
 \begin{opomba}
     Rob Šilova izhaja iz preučevanja \emph{uniformiranih algeber}:
     to so enotske podalgebre (ne nujno zaprte za $*$) $\mathcal{A} \subseteq C(X)$, ki {ločijo točke na $X$}. 
-    Teorija uniformiranih algeber je podrobneje motivirana ter obravnavana v (DOPOLNI).
+    Znan primer je \emph{racionalna uniformirana algebra} $R(X) \subseteq C(X)$ za kompaktno množico $X \subseteq \C$,
+    ki je definirana kot zaprtje vseh racionalnih funkcij, katerih poli ležijo izven $X$.
+    Še en primer je \emph{diskna algebra} $\A (\D)$,
+    ki vsebuje vse holomorfne funkcije na $\D$, ki se jih da zvezno razširiti na $\overline{\D}$.
+    Teorija uniformiranih algeber je podrobneje motivirana ter obravnavana v \cite{gamelin1969}.
 \end{opomba}
+\end{comment}
 
 \begin{zgled}\label{zgl:2.1}
     Oglejmo si operatorski sistem
@@ -870,7 +888,7 @@ Po Stone-Weierstrassovem izreku (DOPOLNI) je to ekvivalentno $C^*(\mathcal{S}) =
         &= 4 (p' \overline{p'} + \overline{q'} q')\\
         &= 4 (|p'|^2 + |q'|^2) \geq 0.
     \end{align*}
-    Po principu maksimum za subharmonične funkcije (DOPOLNI) $|f|^2$ doseže svoj maksimum na $\T$.
+    Po principu maksimuma za subharmonične funkcije (\cite[Theorem 2.3.1., str. 25]{ransford1995}) funkcija $|f|^2$ doseže svoj maksimum na $\T$.
 
     Sedaj dokažemo še, da je $\T$ minimalna robna množica za $\mathcal{S}$.
     Za vsak $\lambda \in \T$ funkcija $z + \lambda \in \mathcal{S}$ doseže maksimum natanko v $\lambda$,
@@ -996,15 +1014,14 @@ Iz naslednje leme sledi, da je ta korespondenca bijektivna.
     Na tej točki opomnimo, da je zaprt ideal $I \lhd \mathfrak{A}$ v $C^*$-algebri vedno zaprt za involucijo, od koder sledi,
     da je $\quot{\mathfrak{A}}{I}$ prav tako $C^*$-algebra in je kanonična kvocientna preslikava 
     $$q_I : \mathfrak{A} \to \quot{\mathfrak{A}}{I}$$
-    $*$-homomorfizem (bralec lahko dokaz najde v (DOPOLNI)).    
+    $*$-homomorfizem (bralec lahko dokaze najde v \cite[Section VIII.4, str. 245-248]{conway1990}).    
 \end{opomba}
 
 Zaprta množica $Y \subseteq X$ je robna za operatorski sistem $\mathcal{S} \subseteq C(X) = C^*(\mathcal{S})$ natanko tedaj, ko je zožitev $*$-homomorfizma 
 $$r_Y: C(X) \to C(Y),\quad f \mapsto f|_Y$$
-na $\mathcal{S}$ izometrija. Če je $r_Y |_{\mathcal{S}}$ izometrija, je 
-po opombi \ref{opo:1.1} enotska povsem skrčitev in enako velja tudi za njen inverz $r_Y ^{-1}: r_Y (\mathcal{S}) \to C(X)$, zato je
-$r_Y |_\mathcal{S}: \mathcal{S} \to C(Y)$ povsem izometrija.
-Slednje pa je ekvivalentno temu, da je $q_{I(Y)} |_{\mathcal{S}}: \mathcal{S} \to \quot{C(X)}{I(Y)}$ povsem izometrija.
+na $\mathcal{S}$ izometrija in po posledici \ref{pos:aux} povsem izometrija.
+Iz spodnjega komutativnega diagrama pa sledi, da je $r_Y |_{\mathcal{S}}: \mathcal{S} \to C(Y)$
+povsem izometrija natanko tedaj, ko je $q_{I(Y)} |_{\mathcal{S}}: \mathcal{S} \to \quot{C(X)}{I(Y)}$ povsem izometrija.
 \begin{equation}\label{eq:aux}
     \begin{tikzpicture}[>=stealth]
 
@@ -1153,7 +1170,9 @@ Ideal Šilova za $\mathcal{S}$ inducira najmanjše $C^*$-pokritje: $C^*$-ogrinja
     $r_Y |_{\mathcal{S}}: \mathcal{S} \to C(\T)$ njegova $C^*$-ogrinjača.
 \end{zgled}
 
-\begin{zgled}[DOPOLNI] \label{zgl:2.2}
+Naslednji zgled je podrobneje obravnavan v \cite{connes2021}.
+
+\begin{zgled}[Connes-van Suijlekom] \label{zgl:2.2}
     Označimo s $\mathcal{T}^{(n)}$ \emph{Toeplitzov operatorski sistem}, ki ga sestavljajo \emph{Toeplitzove matrike}  
     $$\begin{bmatrix}
         a_0 & a_{-1} & a_{-2} & \cdots & a_{-n}\\
@@ -1176,9 +1195,11 @@ Ideal Šilova za $\mathcal{S}$ inducira najmanjše $C^*$-pokritje: $C^*$-ogrinja
     Ker pa je $M_n (\C)$ enostaven kolobar, je $I = (0)$ in $C^* _{\env} (\mathcal{T}^{(n)}) = \quot{M_n (\C)}{I} = M_n (\C)$.
 \end{zgled}
 
+Toeplitzove matrike iz prejšnjega zgleda bomo v naslednjem zgledu posplošili do neskončno dimenzionalnih matrik nad Hilbertovim prostorom $\ell^2 (\Z_+)$.
+Dokaze bomo izpustili in se zgolj sklicali na knjigo \cite{arveson2002}, v kateri je ta material podrobneje obravnavan.
+
 \begin{zgled}\label{zgl:2.3}
-    Prejšnji zgled lahko posplošimo do neskončno dimenzionalnih matrik nad Hilbertovim prostorom $\ell^2 (\Z_+)$.
-    Zanimajo nas torej operatorji $T \in \mathcal{B}(\ell^2 (\Z_+))$, ki imajo glede na standardno bazo $\{e_n\}_{n \in \Z}$ matriko oblike 
+    Oglejmo si operatorje $T \in \mathcal{B}(\ell^2 (\Z_+))$, ki imajo glede na standardno bazo $\{e_n\}_{n \in \Z}$ matriko oblike 
     \begin{equation}\label{eq:aux2}
         \begin{bmatrix}
         a_0 & a_{-1} & a_{-2} & \cdots \\
@@ -1187,7 +1208,6 @@ Ideal Šilova za $\mathcal{S}$ inducira najmanjše $C^*$-pokritje: $C^*$-ogrinja
         \vdots & \vdots & \vdots & \ddots
     \end{bmatrix}\end{equation}
     Izkaže se, da za takšne operatorje obstaja zelo lepa karakterizacija s t.i.~\emph{Toeplitzovimi operatorji}.
-    Dokaze v tem zgledu izpustimo in se zgolj skličemo na knjigo (DOPOLNI), v kateri je ta material podrobneje obravnavan.
 
     Začnemo s prostorom $L^2 (\T, m)$, kjer je $m$ normalizirana Lebesgueova mera na $\T$.
     Iz Fouriereve teorije vemo, da funkcije $\{z^n\}_{n \in \Z}$ tvorijo ortonormirano bazo Hilbertovega prostora $L^2 (\T, m)$.
@@ -1200,7 +1220,7 @@ Ideal Šilova za $\mathcal{S}$ inducira najmanjše $C^*$-pokritje: $C^*$-ogrinja
     $$M_f \in \mathcal{B}(L^2 (\T, m)),\quad M_f (g) = fg$$
     in Toeplitzov operator 
     $$T_f \in \mathcal{B} (H^2),\quad T_f = P_{H^2} M_f |_{H^2}.$$
-    Sedaj so po izreku (DOPOLNI) operatorji $T \in \mathcal{B}(\ell^2 (\Z_+))$ oblike \eqref{eq:aux2}
+    Po izreku \cite[Theorem 4.2.4, str. 108]{arveson2002} so operatorji $T \in \mathcal{B}(\ell^2 (\Z_+))$ oblike \eqref{eq:aux2}
     natanko operatorji $T_f$ za $f \in L^\infty (\T, m)$, pri čemer je $\| T_f \| = \| f\|_\infty$.
     Z drugimi besedami: formalna Toeplitzova matrika 
     $$\begin{bmatrix}
@@ -1214,9 +1234,9 @@ Ideal Šilova za $\mathcal{S}$ inducira najmanjše $C^*$-pokritje: $C^*$-ogrinja
 
     Posebno lepa teorija je za Toeplitzove operatorje \emph{z zveznim simbolom}:
     $$\mathcal{T}(C(\T)) := \{T_f\ |\ f \in C(\T)\}.$$
-    Označimo $S = T_z \in \mathcal{T} (C(\T))$, ki ustreza operatorju premika v desno na $\ell^2 (\Z_+)$,
+    Označimo $S := T_z \in \mathcal{T} (C(\T))$, ki ustreza operatorju desnega premika na $\ell^2 (\Z_+)$,
     torej $S e_n = e_{n + 1}.$ Operator $S$ generira algebro $C^*(S)$, ki je izjemnega pomena v funkcionalni analizi: rečemo ji \emph{Toeplitzova algebra}. 
-    Izrek (DOPOLNI) nam pove, da je Toeplitzova algebra oblike 
+    Izrek \cite[Theorem 4.3.2, str. 111]{arveson2002} nam pove, da je Toeplitzova algebra oblike 
     $$C^*(S) = \{T_f + K\ |\ f \in C(\T),\ {K \in \mathcal{K}(H^2)}\},$$
     pri čemer s $\mathcal{K}(H^2)$ označujemo kompaktne operatorje na $H^2$.
     Izrek nam pove še več: vsak element Toeplitzove algebre lahko na enoličen način razpišemo kot $T_f + K$.
@@ -1229,7 +1249,7 @@ Ideal Šilova za $\mathcal{S}$ inducira najmanjše $C^*$-pokritje: $C^*$-ogrinja
     Dokazujemo, da je njegov ideal Šilova kar $\mathcal{K}(H^2) \subseteq C^*(S)$.
     
     Znano je namreč, da kompaktni operatorji tvorijo zaprt ideal v algebri operatorjev na Hilbertovem prostoru.
-    Najprej dokažimo, da je $\mathcal{K}(\mathcal{H})$ robni ideal za $\mathcal{T}(C(\T))$.
+    Za začetek dokažimo, da je $\mathcal{K}({H^2})$ robni ideal za $\mathcal{T}(C(\T))$.
     Ker ima vsak element v $C^*(S)$ enoličen zapis oblike $T_f + K$, lahko definiramo preslikavo
     $$\varphi: C^*(S) \to C(\T),\quad T_f + K \mapsto f.$$
     Enostavno je preveriti, da je $\varphi$ $*$-homomorfizem in $\ker \varphi = \mathcal{K}(H^2)$, zato imamo komutativni diagram  
@@ -1255,7 +1275,7 @@ Ideal Šilova za $\mathcal{S}$ inducira najmanjše $C^*$-pokritje: $C^*$-ogrinja
     je $$\| \varphi(T_f) \| = \| f\| = \| T_f\|,$$
     zato je $\varphi|_{\mathcal{T}(C(\T))}: \mathcal{T}(C(\T)) \to C(\T)$ enotska izometrija in posledično povsem skrčitev.
     Enako velja tudi za njen inverz, zato je $\varphi|_{\mathcal{T}(C(\T))}: \mathcal{T}(C(\T)) \to C(\T)$ enotska povsem izometrija.
-    Po zgornjem diagramu je zato tudi $q_{\mathcal{K}(H^2)} |_{\mathcal{T}(C(\T))}: \mathcal{T}(C(\T)) \to \quot{C^*({S})}{\mathcal{K}(H^2)}$
+    Po zgornjem diagramu je tudi $q_{\mathcal{K}(H^2)} |_{\mathcal{T}(C(\T))}: \mathcal{T}(C(\T)) \to \quot{C^*({S})}{\mathcal{K}(H^2)}$
     povsem izometrija in $\mathcal{K}(H^2)$ je robni ideal. 
     Dokažimo še, da je tudi ideal Šilova.
     

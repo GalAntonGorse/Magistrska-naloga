@@ -1,10 +1,10 @@
 
-\section{Nekomutativen Choquetov rob}
+\section{Nekomutativen Choquetov rob}\label{sec:12}
 
 V tem poglavju definiramo Arvesonove robne upodobitve (\cite{arveson1969}), ki predstavljajo nekomutativno posplošitev točk v Choquetovem robu za operatorske sisteme v $C(X)$.
-Dokazali bomo, da za vsak operatorski sistem $\mathcal{S}$ obstaja dovolj robnih upodobitev, da \emph{povsem normirajo} $\mathcal{S}$.
+Dokazali bomo, da za vsak operatorski sistem $\mathcal{S}$ obstaja dovolj robnih upodobitev, da {povsem normirajo} $\mathcal{S}$.
 Pri tem sledimo članku Davidsona in Kennedyja \cite{davidson2015},
-v katerem avtorja posplošita argumente Arveson-Dritschell-McCollougha izreka.
+v katerem avtorja posplošita argumente Arveson-Dritschell-McColloughovega izreka za obstoj čistih maksimalnih dilatacij.
 
 Kot v prejšnjem poglavju tudi tokrat najprej začnemo z operatorskim sistemom $\mathcal{S} \subseteq C(X)$,
 ki loči točke na $X$.
@@ -17,14 +17,6 @@ Takoj je očitno, da vsako točko $x \in X$ zastopa njena Diracova delta $\delta
     \emph{Choquetov rob} $\mathcal{S}$ je množica vseh točk $x \in X$,
     za katere je Diracova delta $\delta_x$ edina verjetnostna mera, ki jih zastopa.
 \end{definicija}
-
-\begin{opomba}
-    Pojem Choquetovega robu izhaja iz Choquetove teorije, ki se okvirno ukvarja s problemi naslednjega tipa:
-    \emph{Naj bo $E$ lokalno konveksen prostor in $K \subseteq E$ njegova konveksna, kompaktna podmnožica.
-    Ali za vsako točko $x \in K$ obstaja verjetnostna mera $\mu$ na $K$, skoncentrirana na $\ext K$, tako da za vsak omejen linearen funkcional $f \in E^*$ velja $\int_X f\, d\mu = f(x)$?}
-    Pomemben rezultat v tej smeri je Choquetov izrek (DOPOLNI), ki na to vprašanje odgovori pritrdilno, v kolikor je $E$ metrizabilen prostor.
-    Za več o tej temi glej (DOPOLNI).
-\end{opomba}
 
 
 \begin{zgled}
@@ -41,7 +33,8 @@ Takoj je očitno, da vsako točko $x \in X$ zastopa njena Diracova delta $\delta
     Dokažimo še, da poljubna točka $\lambda \in {\D}$ ni v Choquetovem robu.    
     Definiramo Poissonovo jedro za $\overline{\D}$
     $$P(\lambda, z) = \frac{1 - |\lambda|^2}{|z - \lambda|^2},\quad z \in \T.$$
-    Znano dejstvo je (DOPOLNI), da za vsako realno harmonično funkcijo $g$ na $\D$, ki je zvezna na $\overline{\D}$, velja Poissonova reprezentacijska formula
+    Znano dejstvo je (glej na primer \cite[Theorem 15, str. 41]{evans2010}), da za vsako realno harmonično funkcijo $g$ na $\D$, ki je zvezna na $\overline{\D}$, 
+    velja Poissonova reprezentacijska formula
     $$g(\lambda) = \int_{\T} g(z) P(\lambda, z)\, dm ,$$
     pri čemer je $m$ normalizirana Lebesgueova mera na $\T$. 
     Opazimo, da lahko vsako funkcijo $f \in \mathcal{S}$ zapišemo kot $f(x, y) = p(x, y) + i q(x, y)$,
@@ -49,6 +42,7 @@ Takoj je očitno, da vsako točko $x \in X$ zastopa njena Diracova delta $\delta
     \begin{align*}
         f(\lambda) &= p(\lambda) + i q(\lambda) \\
         &= \int_{\T} p(z) P(\lambda, z)\, dm + i \int_{\T} q(z) P(\lambda, z)\, dm \\ 
+        &= \int_{\T} (p(z) + i q(z)) P(\lambda, z)\, dm \\ 
         &= \int_{\T} f(z) P(\lambda, z)\, dm.
     \end{align*}
     Definiramo sedaj mero $\omega_\lambda$ na $\overline{\D}$,
@@ -59,7 +53,7 @@ Takoj je očitno, da vsako točko $x \in X$ zastopa njena Diracova delta $\delta
     za vse $f \in \mathcal{S}$. Ker je $\omega_\lambda \neq \delta_\lambda$,
     točka $\lambda$ ni v Choquetovem robu.
 
-    Opomnimo, da rob Šilova in Choqueta za operatorski sistem $\mathcal{S}$ sovpadata. 
+    Opazimo lahko, da rob Šilova in Choqueta za operatorski sistem $\mathcal{S}$ sovpadata. 
     Kot bomo videli kasneje, to ni naključje.
 \end{zgled}
 
@@ -78,33 +72,32 @@ Od tod takoj sledi naslednja trditev.
 \end{trditev}
 
 
-Če želimo pojem Choquetovega robu posplošiti na nekomutativen operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$,
-moramo najti primeren nekomutativen analog preslikavam $\ev_x :C(X) \to \C$, kjer je $x \in X$.
+Preostane še najti primeren nekomutativen analog preslikavam $\ev_x :C(X) \to \C$ za $x \in X$.
 Ta analog bodo \emph{nerazcepne upodobitve}. To so upodobitve $C^*$-algeber $\pi: \mathfrak{A} \to \bh$,
 ki nimajo nobenega netrivialnega zaprtega invariantnega podprostora v $\mathcal{H}$.
-Po standardnem izreku iz funkcionalne analize (DOPOLNI) je slednji pogoj ekvivalenten $\pi(\mathfrak{A}) ' = \C \cdot I$.
+Po standardnem izreku iz funkcionalne analize (\cite[Theorem 5.1.5., str. 143]{murphy1990}) je slednji pogoj ekvivalenten $\pi(\mathfrak{A}) ' = \C \cdot I_{\mathcal{H}}$.
 Ni težko videti, da je preslikava $\ev_x: C(X) \to \C$ nerazcepna upodobitev $C^*$-algebre $C(X)$ za poljubno točko $x \in X$.
 Velja pa tudi obratno.
 
 \begin{trditev}
-    Vsaka nerazcepna upodobitev $C^*$-algebre $C(X)$ je oblike $\ev_x : C(X) \to \C$
+    Vsaka nerazcepna upodobitev $C(X)$ je oblike $\ev_x : C(X) \to \C$
     za neko točko $x \in X$.
 \end{trditev}
 
 \begin{dokaz}
-    Naj bo $\rho: C(X) \to \bh$ nerazcepna upodobitev, torej $\rho(C(X))' = \C \cdot I$.
+    Naj bo $\rho: C(X) \to \bh$ nerazcepna upodobitev, torej $\rho(C(X))' = \C \cdot I_{\mathcal{H}}$.
     Ker je $C(X)$ komutativna algebra, je tudi $\rho(C(X))$ komutativna algebra in v posebnem velja 
-    $\rho(C(X)) \subseteq \rho(C(X))' = \C \cdot I$. To pomeni, da je vsak podprostor v $\mathcal{H}$
+    $\rho(C(X)) \subseteq \rho(C(X))' = \C \cdot I_{\mathcal{H}}$. To pomeni, da je vsak podprostor v $\mathcal{H}$
     invarianten za $\rho$, zato mora biti $\dim \mathcal{H} = 1$ in lahko vzamemo $\mathcal{H} \equiv \C$.
     To pomeni, da je $\rho: C(X) \to \mathcal{B}(\C) \equiv \C$ multiplikativen funkcional.
 
-    Naprej dokazujemo, da je njeno jedro $\ker \rho$ maksimalen ideal v $C(X)$. Vzemimo poljuben ideal $\ker \rho \subsetneqq I \subseteq C(X)$,
+    Naprej dokazujemo, da je njegovo jedro $\ker \rho$ maksimalen ideal v $C(X)$. Vzemimo poljuben ideal $\ker \rho \subsetneqq I \subseteq C(X)$,
     tako da obstaja $f \in I \setminus \ker \rho$, za katerega velja $\rho(f) \neq 0$ in $1 - \frac{f}{\rho(f)} \in \ker \rho$.
     Od tod sledi $$1 = \left(1 - \frac{f}{\rho(f)}\right) + \frac{1}{\rho(f)} \cdot f \in I,$$
     zato je $I = C(X)$ in $\ker \rho$ je maksimalen (zaprt) ideal v $C(X)$.
     
     Po korespondenci med zaprtimi ideali v $C(X)$ in zaprtimi množicami v $X$ obstaja neka točka $x \in X$,
-    tako da je $\ker \rho = I(\{x\})$. Potem je za poljubno funkcijo $f \in C(X)$
+    tako da je $\ker \rho = I(\{x\})$. Potem za poljubno funkcijo $f \in C(X)$ velja
     $f - f(x) \cdot 1 \in \ker \rho$, od koder sledi 
     $$\rho(f) - f(x) = 0$$
     in $\rho = \ev_x$.
@@ -135,12 +128,12 @@ Najprej uvedemo nov pojem.
     Oglejmo si množico stanj 
     $$S(\mathcal{S}) = \{\omega \in \mathcal{S}^*\ |\ \text{$\omega$ pozitiven}, \| \omega\| = 1 \}$$ 
     na operatorskem sistemu $\mathcal{S}$. Potem je $S(\mathcal{S})$ neprazna, konveksna 
-    in po Banach-Alaoglujevem izreku (DOPOLNI) kompaktna v šibki-$*$ topologiji.
-    Po Krein-Milmanovem izreku (DOPOLNI) ima zato neprazno množico ekstremnih točk, ki jo označujemo s $\ext S(\mathcal{S})$.
+    in po Banach-Alaoglujevem izreku kompaktna v šibki-$*$ topologiji.
+    Po Krein-Milmanovem izreku \cite[Theorem V.7.4., str. 142]{conway1990} ima zato neprazno množico ekstremnih točk, ki jo označujemo z $\ext S(\mathcal{S})$.
     Dokazujemo, da je stanje na $\mathcal{S}$ čisto natanko tedaj, ko je element $\ext S(\mathcal{S})$
     (slednje običajno vzamemo za definicijo čistih stanj).
 
-    Denimo najprej, da stanje $\omega$ ni čisto, torej obstajata $\omega_1, \omega_2 \in S(\mathcal{S})$, ki nista enaka $\omega$ in za katera velja
+    Denimo najprej, da stanje $\omega$ ni v $\ext S(\mathcal{S})$, torej obstajata $\omega_1, \omega_2 \in S(\mathcal{S})$, ki nista enaka $\omega$ in za katera velja
     $\omega = \frac{1}{2} \omega_1 + \frac{1}{2} \omega_2$. Potem je $0 \leq \frac{1}{2} \omega_1 \leq \omega$,
     vendar pa $\frac{1}{2} \omega_1$ ni skalarni večkratnik $\omega$. 
     
@@ -150,33 +143,55 @@ Najprej uvedemo nov pojem.
     Potem je $\omega = \frac{1}{2} \omega_1 + \frac{1}{2} \omega_2$, torej ne more biti čisto stanje.
 \end{zgled}
 
-\begin{trditev}
+Razlog za vpeljavo čistih preslikav je naslednja karakterizacija Choquetovega robu (\cite[Proposition 6.2, str. 29]{phelps2001}):
+\emph{če je $\mathcal{S} \subseteq C(X)$ operatorski sistem, ki loči točke na $X$,
+potem je točka $x \in X$ v Choquetovem robu natanko tedaj, ko je $\ev_x$ čisto stanje}.
+V nadaljevanju bomo potrebovali različico te ekvivalence za splošne operatorske sisteme.
+
+\begin{trditev}\label{trd:aux2}
+    Naj bo $\mathcal{S} \subseteq C^* (\mathcal{S})$ operatorski sistem in $\rho: C^*(\mathcal{S}) \to \bh$
+    upodobitev. Potem je $\rho$ robna upodobitev za $\mathcal{S}$ natanko tedaj, ko je $\varphi|_{\mathcal{S}}: \mathcal{S} \to \bh$
+    čista in maksimalna.
+%    Če je enotska povsem pozitivna preslikava $\varphi: \mathcal{S} \to \bh$ čista in maksimalna, potem je njena enolična razširitev 
+%    $\rho: C^* (\mathcal{S}) \to \bh$ robna upodobitev.
+\end{trditev}
+
+Za dokaz potrebujemo naslednjo lemo.
+
+\begin{lema}
     Naj bo $\mathfrak{A}$ $C^*$-algebra.
     Preslikava $\varphi \in \PP (\mathfrak{A}, \bh)$ je {čista} natanko tedaj, ko ima 
-    njena minimalna Stinespringove dilatacija $(\pi, V, \mathcal{K})$ nerazcepno upodobitev $\pi$.
-\end{trditev}
+    njena minimalna Stinespringova upodobitev $(\pi, V, \mathcal{K})$ nerazcepno upodobitev $\pi$.
+\end{lema}
 
 \begin{dokaz}
     Po trditvi \ref{trd:1.4} imamo bijektivno korespondenco med množicama 
     $$\{\psi \in \PP (\mathfrak{A}, \bh)\ |\ 0 \leq \psi \leq \varphi\}$$
     ter $$\{T \in \pi(\mathfrak{A})'\ |\ 0 \leq T \leq I\}.$$
-    Slednja množica vsebuje skalarje natanko tedaj, ko je $\pi(\mathfrak{A})' = \C \cdot I$,
-    kar pa je ekvivalentno temu, da je $\pi$ nerazcepna (glej DOPOLNI).
+    Slednja množica vsebuje skalarje natanko tedaj, ko je $\pi(\mathfrak{A})' = \C \cdot I$.
 \end{dokaz}
 
-\begin{lema}
-    Naj bo $\mathcal{S} \subseteq C^* (\mathcal{S})$ operatorski sistem.
-    Če je enotska povsem pozitivna preslikava $\varphi: \mathcal{S} \to \bh$ čista in maksimalna, potem je njena enolična razširitev 
-    $\rho: C^* (\mathcal{S}) \to \bh$ robna upodobitev.
-\end{lema}
-
-\begin{dokaz}
-    Denimo, da $\rho$ ni nerazcepna, torej obstaja nek $(0) \lneqq \mathcal{K} \lneqq \mathcal{H}$,
+\begin{dokaz}[Dokaz trditve \ref{trd:aux2}]
+    Najprej predpostavimo, da je $\rho|_{\mathcal{S}}$ čista in maksimalna.
+    Dovolj je dokazati, da je $\rho$ nerazcepna upodobitev.
+    Denimo nasprotno, torej obstaja nek Hilbertov podprostor $(0) \lneqq \mathcal{K} \lneqq \mathcal{H}$,
     ki reducira $\rho$. Naj bo $P \in \bh$ ortogonalna projekcija na $\mathcal{K}$, torej $P \in \rho(C^* (\mathcal{S}))'$.
-    Potem je $\chi := P \rho$ povsem pozitivna preslikava in $0 \leq \chi\big|_{\mathcal{S}} \leq \varphi$.
-    Ker pa $\chi (1) = P$ ni skalar, $\varphi$ ne more biti čista preslikava.
+    Potem je $\varphi := P \rho$ povsem pozitivna preslikava in $0 \leq \varphi|_{\mathcal{S}} \leq \rho|_{\mathcal{S}}$.
+    Ker pa $\varphi (1) = P$ ni skalar, smo prišli v protislovje s tem, da je $\rho|_{\mathcal{S}}$ čista.
+
+    Sedaj dokažimo še nasprotno. Denimo, da je $\rho: C^*(\mathcal{S}) \to \bh$ robna upodobitev.
+    Ker je $\rho$ upodobitev, je sama svoja minimalna Stinespringova upodobitev, in ker je nerazcepna,
+    je po prejšnji lemi tudi čista preslikava. Zadošča dokazati, da je potem tudi $\rho|_{\mathcal{S}}: \mathcal{S} \to \bh$
+    čista preslikava. Denimo nasprotno, torej obstajata $\varphi_1, \varphi_2 \in \PP(\mathcal{S}, \bh)$, ki nista skalarna večkratnika $\rho|_{\mathcal{S}}$
+    in za katera velja $\rho|_{\mathcal{S}} = \varphi_1 + \varphi_2$.
+    Po Arvesonovem razširitvenem izreku ju lahko razširimo do povsem pozitivnih preslikav $\psi_1, \psi_2 \in \PP(C^*(\mathcal{S}), \bh)$.
+    Ker ima $\rho|_{\mathcal{S}}$ lastnost enolične preslikave, je $\rho = \psi_1 + \psi_2$.
+    Ker je $0 \leq \psi_1 \leq \rho$, smo v protislovju s tem, da je $\rho$ čista preslikava.
 \end{dokaz}
 
+Trditev \ref{trd:aux2} nam pove, da lahko vsako čisto maksimalno preslikavo na operatorskem sistemu $\mathcal{S}$ razširimo do robne upodobitve.
+Preostane nam še, da konstruiramo čiste maksimalne preslikave. To bomo naredili na podoben način, kot v poglavju o $C^*$-algebrah,
+v katerem smo konstruirali maksimalne dilatacije.
 Naslednji izrek je analog Arveson-Dritschell-McColloughovega izreka za čiste preslikave.
 
 \begin{izrek}[Davidson-Kennedy]\label{izr:3.1}
@@ -201,9 +216,9 @@ Naslednja lema je njen analog za čiste dilatacije.
 \end{lema}
 
 \begin{dokaz}
-    Obstoj in enoličnost enotske povsem pozitivne preslikave $\varphi_\infty$ že imamo po lemi \ref{lem:2.1}.
+    Obstoj in enoličnost dilatacije $\varphi_\infty$ že imamo po lemi \ref{lem:2.1}.
     Dokazati moramo le, da je $\varphi_\infty$ tudi čista preslikava.
-    Vzemimo poljubno preslikavo $\psi \in \PP (\mathcal{S}, \mathcal{B}(\mathcal{H}_\infty))$, 
+    Vzemimo poljubno $\psi \in \PP (\mathcal{S}, \mathcal{B}(\mathcal{H}_\infty))$, 
     za katero velja $0 \leq \psi \leq \varphi_\infty$. Potem za vsak $\lambda \in \Lambda$ velja $0 \leq P_{\mathcal{H}_\lambda} \psi |_{\mathcal{H}_\lambda} \leq \varphi_\lambda$,
     zato je $P_{\mathcal{H}_\lambda} \psi |_{\mathcal{H}_\lambda} = t_\lambda \varphi_\lambda$ za skalarje $t_\lambda \in [0, 1]$.
     Ker je $P_{\mathcal{H}_\lambda} \psi(1) |_{\mathcal{H}_\lambda} = t_\lambda \cdot I_{\mathcal{H}_\lambda}$, so vsi skalarji $t_\lambda$ enaki, torej pišemo $t_\lambda = t$.
@@ -214,7 +229,7 @@ Naslednja lema je njen analog za čiste dilatacije.
 
 Naslednja trditev je posplošitev trditve \ref{trd:2.3}.
 
-\begin{trditev}
+\begin{trditev}\label{trd:3.1}
     Če je $\mathcal{S}$ operatorski sistem in $\varphi: \mathcal{S} \to \bh$ čista
     enotska povsem pozitivna preslikava, potem obstaja njena čista dilatacija $\psi \succeq \varphi$, ki je maksimalna na $(a_0, x_0) \in \mathcal{S} \times \mathcal{H}$.
 \end{trditev}
@@ -316,7 +331,7 @@ Naslednja trditev je posplošitev trditve \ref{trd:2.3}.
 
     Najprej opazimo, da imamo v trikotniški neenakosti v vrstici \eqref{eq:2.1} enačaj in zato $\Delta_1 (a_0) x_0 = \Delta_2 (a_0) x_0 = C$, torej $\tau_1, \tau_2 \in L$.
     Prav tako imamo v Cauchyjevi neenakosti v vrstici \eqref{eq:2.3} enačaj, zato sta vektorja $(\lambda_1^{\frac{1}{2}}, \lambda_2 ^{\frac{1}{2}})$
-    in $(\alpha_1^{\frac{1}{2}}, \alpha_2 ^{\frac{1}{2}})$. Ker sta oba tudi enotska, sta enaka in imamo $\lambda_1 = \alpha_1$ ter $\lambda_2 = \alpha_2$.
+    in $(\alpha_1^{\frac{1}{2}}, \alpha_2 ^{\frac{1}{2}})$ kolinearna. Ker sta oba tudi enotska, sta enaka in imamo $\lambda_1 = \alpha_1$ ter $\lambda_2 = \alpha_2$.
     Iz vrstice \eqref{eq:2.2} sledi, da je $\beta_1 = \sqrt{\alpha_1 - \| u_1 \|^2} = \alpha_1 ^{\frac{1}{2}}$ in 
     $\beta_2 = \sqrt{\alpha_2 - \| u_2 \|^2} = \alpha_2 ^{\frac{1}{2}}$, torej $\| u_1\| = \| u_2\| = 0$ in posledično $h_1 = h_2 = 0$.
     To pa pomeni, da je $R_k = \lambda_k ^{\frac{1}{2}} I$ za $k = 1, 2$, od koder sledi 
@@ -328,10 +343,10 @@ Naslednja trditev je posplošitev trditve \ref{trd:2.3}.
     zato je $\psi_1 = \lambda_1 \psi_0$, kot smo hoteli dokazati.
 \end{dokaz}
 
-Sedaj lahko dokažemo izrek \ref{izr:2.2}. Pri tem skoraj popolnoma ponovimo dokaz izreka \ref{izr:2.2},
+Sedaj lahko dokažemo izrek \ref{izr:3.1}. Pri tem skoraj popolnoma ponovimo dokaz izreka \ref{izr:2.2},
 le da bodo tokrat vse dilatacije čiste.
 
-\begin{dokaz}[Dokaz izreka \ref{izr:2.2}]
+\begin{dokaz}[Dokaz izreka \ref{izr:3.1}]
     Po izreku o dobri urejenosti na množici $\mathcal{S} \times \mathcal{H} = \{(a_\lambda, x_\lambda)\}_{\lambda \in \Lambda}$ obstaja dobra urejenost.
     \begin{enumerate}
         \item V prvem koraku za vsak $\lambda \in \Lambda$ konstruiramo čisto enotsko povsem pozitivno preslikavo $\varphi_\lambda: \mathcal{S} \to \mathcal{B} (\mathcal{H}_\lambda)$,
@@ -339,14 +354,14 @@ le da bodo tokrat vse dilatacije čiste.
         in za katero velja $\varphi_\lambda \succeq \varphi_\mu$ za vse $\mu \preceq \lambda$.
         Dokaz tega koraka ponovno poteka s transfinitno indukcijo.
 
-        Označimo z $(a_0, x_0)$ minimum dobre urejenosti. Po trditvi \ref{trd:2.3} obstaja čista dilatacija $\varphi_0: \mathcal{S} \to \mathcal{B}(\mathcal{H}_0)$,
+        Označimo z $(a_0, x_0)$ minimum dobre urejenosti. Po trditvi \ref{trd:3.1} obstaja čista dilatacija $\varphi_0: \mathcal{S} \to \mathcal{B}(\mathcal{H}_0)$,
         tako da je $\varphi_0 \succeq \varphi$ maksimalna na $(a_0, x_0)$.    
 
         Denimo sedaj, da je $(a_\lambda, x_\lambda)$ naslednik nekega $x_\nu \in \mathcal{S} \times \mathcal{H}$.
         Po indukcijski predpostavki obstaja čista enotska povsem pozitivna preslikava $\varphi_\nu: \mathcal{S} \to \mathcal{B}(\mathcal{H}_\nu)$,
         tako da je $\varphi_\nu$ maksimalna na množici $\{(a_\mu, x_\mu) \ |\ \mu \preceq \nu\}$ in $\lambda_\nu \succeq \lambda_\mu$
         za vsak $\nu \preceq \mu$.
-        Tedaj po trditvi \ref{trd:2.3} obstaja čista dilatacija $\varphi_\lambda \succeq \varphi_\nu$,
+        Tedaj po trditvi \ref{trd:3.1} obstaja čista dilatacija $\varphi_\lambda \succeq \varphi_\nu$,
         tako da je $\varphi_\lambda$ maksimalna na $(a_\lambda, x_\lambda)$. Od tod sledi, da je 
         $\varphi_\lambda$ čista in maksimalna na množici $\{(a_\mu, x_\mu) \ |\ \mu \preceq \lambda\}$ in $\varphi_\mu \preceq \varphi_\lambda$
         za vse $\mu \preceq \lambda$.
@@ -376,14 +391,140 @@ le da bodo tokrat vse dilatacije čiste.
     \end{enumerate}
 \end{dokaz}
 
-Z Davidson-Kennedyjevim izrekom lahko dokažemo sedaj glavni izrek tega poglavja.
+S pomočjo Davidson-Kennedyjevega izreka se lahko lotimo glavnega izreka tega poglavja.
 
 \begin{izrek}\label{izr:2.4}
     Za vsako matriko $A \in M_n (\mathcal{S})$ obstaja robna upodobitev $\rho: C^*(\mathcal{S}) \to \mathcal{B}(\mathcal{K})$,
     tako da je $\| A\| = \|\rho^{(n)} (A) \|$.
 \end{izrek}
 
+Za dokaz bomo potrebovali naslednji dve lemi.
+
+\begin{lema}
+    Če so $A, B, C, D \in \bh$, potem
+    $$\left\| \begin{bmatrix}
+        A & B\\
+        C & D
+    \end{bmatrix} \right\| \leq \left\| \begin{bmatrix}
+        \| A\| & \| B\| \\
+         \|C\| & \|D\|
+    \end{bmatrix} \right\|.$$
+\end{lema}
+
 \begin{dokaz}
+    Vzemimo enotski vektor $[x, y]^\top \in \mathcal{H}^2$. Potem je 
+        \begin{align*}
+            \left\|
+            \begin{bmatrix}
+                A & B\\
+                C & D
+            \end{bmatrix} \begin{bmatrix}
+                x \\ y
+            \end{bmatrix} \right\|^2 &= \left\| \begin{bmatrix}
+                A x + B y\\  Cx + Dy
+            \end{bmatrix} \right\|^2 \\
+            &= \| A x + B y \|^2 + \| Cx + Dy \|^2 \\
+            &\leq (\| A\| \| x\| + \| B\| \| y\|)^2 + (\| C\| \| x\| + \| D\| \| y\|)^2 \\
+            &= \left\| \begin{bmatrix}
+                \| A\| \| x\| + \| B\| \| y\| \\ \| C\| \| x\| + \| D\| \| y\|
+            \end{bmatrix} \right\|^2\\
+            &= \left\| \begin{bmatrix}
+                \| A\| & \| B\|\\
+                \| C\| & \| D\|
+            \end{bmatrix} \begin{bmatrix}
+                \| x\| \\ \| y\|
+            \end{bmatrix} \right\|^2\\
+            &\leq \left\| \begin{bmatrix}
+                \| A\| & \| B\|\\
+                \| C\| & \| D\|
+            \end{bmatrix} \right\|^2. \qedhere
+        \end{align*}
+\end{dokaz}
+
+\begin{lema}\label{lem:3.1}
+    Naj bo $\mathfrak{A}$ $C^*$-algebra in $\pi: M_n (\mathfrak{A}) \to \bk$ upodobitev.
+    Potem obstaja upodobitev $\rho: \mathfrak{A} \to \bh$, tako da je  
+    $\pi$ unitarno ekvivalentna $\rho^{(n)}: M_n (\mathfrak{A}) \to \mathcal{B}(\mathcal{H}^n)$.
+\end{lema} 
+
+\begin{proof}
+    Za poljuben par indeksov $i, j$ definirajmo $P_{ij} := \pi (E_{ij}) \in \bk$.
+    Očitno velja $P_{ij} ^* = P_{ji}$ in 
+    \begin{equation}\label{eq:1.7}
+       P_{ij} P_{kl} = \delta_{jk} P_{il}. 
+    \end{equation}
+    V posebnem je 
+    $$P_{ii} ^2 = P_{ii} = P_{ii}^*,$$
+    torej je $P_{ii}$ ortogonalna projekcija na zaprt (po izreku o zaprtem grafu)
+    podprostor $\mathcal{H}_i \subseteq \mathcal{K}$.
+    Ker je $$P_{11} + \cdots + P_{nn} = I,\quad P_{ii} P_{jj} = 0,$$
+    mora veljati $$\mathcal{H}_1 + \cdots + \mathcal{H}_n = \mathcal{K},\quad \mathcal{H}_i \perp \mathcal{H}_j$$
+    in posledično $$\mathcal{H}_1 \oplus \cdots \oplus \mathcal{H}_n = \mathcal{K}.$$
+    Za vsak $a \in \mathfrak{A}$ ter $P_{ii}$ velja $P_{ii} \pi(aI) = \pi(aI) P_{ii}$, torej je vsak $\mathcal{H}_i$
+    reducirajoč prostor za $\pi(aI)$ in je 
+    $$\pi_{ii}: \mathfrak{A} \to \mathcal{B}(\mathcal{H}_i),\quad \pi_{ii} (a) = \pi(aI) \big|_{\mathcal{H}_i}$$
+    upodobitev.
+
+    Po enačbi \eqref{eq:1.7} imamo $P_{ij} (\mathcal{H}_k) = \delta_{jk} \mathcal{H}_{i}$, 
+    kar pomeni, da lahko $P_{ij}$ zapišemo v matrični obliki na $\mathcal{H}_1 \oplus \cdots \oplus \mathcal{H}_n$ kot
+    $$P_{ij} = \begin{bmatrix}
+    0 & 0 & 0 \\
+    0  & 0 & \underbrace{P_{ij}\big|_{\mathcal{H}_j}}_{(i, j)} \\
+     0 & 0 & 0 
+ \end{bmatrix}.$$
+    Iz \eqref{eq:1.7} prav tako sledi $$P_{ij} ^* P_{ij} = P_{ji} P_{ij} = P_{jj},$$
+    od koder dobimo
+    $$(P_{ij}\big|_{\mathcal{H}_j})^* (P_{ij}\big|_{\mathcal{H}_j}) = (P_{ji}\big|_{\mathcal{H}_i}) (P_{ij}\big|_{\mathcal{H}_j}) = P_{jj} \big|_{\mathcal{H}_j} = \id_{\mathcal{H}_j}.$$
+    To implicira, da je $P_{ij}\big|_{\mathcal{H}_j}: \mathcal{H}_j \to \mathcal{H}_i$ unitaren operator
+    in $$P_{ij} \pi_{jj}(a) P_{ji} = \pi_{ii} (a),\quad \forall a \in \mathfrak{A}.$$
+
+    Sedaj definiramo $\mathcal{H} := \mathcal{H}_1$, $\rho := \pi_{11}$ in $U_i := P_{i1} \big|_{\mathcal{H}_1} : \mathcal{H}_1 \to\mathcal{H}_i$, zato je 
+    $$U = \oplus_i ^n U_i : \mathcal{H}^n \to \oplus_{i = 1} ^n \mathcal{H}_i = \mathcal{K}$$
+    unitaren operator. Ker je
+    \begin{align*}
+        U^* \pi(a E_{ij}) U &= \begin{bmatrix}
+            U_1 ^* & & \\
+            & \ddots & \\
+            & & U_n ^* 
+        \end{bmatrix} \pi_{ii} (a) P_{ij} \begin{bmatrix}
+            U_1  & & \\
+            & \ddots & \\
+            & & U_n  
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            P_{11}\big|_{\mathcal{H}_1}  & & \\
+            & \ddots & \\
+            & & P_{1n} \big|_{\mathcal{H}_n} 
+        \end{bmatrix} \begin{bmatrix}
+           0 & 0 & 0 \\
+           0  & 0 & \pi_{ii} (a) {P_{ij}\big|_{\mathcal{H}_j}} \\
+            0 & 0 & 0 
+        \end{bmatrix}
+        \begin{bmatrix}
+            P_{11}\big|_{\mathcal{H}_1}  & & \\
+            & \ddots & \\
+            & & P_{n1} \big|_{\mathcal{H}_1} 
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            0 & 0 & 0 \\
+            0  & 0 & (P_{1i} \big|_{\mathcal{H}_i}) \pi_{ii} (a){(P_{ij}\big|_{\mathcal{H}_j})}(P_{j1} \big|_{\mathcal{H}_1}) \\
+             0 & 0 & 0 
+         \end{bmatrix}\\
+         &= \begin{bmatrix}
+            0 & 0 & 0 \\
+            0  & 0 & (P_{1i} \big|_{\mathcal{H}_i}) \pi_{ii} (a)(P_{i1} \big|_{\mathcal{H}_1}) \\
+             0 & 0 & 0 
+         \end{bmatrix}\\
+         &= \begin{bmatrix}
+            0 & 0 & 0 \\
+            0  & 0 & \pi(a)  \\
+             0 & 0 & 0 
+         \end{bmatrix},
+    \end{align*}
+    sledi $U^* \pi([a_{ij}]_{i, j}) U = [\pi(a_{ij})]_{i, j}$.
+\end{proof}
+
+\begin{dokaz}[Dokaz izreka \ref{izr:2.4}]
     Brez škode za splošnost naj bo $\| A\| = 1$. Oglejmo si matriko 
     $$B := \begin{bmatrix}
         I & A\\
@@ -417,7 +558,7 @@ Z Davidson-Kennedyjevim izrekom lahko dokažemo sedaj glavni izrek tega poglavja
     ekstremno točko $\omega_0$. Slednja je čisto stanje, torej ga lahko po prejšnjem izreku 
     dilatiramo do maksimalne čiste enotske povsem pozitivne preslikave $\psi: M_{2n} (\mathcal{S}) \to \mathcal{B}(\mathcal{K})$,
     ki ima razširitev na robno upodobitev $\psi': M_{2n}(C^* (\mathcal{S})) \to \mathcal{B}(\mathcal{K})$.
-    Po lemi (DOPOLNI) obstaja upodobitev $\rho : C^* (\mathcal{S}) \to \mathcal{B}(\mathcal{K}_0)$, tako da je $\psi'$ unitarno ekvivalentna $\rho ^{(2n)}$,
+    Po lemi \ref{lem:3.1} obstaja upodobitev $\rho : C^* (\mathcal{S}) \to \mathcal{B}(\mathcal{K}_0)$, tako da je $\psi'$ unitarno ekvivalentna $\rho ^{(2n)}$,
     torej obstaja unitarna preslikava $U: \mathcal{K}_0 ^{2n} \to \mathcal{K}$, tako da je $\psi' = U \rho^{(2n)} U^*$.
     Ker je $\psi'$ nerazcepna, velja enako tudi za $\rho^{(2n)}$ in posledično $\rho$.
     Dokazujemo, da je $\rho$ želena robna preslikava.
@@ -448,9 +589,12 @@ Z Davidson-Kennedyjevim izrekom lahko dokažemo sedaj glavni izrek tega poglavja
 \end{dokaz}
 
 \begin{posledica}
-    Naj bo $\mathcal{S}$ operatorski sistem in $\pi: C^*(\mathcal{S}) \to \bh$ direktna vsota vseh robnih upodobitev na $\mathcal{S}$.
-    Potem je $\pi \big|_{\mathcal{S}}: \mathcal{S} \to \pi(C^*(\mathcal{S}))$ $C^*$-ogrinjača $\mathcal{S}$ in 
-    $$\ker \pi = \bigcap \{\ker \rho\ |\ \text{$\rho$ robna upodobitev za $\mathcal{S}$}\}$$
+    Naj bo $\mathcal{S} \subseteq C^*(\mathcal{S})$  
+    in $\{\rho_\lambda\}_{\lambda \in \Lambda}$ množica predstavnikov vseh unitarnih ekvivalenčnih razredov robnih upodobitev $\mathcal{S}$.
+    Če definiramo direktno vsoto $$\pi := \bigoplus_{\lambda \in \Lambda} \rho_\lambda: C^*(\mathcal{S}) \to \bh,$$
+    potem je $\pi|_{\mathcal{S}}: \mathcal{S} \to \pi(C^*(\mathcal{S}))$
+    $C^*$-ogrinjača za $\mathcal{S}$ in 
+    $$\ker \pi = \bigcap_{\lambda \in \Lambda} \ker \rho_\lambda \subseteq C^*(\mathcal{S})$$
     ideal Šilova za $\mathcal{S}$.
 \end{posledica}
 
@@ -471,16 +615,16 @@ Z Davidson-Kennedyjevim izrekom lahko dokažemo sedaj glavni izrek tega poglavja
     Naj bo $Y \subseteq X$ rob Šilova in $Z \subseteq X$ Choquetov rob za $\mathcal{S}$. Ker so vse robne upodobitve $\mathcal{S}$ 
     oblike $\ev_x : C(X) \to \C$ za $x \in Z$, je po prejšnji posledici 
     \begin{align*}
-        I(Y) = \bigcap \{\ker \varphi\ |\ \text{$\varphi$ robna upodobitev za $\mathcal{S}$}\} = \bigcap_{x \in Z} I(\{x\}) = I(\overline{Z}).
+        I(Y) = \bigcap_{x \in Z} \ker \ev_x = \bigcap_{x \in Z} I(\{x\}) = I(\overline{Z}).
     \end{align*}
     Preostane le še utemeljiti zadnjo enakost. Očitno je $I(\overline{Z}) \subseteq \bigcap_{x \in Z} I(\{x\})$.
-    Obratno mora vsaka funkcija $f \in \bigcap_{x \in Z} I(\{x\})$ po zveznosti biti ničelna na zaprtju $\overline{Z}$,
+    Obratno mora vsaka funkcija $f \in \bigcap_{x \in Z} I(\{x\})$, ki je torej ničelna na $Z$, po zveznosti biti ničelna tudi na zaprtju $\overline{Z}$,
     od koder dobimo $f \in I(\overline{Z})$.
 \end{dokaz}
 
 \begin{zgled}
     Vrnimo se k zgledu \ref{zgl:2.2} in poiščimo vse robne upodobitve za operatorski sistem 
-    $\mathcal{T}^{(n)} \subseteq M_n (\C)$. Po lemi (DOPOLNI) so vse nerazcepne upodobitve
+    $\mathcal{T}^{(n)} \subseteq M_n (\C)$ do unitarne ekvivalence. Po lemi \ref{lem:3.1} so vse nerazcepne upodobitve
     $\rho: M_n (\C) \to \bh$ unitarno ekvivalentne identiteti $\id: M_n (\C) \to M_n (\C)$.
     Od tod sledi, da je identiteta do unitarne ekvivalence natanko edina robna upodobitev $\mathcal{T}^{(n)}$.
 \end{zgled}
@@ -508,19 +652,19 @@ Z Davidson-Kennedyjevim izrekom lahko dokažemo sedaj glavni izrek tega poglavja
             
         \end{tikzpicture}    
     \end{equation*}
-    pri čemer je $\overline{\rho}: \frac{C^*({S})}{\mathcal{K}(H^2)} \to \bh$
-    nerazcepna upodobitev za $\frac{C^*({S})}{\mathcal{K}(H^2)}$.
+    pri čemer je $\overline{\rho}: \quot{C^*({S})}{\mathcal{K}(H^2)} \to \bh$
+    nerazcepna upodobitev za $\quot{C^*({S})}{\mathcal{K}(H^2)}$.
     
-    V zgledu \ref{zgl:2.3} smo dokazali, da velja $\frac{C^*({S})}{\mathcal{K}(H^2)} \cong C(\T)$,
+    V zgledu \ref{zgl:2.3} smo dokazali, da velja $\quot{C^*({S})}{\mathcal{K}(H^2)} \cong C(\T)$,
     zato je $\mathcal{H} = \C$ in $\overline{\rho} = \ev_\lambda: C(\T) \to \C$ za nek $\lambda \in \T$.
-    S tem smo dokazali, da so vse robne upodobitve oblike 
+    S tem smo pokazali, da so vse robne upodobitve oblike 
     $$\rho_\lambda: C^*(S) \to \C,\quad \rho_\lambda(T_f + K) = f(\lambda).$$ 
-    Dokazati moramo še, da so $\rho_\lambda$ res robne upodobitve za $\mathcal{T}(C(\T))$.
+    Dokazati moramo še, da so vse takšne upodobitve $\rho_\lambda$ res robne za $\mathcal{T}(C(\T))$.
     
-    Vzemimo poljuben $\lambda \in \T$. Po izreku \ref{izr:2.4} mora obstajati neka robna upodobitev $\rho$, tako da je
-    $$\| \rho(T_{z + \lambda})\| = \| z + \lambda\| = 2.$$
+    Vzemimo poljuben $\lambda \in \T$. Po izreku \ref{izr:2.4} mora obstajati neka robna upodobitev $\rho_\xi$ za $\xi \in \T$, tako da je
+    $$\| \rho_\xi (T_{z + \lambda})\| = \| z + \lambda\| = 2.$$
     Ker pa funkcija $z + \lambda \in C(\T)$ zavzame svoj maksimum natanko v $z = \lambda$,
-    je $\rho = \rho_\lambda$.
+    mora veljati $\xi = \lambda$ in zato je $\rho_\lambda = \rho_\xi$ robna upodobitev.
 \end{zgled}
 
 
