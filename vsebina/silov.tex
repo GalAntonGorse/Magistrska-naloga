@@ -31,9 +31,9 @@ Nazadnje v abstraktnem operatorskem prostoru potrebujemo še enico.
 Element $e \in \mathcal{S}_{\sa}$ je \emph{enota za urejenost} v $\mathcal{S}$, 
 če za vsak $a \in \mathcal{S}_{\sa}$ obstaja pozitivno realno število $r > 0$, tako da je 
 $er + a \in \mathcal{C}_1$. Če velja, da iz $re + a \in \mathcal{C}_1$ za vse $r > 0$
-sledi, da je $a \in \mathcal{C}_1$, potem $e$ rečemo \emph{Arhimedova enota}.
+sledi, da je $a \in \mathcal{C}_1$, potem $e$ rečemo \emph{arhimedska enota}.
 Če je $I_n \in M_n (\mathcal{S})$ enota za urejenost za vse $n \in \N$, potem je $e$ \emph{enota za matrično urejenost}.
-V primeru, ko je $I_n $ Arhimedova za vsak $n \in \N$, je $e$ \emph{Arhimedova enota za matrično urejenost} za $\mathcal{S}$.
+V primeru, ko je $I_n $ Arhimedova za vsak $n \in \N$, je $e$ \emph{arhimedska enota za matrično urejenost} za $\mathcal{S}$.
 
 Opazimo lahko, da obstaja $r > 0$, tako da je $re + e \in \mathcal{C}_1$,
 zato je $e = (r + 1)^{-1} (re + e) \in \mathcal{C}_1$. Na enak način dobimo tudi $I_n  \in \mathcal{C}_n$
@@ -231,9 +231,9 @@ Do sedaj nismo spoznali še nobenega primera abstraktnega operatorskega sistema,
 vendar pa bi po konstrukciji pričakovali, da lahko vsakemu 
 konkretnemu operatorskemu sistemu $\mathcal{S} \subseteq \mathfrak{A}$ na kanoničen način podamo strukturo abstraktnega operatorskega sistema.
 Involucija $*$ je seveda inducirana s $C^*$-algebro, konveksni stožci pa so $\mathcal{C}_n = M_n (\mathcal{S})_+$.
-Dokažimo še, da je $1 \in \mathcal{S}$ Arhimedova enota za matrično urejenost.
+Dokažimo še, da je $1 \in \mathcal{S}$ arhimedska enota za matrično urejenost.
 Za poljubno sebiadjungirano matriko $A \in M_n (\mathcal{S})$ je $\| A\| \cdot I_n - A \geq 0$, torej je $1$ enota za matrično urejenost.
-Dokazati moramo še, da je $1 \in \mathcal{S}$ Arhimedova enota.
+Dokazati moramo še, da je $1 \in \mathcal{S}$ arhimedska enota.
 Denimo, da velja $r \cdot I_n + A \geq 0$ za vse $r > 0$. 
 Potem je $A$ sebiadjungirana, zato ima realen spekter: $\sigma(A) \subseteq \R$.
 Ker za vsak $r > 0$ velja $\sigma(r \cdot I_n + A) = r + \sigma(A) \subseteq [0, \infty)$,
@@ -301,7 +301,7 @@ Sedaj lahko dokažemo Choi-Effrosov izrek.
     
     Najprej bomo dokazali, da obstaja pozitiven linearen funkcional $s: M_n (\mathcal{S}) \to \C$,
     tako da $s(A_0) \not\geq 0$.
-    Po Hahn-Banachovem separacijskem izreku (\cite[Theorem IV.3.9, str. 111]{conway1990}) obstaja realen linearen funkcional
+    Po Hahn-Banachovem separacijskem izreku (\cite[Theorem IV.3.9., str. 111]{conway1990}) obstaja omejen realen linearen funkcional
     $s_0: M_n (\mathcal{S}) \to \R$, ki loči zaprto konveksno množico $\mathcal{C}_n$ od $A_0$, torej 
     $$ s_0(A_0) < \inf \{ s_0(B)\ |\ B \in \mathcal{C}_n\}.$$
     Najprej opazimo, da mora veljati $s_0 (A_0) < 0$.
@@ -372,7 +372,7 @@ v katero lahko vložimo abstrakten operatorski sistem $\mathcal{S}$, in ki je na
 V ta namen bomo za vsako vložitev $i: \mathcal{S} \to \mathfrak{A}$ zahtevali, da je $\mathfrak{A} = C^*(i(\mathcal{S}))$.
 
 To vprašanje lahko ekvivalentno prevedemo na (konkretne) operatorske sisteme. 
-Od sedaj naprej bomo delali v kategoriji $\osys_1$, v kateri so izomorfizmi enotske povsem izometrične bijekcije med operatorskimi sistemomi.
+Od sedaj naprej bomo delali v kategoriji $\os_1$, v kateri so izomorfizmi enotske povsem izometrične bijekcije med operatorskimi sistemomi.
 Za konkreten operatorski sistem $\mathcal{S} \subseteq C^* (\mathcal{S})$ torej iščemo `minimalno' $C^*$-algebro $\mathfrak{A}$, za katero obstaja 
 povsem izometrična enotska preslikava $i: \mathcal{S} \to \mathfrak{A}$, tako da je $\mathfrak{A} = C^*(i(\mathcal{S}))$.
 
@@ -382,7 +382,7 @@ povsem izometrična enotska preslikava $i: \mathcal{S} \to \mathfrak{A}$, tako d
     $\mathfrak{A} = C^* (i(\mathcal{S}))$.
 
     Če sta $(i_1, \mathfrak{A}_1)$ in $(i_2, \mathfrak{A}_2)$
-    $C^*$-pokritji $\mathcal{S}$ in obstaja takšen $*$-homomorfizem $\pi: \mathfrak{B}_1 \to \mathfrak{B}_2$,
+    $C^*$-pokritji $\mathcal{S}$ in obstaja takšen $*$-homomorfizem $\pi: \mathfrak{A}_1 \to \mathfrak{A}_2$,
     da velja $\pi \circ i_1 = i_2$, potem je $\pi$ \emph{morfizem $C^*$-pokritij $\mathcal{S}$}.
 \end{definicija}
 
@@ -429,7 +429,7 @@ Začnemo z naslednjo definicijo.
     Pravimo, da je neka druga enotska povsem pozitivna preslikava $\psi: \mathcal{S} \to \mathcal{B}(\mathcal{K})$ njena \emph{dilatacija},
     če velja $\mathcal{H} \subseteq \mathcal{K}$ ter 
     $$P_{\mathcal{H} } \psi (a) |_{\mathcal{H}} = \varphi (a),\quad \forall a \in \mathcal{S}.$$
-    Rečemo tudi, da je $\varphi$ \emph{kompresija} za $\psi$.
+    Rečemo tudi, da je $\varphi$ \emph{kompresija} za $\psi$. To označujemo s $\varphi \preceq \psi$.
 
     Če je $ \overline{C^* (\psi (\mathcal{S})) \mathcal{H}} = \mathcal{K}$,
     potem pravimo, da je $\psi$ \emph{nerazcepna} dilatacija $\varphi$.
@@ -441,7 +441,7 @@ Začnemo z naslednjo definicijo.
 
 \begin{zgled}
     Vsaka enotska povsem pozitivna preslikava $\varphi: \mathcal{S} \to \bh$ ima trivialno dilatacijo $\varphi \oplus \psi$,
-kjer je $\psi: \mathcal{S} \to \mathcal{B}(\mathcal{K})$ poljubna enotska povsem pozitivna preslikava.
+    kjer je $\psi: \mathcal{S} \to \mathcal{B}(\mathcal{K})$ poljubna enotska povsem pozitivna preslikava.
 \end{zgled}
 
 \begin{zgled}
@@ -453,7 +453,7 @@ kjer je $\psi: \mathcal{S} \to \mathcal{B}(\mathcal{K})$ poljubna enotska povsem
 \begin{definicija}
     Enotska povsem pozitivna preslikava $\varphi: \mathcal{S} \to \bh$ je \emph{maksimalna},
     če nima nobene netrivialne dilatacije. Ekvivalentno: če je $\psi \succeq \varphi$,
-    potem je $\psi = \varphi \oplus \psi'$ za neko enotska povsem pozitivna preslikava $\psi'$.
+    potem je $\psi = \varphi \oplus \psi'$ za neko enotsko povsem pozitivno preslikavo $\psi'$.
 \end{definicija}
 
 \begin{lema}
@@ -542,7 +542,7 @@ kjer je $\psi: \mathcal{S} \to \mathcal{B}(\mathcal{K})$ poljubna enotska povsem
 Ključna lastnost maksimalnih preslikav je, da so invariantne za operatorske sisteme.
 
 \begin{trditev}\label{trd:2.2}
-    Naj bosta $\mathcal{S}_1 \subseteq C^*(\mathcal{S}_1),  \mathcal{S}_1 \subseteq C^*(\mathcal{S}_1)$ operatorski sistema in $\theta: \mathcal{S}_1 \to \mathcal{S}_2$
+    Naj bosta $\mathcal{S}_1 \subseteq C^*(\mathcal{S}_1),  \mathcal{S}_2 \subseteq C^*(\mathcal{S}_2)$ operatorska sistema in $\theta: \mathcal{S}_1 \to \mathcal{S}_2$
     izomorfizem. Če je $\varphi_1: \mathcal{S}_1 \to \bh$ maksimalna preslikava, potem je maksimalna
     tudi $\varphi_2 := \varphi_1 \circ \theta^{-1} : \mathcal{S}_2 \to \bh$.
 \end{trditev}
@@ -655,8 +655,8 @@ Začnimo z naslednjo lemo, ki je posplošitev argumenta v dokazu Arvesonovega iz
         \varphi_\lambda (a) & 0\\
         0 & 0
     \end{bmatrix},$$
-    torej je $\{\psi_\lambda\}_{\lambda \in \Lambda}$ mreža v $\PP_1 (\mathcal{S}, \mathcal{B}(\mathcal{H}_\infty))$.
-    Ker je slednji prostor kompakten, ima mreža neko stekališče $\varphi_\infty \in \PP_1 (\mathcal{S}, \mathcal{B}(\mathcal{H}_\infty))$.
+    torej je $\{\psi_\lambda\}_{\lambda \in \Lambda}$ posplošeno zaporedje v $\PP_1 (\mathcal{S}, \mathcal{B}(\mathcal{H}_\infty))$.
+    Ker je slednji prostor kompakten, ima posplošeno zaporedje neko stekališče $\varphi_\infty \in \PP_1 (\mathcal{S}, \mathcal{B}(\mathcal{H}_\infty))$.
     Dokazujemo, da je $\varphi_\infty$ želena dilatacija. 
 
     Fiksirajmo nek $\lambda \in \Lambda$ in $a \in \mathcal{S}$.
@@ -846,7 +846,7 @@ Naj bo $\mathcal{S} \subseteq C^*(\mathcal{S})$ operatorski sistem.
 V tem podrazdelku vpeljemo ideal Šilova, kot ga je definiral Arveson v \cite{arveson1969}.
 To nam bo omogočilo, da $C^*$-ogrinjačo $C^* _{\env}(\mathcal{S})$ za nekatere operatorske sisteme tudi eksplicitno določimo; ideal Šilova namreč `meri',
 v kolikšni meri se $C^*(\mathcal{S})$ razlikuje od $C^* _{\env}(\mathcal{S})$.
-Da bi motivirali definicijo in utemeljili terminologijo, si najprej oglejmo pojem robu Šilova za operatorske sisteme v $C(X)$ in ga nato prevedimo v jezik $C^*$-algeber.
+Da bi motivirali definicijo in utemeljili terminologijo, si najprej oglejmo pojem roba Šilova za operatorske sisteme v $C(X)$ in ga nato prevedimo v jezik $C^*$-algeber.
 
 Naj bo torej $\mathcal{S} \subseteq C(X)$ operatorski sistem, za katerega zahtevamo še, da \emph{loči točke na $X$}:
 to pomeni, da za poljubni točki $x \neq y \in X$ obstaja $f \in \mathcal{S}$, tako da je $f(x) \neq f(y)$.
@@ -857,7 +857,7 @@ Po Stone-Weierstrassovem izreku (\cite[Theorem V.8.1., str. 145]{conway1990}) je
     Zaprta množica $Y \subseteq X$ je \emph{robna množica} za $\mathcal{S}$,
     če vsaka funkcija $f \in \mathcal{S}$
     na njej doseže svojo normo.
-    Robni množici $\mathcal{S}$ pravimo \emph{rob Šilova}, če vsebuje vse ostale robne množice.
+    Če obstaja minimalna robna množica za $\mathcal{S}$, ji pravimo \emph{rob Šilova}.
 \end{definicija}
 
 \begin{comment}
@@ -892,7 +892,7 @@ Po Stone-Weierstrassovem izreku (\cite[Theorem V.8.1., str. 145]{conway1990}) je
 
     Sedaj dokažemo še, da je $\T$ minimalna robna množica za $\mathcal{S}$.
     Za vsak $\lambda \in \T$ funkcija $z + \lambda \in \mathcal{S}$ doseže maksimum natanko v $\lambda$,
-    torej mora biti $\lambda$ element robu Šilova za $\mathcal{S}$.
+    torej mora biti $\lambda$ element roba Šilova za $\mathcal{S}$.
 \end{zgled}
 
 
@@ -974,7 +974,7 @@ za katero velja $\overline{\co}(\phi(X)) = S(\mathcal{S})$, mora po Milmanovem i
 
 \end{comment}
 
-V tem poglavju bomo pojem robu Šilova posplošili na
+V tem poglavju bomo pojem roba Šilova posplošili na
 poljuben (ne nujno komutativen) operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$.
 Ker $C^*(\mathcal{S})$ v splošnem ni nujno oblike $C(X)$, ne moremo več govoriti o robu Šilova kot o topološkem podprostoru v $X$.
 Opazimo pa lahko, da ima vsak zaprt podprostor $Y \subseteq X$ pripadajoč zaprt ideal 

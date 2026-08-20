@@ -10,17 +10,17 @@ Glavni cilj tega magistrskega dela je izpostaviti dva takšna geometrijska pojma
 in vpeljati njuna nekomutativna analoga.
 
 Ključen pojem, ki ga bomo pri tem potrebovali, so \emph{povsem pozitivne preslikave}.
-Eden izmed načinov, na katere lahko motiviramo povsem pozitivne preslikave motiviramo, pride iz nekomutativne verjetnosti.
+Eden izmed načinov, na katerega lahko motiviramo povsem pozitivne preslikave, pride iz nekomutativne verjetnosti.
 Povsem pozitivne preslikave so namreč nekomutativna posplošitev pojma {Markovskega jedra} iz klasične verjetnosti.
 Običajnemu verjetnostnemu prostoru $(X, \mathcal{F}, \mu)$ lahko priredimo $C^*$-algebro $\mathcal{B} (X)$,
 ki jo sestavljajo vse omejene kompleksne naključne spremenljivke na $X$, in pričakovano vrednost $\E: \mathcal{B} (X) \to \C$.
 To nam omogoča, da na verjetnostne prostore gledamo iz bolj abstraktnega vidika
-kot par $(\mathfrak{A}, \E)$,
+kot na par $(\mathfrak{A}, \E)$,
 kjer je $\mathfrak{A}$ $C^*$-algebra in $\E: \mathfrak{A} \to \C$ pozitiven funkcional,
-za katerega velja $\E (1) = 1$ (takšnim funkcionalom v žargonu pravimo \emph{stanja}).
+za katerega velja $\E (1) = 1$ (takšnim funkcionalom pravimo \emph{stanja}).
 Izkaže se, da lahko večino običajnih pojmov iz verjetnostne teorije, kot na primer \emph{dogodke}, \emph{slučajne spremenljivke}, ali pa \emph{pogojno pričakovano vrednost}, 
 prevedemo tudi na nekomutativni kontekst
-(za več o tej temi glej \cite{nicaspeicher2006}). Oglejmo si Markovsko jedro za merljiva prostora $(X, \mathcal{F})$ in $(Y, \mathcal{G})$,
+(več o temi v \cite{nicaspeicher2006}). Oglejmo si Markovsko jedro za merljiva prostora $(X, \mathcal{F})$ in $(Y, \mathcal{G})$,
 ki je definirano kot funkcija $K: Y \times \mathcal{F} \to [0, 1]$,
 tako da je za vsak $A \in \mathcal{F}$ preslikava $y \mapsto K(y, A)$ $\mathcal{G}$-merljiva in 
 za vsak $y \in Y$ preslikava $B \mapsto K(y, B)$ verjetnostna mera na $(X, \mathcal{F})$.
@@ -35,7 +35,7 @@ za katere velja lastnost \eqref{eq:intro1}, pravimo povsem pozitivne preslikave.
 Povsem pozitivne preslikave imajo med drugim aplikacije v opisu \emph{odprtih kvantnih sistemov} s pomočjo
 \emph{kvantnih dinamičnih polgrup} %, ki so nekomutativna posplošitev klasičnih markovskih polgrup 
 (\cite{attaljoyepillet2006}),
-ali pa v \emph{kvantni teoriji informacij}, kjer so znani kot \emph{kvantni kanali} (\cite{nielsenchuang2010}).
+ali pa v \emph{kvantni teoriji informacij}, kjer so znane kot \emph{kvantni kanali} (\cite{nielsenchuang2010}).
 
 Pri organizaciji snovi v tem magistrskem delu sem želel okvirno slediti zgodovinskemu zaporedju teorije povsem pozitivnih preslikav.
 Za njen začetek lahko vzamemo Stinespringov članek \cite{stinespring1955} iz leta 1955
@@ -49,13 +49,13 @@ obravnavamo v poglavju \ref{sec:2}.
 Iz Arvesonovega dela je sledilo, da naravna domena za povsem pozitivne preslikave niso celotne $C^*$-algebre,
 temveč njihovi enotski sebiadjungirani podprostori, ki jim v žargonu pravimo \emph{operatorski sistemi}.
 Kot bomo videli, so povsem pozitivne preslikave morfizmi v kategoriji operatorskih sistemov.
-Operatorski sistemi se sicer pojavijo tudi v nekomutativni geometriji%, ko obravnavamo \emph{spektralne trojice} -- to so trojice $(\mathfrak{A}, \mathcal{H}, D)$,
+Operatorski sistemi se sicer pojavijo tudi v nekomutativni geometriji %, ko obravnavamo \emph{spektralne trojice} -- to so trojice $(\mathfrak{A}, \mathcal{H}, D)$,
 %kjer je $\mathfrak{A}$ enotska $*$-algebra omejenih operatorjev na Hilbertovem prostoru $\mathcal{H}$ in $D$ neomejen sebiadjungiran operator, 
 %tako da je njegova resolventa $(D + i)^{-1}$ kompaktna in je $[D, a] = Da - aD$ omejen operator za vsak $a \in \mathfrak{A}$ (DOPOLNI).
 %Če s $P$ označimo projekcijo na lastne podprostore $D$, potem želimo strukturo spektralne trojice $(\mathfrak{A}, \mathcal{H}, D)$
 %izluščiti s pomočjo trojic $(P \mathfrak{A} P, P \mathcal{H}, PDP)$, toda $P\mathfrak{A}P$ v tem primeru ni več $*$-algebra,
 %temveč operatorski sistem 
-(za več o tem pristopu glej \cite{connes2021}), najdemo jih pa tudi v kvantni teoriji informacij kot \emph{kvantne grafe} (\cite{weaver2021}, \cite{duanseveriniwinter2013}).
+(\cite{connes2021}), najdemo jih pa tudi v kvantni teoriji informacij kot \emph{kvantne grafe} (\cite{weaver2021}, \cite{duanseveriniwinter2013}).
 Osnovne lastnosti operatorskih sistemov obravnavamo v poglavju \ref{sec:3}.
 
 Operatorski sistemi so poseben primer operatorskih prostorov,
@@ -68,9 +68,9 @@ Glavna rezultata tega razdelka bosta, da so vse povsem pozitivne preslikave povs
 in da lahko vsako enotsko povsem skrčitev na operatorskem sistemu $\mathcal{M}$
 razširimo do povsem pozitivne preslikave na operatorskem sistemu $\mathcal{M} + \mathcal{M}^*$.
 Od 1980-ih let naprej so Ruan, Paulsen, Wittstock in ostali avtorji podrobneje razvijali
-teorijo popolnoma omejenih preslikav in operatorskih prostorov, ki jo 
-lahko razumemo kot tesen analog teorije popolnoma pozitivnih preslikav in operatorskih sistemov.
-V tem magistrskem delu se s tem ne bomo ukvarjali; več podrobnosti lahko bralec najde v \cite{paulsen2002} ali
+teorijo povsem omejenih preslikav in operatorskih prostorov, ki jo 
+lahko razumemo kot tesen analog teorije povsem pozitivnih preslikav in operatorskih sistemov.
+V tem magistrskem delu se s tem ne bomo ukvarjali; celovit pregled lahko bralec najde v \cite{paulsen2002} ali
 \cite{pisier2003}.
 
 V krajšem razdelku \ref{sec:5} bomo nato dokazali Stinespringovo karakterizacijo povsem pozitivnih 
@@ -103,25 +103,25 @@ V poglavju \ref{sec:8} bomo to trditev dokazali še za povsem pozitivne preslika
 s čimer bomo dokazali Arvesonov razširitveni izrek.
 
 Naslednji pomemben članek za teorijo povsem pozitivnih preslikav sta leta 1977 napisala Choi in Effros (\cite{choieffros1977}),
-v katerem sta avtorja dokazala, da imajo vsak operatorski sistem abstraktno karakterizacijo, ki je torej neodvisna od konkretne $C^*$-algebre,
+v katerem sta avtorja dokazala, da ima vsak operatorski sistem abstraktno karakterizacijo, ki je torej neodvisna od konkretne $C^*$-algebre,
 v kateri je operatorski sistem vložen. Choi-Effrosevo abstraktno karakterizacijo obravnavamo v razdelku \ref{sec:9}.
 Zato se poraja vprašanje, ali obstaja $C^*$-algebra, v katero lahko vložimo abstrakten operatorski sistem, in ki je na nek način `minimalna'.
-Ekvivalentno vprašanje lahko postavimo za konkreten operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$: ali obstaja minimalna $C^*$-algebra 
-$\mathfrak{A}$, tako da obstaja enotska povsem izometrija $i: \mathcal{S} \to \mathfrak{A}$ in je $\mathfrak{A} = C^*(i(\mathcal{S}))$?
+Ekvivalentno vprašanje lahko postavimo za konkreten operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$: ali taka obstaja minimalna $C^*$-algebra 
+$\mathfrak{A}$ in enotska povsem izometrija $i: \mathcal{S} \to \mathfrak{A}$, da je $\mathfrak{A} = C^*(i(\mathcal{S}))$?
 Takšni $C^*$-algebri $\mathfrak{A}$ bomo rekli \emph{$C^*$-ogrinjača}.
 
 Problem obstoja $C^*$-ogrinjače je obravnaval že Arveson v \cite{arveson1969}.
-V ta namen je vpeljal nekomutativen analog geometrijskega pojma robu Šilova, ki smo ga omenili na začetku uvoda.
+V ta namen je vpeljal nekomutativen analog geometrijskega pojma roba Šilova, ki smo ga omenili na začetku uvoda.
 Če je $\mathcal{S} \subseteq C(X)$ operatorski sistem, ki loči točke na kompaktnem Hausdorffovem kompaktu $X$,
 potem je njegov rob Šilova definiran kot najmanjša zaprta podmnožica $Y \subseteq X$,
 tako da vsaka funkcija iz $\mathcal{S}$ na $Y$ doseže svojo supremum normo.
 Rob Šilova izhaja iz preučevanja \emph{uniformiranih algeber}:
 to so enotske podalgebre (ne nujno zaprte za $*$) $\mathcal{A} \subseteq C(X)$, ki {ločijo točke na $X$}
-(za več o tem glej \cite{gamelin1969}). Da lahko vpeljemo nekomutativen rob Šilova,
+(več o tem v \cite{gamelin1969}). Da lahko vpeljemo nekomutativen rob Šilova,
 moramo njegovo definicijo prevesti v besednjak $C^*$-algeber.
 To, da operatorski sistem $\mathcal{S} \subseteq C(X)$ loči točke na $X$,
 je po Stone-Weierstrassovem izreku ekvivalentno temu, da $\mathcal{S}$ generira $C^*$-algebro $C(X)$.
-Ker so zaprte podmnožica $X$ v bijektivni korespondenci z zaprtimi ideali v $C(X)$, lahko vpeljemo 
+Ker so zaprte podmnožice $X$ v bijektivni korespondenci z zaprtimi ideali v $C(X)$, lahko vpeljemo 
 nekomutativen rob Šilova za poljuben operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$ kot zaprt ideal $I \subseteq C^*(\mathcal{S})$. 
 Arveson je opazil, da če za operatorski sistem $\mathcal{S} \subseteq C^*(\mathcal{S})$ obstaja $C^*$-ogrinjača $C^* _{\env} (\mathcal{S})$,
 potem obstaja tudi njegov ideal Šilova $I \subseteq C^*(\mathcal{S})$ in velja $\quot{C^*(\mathcal{S})}{I} \cong C_{\env} ^* (\mathcal{S})$.
@@ -129,8 +129,8 @@ V svojem delu je dokazal obstoj ideala Šilova le za določen tip operatorskih s
 za splošen operatorski sistem ostalo nerešeno do
 leta 1979, ko je nanj pritrdilno odgovoril Hamana v članku \cite{hamana1979} s svojo teorijo injektivnih ogrinjač.
 
-Arveson je poleg robu Šilova vpeljal še nekomutativen analog tesno povezanega geometrijskega pojma: Choquetovega robu.
-Choquetov rob je pojem iz Choquetove teorije, ki se okvirno ukvarja s problemi naslednjega tipa:
+Arveson je poleg roba Šilova vpeljal še nekomutativen analog tesno povezanega geometrijskega pojma: Choquetovega roba.
+To je pojem iz Choquetove teorije, ki se okvirno ukvarja s problemi naslednjega tipa:
 \emph{Naj bo $E$ lokalno konveksen prostor in $K \subseteq E$ njegova konveksna, kompaktna podmnožica.
 Ali za vsako točko $x \in K$ obstaja verjetnostna mera $\mu$ na $K$, skoncentrirana na $\ext K$, tako da za vsak omejen linearen funkcional $f \in E^*$ velja $\int_X f\, d\mu = f(x)$?}
 Pomemben rezultat v tej smeri je Choquetov izrek (\cite[str. 14]{phelps2001}), ki na to vprašanje odgovori pritrdilno, v kolikor je $E$ metrizabilen prostor (več o tej temi v knjigi \cite{phelps2001}).
@@ -150,7 +150,7 @@ na operatorske sisteme. V poglavju \ref{sec:10} predstavimo njihov dokaz, ki mu 
 
 Za razliko od Hamanine teorije injektivnih ogrinjač nam argumenti Arvesona, Dritschela in McCollougha omogočajo konstrukcijo robnih upodobitev.
 Arveson je nato leta 2008 v članku \cite{arveson2008} dokazal obstoj dovolj robnih upodobitev za separabilne operatorske sisteme. 
-Za splošne operatorske sisteme sta trditev dokazala Davidson in Kennedy leta 2015 v članku \cite{davidson2015},
+Za splošne (ne nujno separabilne) operatorske sisteme sta trditev dokazala Davidson in Kennedy leta 2015 v članku \cite{davidson2015},
 s čimer sta rešila 46-letno domnevo na področju operatorskih algeber.
 V zadnjem poglavju \ref{sec:12} predstavimo njuno rešitev.
 

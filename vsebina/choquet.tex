@@ -37,12 +37,15 @@ Takoj je očitno, da vsako točko $x \in X$ zastopa njena Diracova delta $\delta
     velja Poissonova reprezentacijska formula
     $$g(\lambda) = \int_{\T} g(z) P(\lambda, z)\, dm ,$$
     pri čemer je $m$ normalizirana Lebesgueova mera na $\T$. 
-    Opazimo, da lahko vsako funkcijo $f \in \mathcal{S}$ zapišemo kot $f(x, y) = p(x, y) + i q(x, y)$,
-    kjer sta $p, q$ realna polinoma (in zato harmonični funkciji na $\D$). To pomeni, da je 
+    Spomnimo, da sta za poljubno holomorfno funkcijo $f$ funkciji $\real f, \imag f$ harmonični.
+    Enako mora potem veljati tudi za konjugirano holomorfno funkcijo.
+    Od tod sledi, da sta realni in imaginarni del za vsak $f \in \mathcal{S}$
+    harmonični funkciji,
+    zato je
     \begin{align*}
-        f(\lambda) &= p(\lambda) + i q(\lambda) \\
-        &= \int_{\T} p(z) P(\lambda, z)\, dm + i \int_{\T} q(z) P(\lambda, z)\, dm \\ 
-        &= \int_{\T} (p(z) + i q(z)) P(\lambda, z)\, dm \\ 
+        f(\lambda) &= \real f(\lambda) + i \imag f(\lambda) \\
+        &= \int_{\T} \real f(z) P(\lambda, z)\, dm + i \int_{\T} \imag f(z) P(\lambda, z)\, dm \\ 
+        &= \int_{\T} (\real f(z) + i \imag f(z)) P(\lambda, z)\, dm \\ 
         &= \int_{\T} f(z) P(\lambda, z)\, dm.
     \end{align*}
     Definiramo sedaj mero $\omega_\lambda$ na $\overline{\D}$,
@@ -57,11 +60,11 @@ Takoj je očitno, da vsako točko $x \in X$ zastopa njena Diracova delta $\delta
     Kot bomo videli kasneje, to ni naključje.
 \end{zgled}
 
-Če želimo definicijo Choquetovega robu prenesti na splošne operatorske sisteme,
+Če želimo definicijo Choquetovega roba prenesti na splošne operatorske sisteme,
 jo moramo najprej prevesti v jezik funkcionalne analize.
 Za poljubno točko $x \in X$ lahko definiramo $*$-homomorfizem 
 $$\ev_x: C(X) \to \C,\quad f \mapsto f(x).$$
-Ker po Rieszovem reprezentacijskem izreku vsakemu enotskemu pozitivnemu funkcionalu na $C(X)$
+Ker po Riesz-Markov-Kakutanijevem izreku vsakemu enotskemu pozitivnemu funkcionalu na $C(X)$
 ustreza enolično določena verjetnostna mera na $X$, 
 je vsaka točka $x \in X$ v Choquetovem robu natanko tedaj, ko ima funkcional $\ev_x |_{\mathcal{S}}: \mathcal{S} \to \C$
 enolično pozitivno razširitev do $C(X)$.
@@ -80,7 +83,7 @@ Ni težko videti, da je preslikava $\ev_x: C(X) \to \C$ nerazcepna upodobitev $C
 Velja pa tudi obratno.
 
 \begin{trditev}
-    Vsaka nerazcepna upodobitev $C(X)$ je oblike $\ev_x : C(X) \to \C$
+    Vsaka nerazcepna upodobitev $C(X)$ je (do unitarne ekvivalence natanko) oblike $\ev_x : C(X) \to \C$
     za neko točko $x \in X$.
 \end{trditev}
 
@@ -88,7 +91,8 @@ Velja pa tudi obratno.
     Naj bo $\rho: C(X) \to \bh$ nerazcepna upodobitev, torej $\rho(C(X))' = \C \cdot I_{\mathcal{H}}$.
     Ker je $C(X)$ komutativna algebra, je tudi $\rho(C(X))$ komutativna algebra in v posebnem velja 
     $\rho(C(X)) \subseteq \rho(C(X))' = \C \cdot I_{\mathcal{H}}$. To pomeni, da je vsak podprostor v $\mathcal{H}$
-    invarianten za $\rho$, zato mora biti $\dim \mathcal{H} = 1$ in lahko vzamemo $\mathcal{H} \equiv \C$.
+    invarianten za $\rho$, zato mora biti $\dim \mathcal{H} = 1$ in Hilbertov prostor $\mathcal{H}$ je izomorfen $\C$.
+    Vzemimo $\mathcal{H} \equiv \C$, pri čemer razumemo, da imamo karakterizacijo do unitarne ekvivalence natanko.
     To pomeni, da je $\rho: C(X) \to \mathcal{B}(\C) \equiv \C$ multiplikativen funkcional.
 
     Naprej dokazujemo, da je njegovo jedro $\ker \rho$ maksimalen ideal v $C(X)$. Vzemimo poljuben ideal $\ker \rho \subsetneqq I \subseteq C(X)$,
@@ -143,14 +147,14 @@ Najprej uvedemo nov pojem.
     Potem je $\omega = \frac{1}{2} \omega_1 + \frac{1}{2} \omega_2$, torej ne more biti čisto stanje.
 \end{zgled}
 
-Razlog za vpeljavo čistih preslikav je naslednja karakterizacija Choquetovega robu (\cite[Proposition 6.2, str. 29]{phelps2001}):
+Razlog za vpeljavo čistih preslikav je naslednja karakterizacija Choquetovega roba (\cite[Proposition 6.2, str. 29]{phelps2001}):
 \emph{če je $\mathcal{S} \subseteq C(X)$ operatorski sistem, ki loči točke na $X$,
 potem je točka $x \in X$ v Choquetovem robu natanko tedaj, ko je $\ev_x$ čisto stanje}.
 V nadaljevanju bomo potrebovali različico te ekvivalence za splošne operatorske sisteme.
 
 \begin{trditev}\label{trd:aux2}
     Naj bo $\mathcal{S} \subseteq C^* (\mathcal{S})$ operatorski sistem in $\rho: C^*(\mathcal{S}) \to \bh$
-    upodobitev. Potem je $\rho$ robna upodobitev za $\mathcal{S}$ natanko tedaj, ko je $\varphi|_{\mathcal{S}}: \mathcal{S} \to \bh$
+    upodobitev. Potem je $\rho$ robna upodobitev za $\mathcal{S}$ natanko tedaj, ko je $\rho|_{\mathcal{S}}: \mathcal{S} \to \bh$
     čista in maksimalna.
 %    Če je enotska povsem pozitivna preslikava $\varphi: \mathcal{S} \to \bh$ čista in maksimalna, potem je njena enolična razširitev 
 %    $\rho: C^* (\mathcal{S}) \to \bh$ robna upodobitev.
@@ -211,7 +215,7 @@ Naslednja lema je njen analog za čiste dilatacije.
     Naj bo $\{\varphi_{\lambda} : \mathcal{S} \to \mathcal{B} (\mathcal{H}_\lambda)\}_{\lambda \in \Lambda}$ 
     usmerjena množica čistih enotskih povsem pozitivnih preslikav z relacijo $\preceq$.
     Definirajmo $\mathcal{H}_\infty$ kot napolnitev prostora $\bigcup_{\lambda \in \Lambda} \mathcal{H}_\lambda$.
-    Potem obstaja čista enolično določena preslikava $\varphi_{\infty} \in \EPP (\mathcal{S}, \mathcal{B} (\mathcal{H}_\infty))$,
+    Potem obstaja enolično določena čista preslikava $\varphi_{\infty} \in \EPP (\mathcal{S}, \mathcal{B} (\mathcal{H}_\infty))$,
     tako da je $\varphi_\infty \succeq \varphi_{\lambda}$ za vsak $\lambda \in \Lambda$. 
 \end{lema}
 
@@ -607,8 +611,8 @@ Za dokaz bomo potrebovali naslednji dve lemi.
 \end{dokaz}
 
 \begin{posledica}[Choquet]
-    Če je $\mathcal{S} \subseteq C(X) = C^*(\mathcal{S})$ operatorski sistem, potem je 
-    njegov rob Šilova enak zaprtju Choquetovega robu.
+    Če je $\mathcal{S} \subseteq C(X)$ operatorski sistem, ki loči točke na $X$, potem je 
+    njegov rob Šilova enak zaprtju Choquetovega roba.
 \end{posledica}
 
 \begin{dokaz}
@@ -621,6 +625,115 @@ Za dokaz bomo potrebovali naslednji dve lemi.
     Obratno mora vsaka funkcija $f \in \bigcap_{x \in Z} I(\{x\})$, ki je torej ničelna na $Z$, po zveznosti biti ničelna tudi na zaprtju $\overline{Z}$,
     od koder dobimo $f \in I(\overline{Z})$.
 \end{dokaz}
+
+\begin{zgled}
+    Skicirajmo konstrukcijo operatorskega sistema $\mathcal{S} \subseteq C(X)$,
+    ki loči točke na $X$ in za katerega Choquetov rob ni zaprt v $X$.
+
+    Kot je običajno v Choquetovi teoriji, si oglejmo kompaktno in konveksno množico $X \subseteq E$,
+    kjer je $E$ lokalno konveksen prostor. Naj bo $\mathcal{S} \subseteq C(X)$ popolnoma poljuben operatorski sistem, ki loči točke na $X$,
+    in $S(\mathcal{S})$ njegova množica stanj, ki je kompaktna in konveksna v šibki-$*$ topologiji.
+    Definiramo preslikavo 
+    $$\ev: X \to S(\mathcal{S}),\quad x \mapsto \ev_x.$$
+    Po preprostem razmisleku s posplošenimi zaporedji je ta preslikava zvezna in posledično zaprta,
+    saj slika iz kompakta v Hausdorffov prostor.
+    Ker $\mathcal{S}$ loči točke na $X$, je preslikava $\ev$ tudi injektivna (to je eden izmed razlogov, zakaj v Choquetovi teoriji naredimo to predpostavko)
+    in zato homeomorfizem na svojo sliko.
+    
+    Skicirajmo še dejstvo, da je $S(\mathcal{S})$ zaprta konveksna ogrinjača slike $\ev (X)$.
+    Označimo $Y := \overline{\co} (\ev(Y))$ in predpostavimo nasprotno, torej da je $Y \subsetneq S(\mathcal{S})$.
+    Potem obstaja neko stanje $\omega \in S(\mathcal{S}) \setminus Y$.
+    Po Hahn-Banachovem separacijskem izreku obstaja realen omejen funkcional $\varphi: S(\mathcal{S}) \to \R$,
+    tako da je $\varphi(\omega) > \sup \{\varphi(y)\ |\ y \in Y\}$. Ker je $\varphi$ omejen funkcional, obstaja (po definiciji šibke-$*$ topologije)
+    funkcija $f \in \mathcal{S}$, tako da je $\varphi$ evaluacija stanj na $f$.
+    Vzemimo konstanto $C \geq 0$, za katero je $\real f + C \geq 0$ in ker je $\mathcal{S}$ operatorski sistem, imamo $\real f + C \in \mathcal{S}$.
+    Od tod sledi
+    \begin{align*}
+        \| \real f + C\| &= \sup\{\real f (x)\ |\ x \in X\} + C\\
+        &=  \sup \{ \varphi(y)\ |\ y \in Y\} + C\\
+        &< \varphi(\omega) + C\\
+        &= \omega (\real f + C)\\
+        &\leq \omega(1) \cdot \| \real f + C\|\\
+        &= \| \real f + C\|,
+    \end{align*}
+    protislovje. 
+
+    Zgornje ugotovitve sedaj uporabimo na operatorskem sistemu $\mathcal{S} := A(X)$, ki označuje množico vseh kompleksnih afinih funkcij na $X$.
+    Po Hahn-Banachovem separacijskem izreku $A(X)$ loči točke na $X$.
+    V prejšnjih odstavkih smo izpeljali, da je preslikava $\ev: X \to S(A(X))$ zaprt homeomorfizem na svojo sliko,
+    katere zaprta konveksna ogrinjača je celoten $S(A(X))$. Dokažimo še, da je v tem primeru ta preslikava tudi afina.
+    Za poljubni točki $x, y \in X$, skalar $t \in [0, 1]$ in $f \in A(X)$ velja 
+    \begin{align*}
+        \ev(tx + (1 - t)y) (f) &= f(tx + (1 - t) y)\\
+        &= t f(x) + (1 - t) f(y)\\
+        &=t \ev (x) (f)  + (1 - t) \ev(y) (f),
+    \end{align*}
+    od koder sledi $\ev (tx + (1 - t) y) = t \ev(x) + ( 1 - t) \ev(y)$.
+    To pomeni, da je $\ev(X)$ konveksna zaprta množica, zato je $\ev(X) = \overline{\co} (\ev(X)) = S(A(X))$.
+    S tem smo dokazali, da je $\ev: X \to S(A(X))$ afin homeomorfizem. Trivialno je dokazati, da $\ev$ in njegov inverz ohranjata ekstremne točke:
+    velja $x \in \ext X$ natanko tedaj, ko je $\ev_x \in \ext S(A(X))$.
+    Choquetov rob za $A(X)$ je torej natanko množica $\ext X$. 
+
+    Preostane nam le še poiskati kompaktno in konveksno množico $X$ v nekem lokalno konveksnem prostoru,
+    tako da $\ext (X)$ ni zaprta v $X$. Znan primer obstaja že v $\R^3$
+    (glej sliko \ref{fig:3.1}).
+\end{zgled}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=1]
+     
+      % ---- Key points (poles C, I and base corners B, A are collinear as required) ----
+      \coordinate (B) at (-4.4,0);
+      \coordinate (A) at ( 4.4,0);
+      \coordinate (C) at ( 0.0,4.2);   % top pole (apex)
+      \coordinate (I) at ( 0.0,0.0);   % bottom pole (excluded extreme point)
+     
+      % ---- Cone outline (thin) ----
+      \draw[thin] (B) -- (C) -- (A);
+      \draw[thin] (B) -- (A);
+     
+      % ---- The two arcs from C to I: genuine, symmetric circle segments ----
+      % Chord CI is vertical of length h=4.2. Each arc is (minor) arc of a circle
+      % whose center sits on the perpendicular bisector of CI, offset horizontally
+      % by dx; radius and angles are computed so the arc stays inside the triangle.
+      \pgfmathsetmacro{\dx}{2.3}                         % horizontal offset of the circle's center
+      \pgfmathsetmacro{\hh}{2.1}                         % half of |CI|
+      \pgfmathsetmacro{\rr}{sqrt(\dx*\dx+\hh*\hh)}        % radius
+      \pgfmathsetmacro{\ang}{atan(\hh/\dx)}               % half-angle subtended
+     
+      % Front (near) half: solid, bold, curving left -- this is "the rim"
+      \draw[very thick]
+        (C) arc [start angle={180-\ang}, end angle={180+\ang}, radius=\rr];
+     
+      % Back (far) half: dashed, bold, curving right (mirror image)
+      \draw[very thick, dashed]
+        (C) arc [start angle=\ang, end angle=-\ang, radius=\rr];
+     
+      % ---- Extreme points ----
+      % Apex C is extreme: filled dot
+      \filldraw (C) circle (2.2pt);
+      % B and A: filled dots (corners of the outline)
+      \filldraw (B) circle (2pt);
+      \filldraw (A) circle (2pt);
+      % I is NOT extreme (limit of extreme points, but not itself extreme): hollow dot
+      \draw[fill=white] (I) circle (2.2pt);
+     
+      % ---- Labels ----
+      \node[below left, xshift=-80pt, yshift=-42pt] at (C) {$X$};
+      \node[below right, xshift=22pt, yshift=-66pt] at (C) {\textit{krog $S$}};
+      \node[above left, xshift=-2pt] at (C) {$C$};
+      \node[below left]  at (B) {$B$};
+      \node[below right] at (A) {$A$};
+      \node[below]        at (I) {$I$};
+     
+    \end{tikzpicture}
+    \caption{Primer kompaktne in konveksne podmnožice $X \subseteq \R^3$, za katero $\ext X$ ni zaprta množica.
+    Na sliki je dvostranski stožec, pri čemer sta vrha $A, B$ kolinearna s sredinskim krogom $S$,
+    tako da točka $I$ ni ektremna.
+    Množico ekstremnih točk torej sestavljajo $A$, $B$ in vse točke na krogu $S$ razen $I$.}
+    \label{fig:3.1}
+\end{figure}
 
 \begin{zgled}
     Vrnimo se k zgledu \ref{zgl:2.2} in poiščimo vse robne upodobitve za operatorski sistem 
@@ -656,8 +769,8 @@ Za dokaz bomo potrebovali naslednji dve lemi.
     nerazcepna upodobitev za $\quot{C^*({S})}{\mathcal{K}(H^2)}$.
     
     V zgledu \ref{zgl:2.3} smo dokazali, da velja $\quot{C^*({S})}{\mathcal{K}(H^2)} \cong C(\T)$,
-    zato je $\mathcal{H} = \C$ in $\overline{\rho} = \ev_\lambda: C(\T) \to \C$ za nek $\lambda \in \T$.
-    S tem smo pokazali, da so vse robne upodobitve oblike 
+    zato je (do unitarne ekvivalence natanko) $\mathcal{H} \equiv \C$ in $\overline{\rho} = \ev_\lambda: C(\T) \to \C$ za nek $\lambda \in \T$.
+    S tem smo pokazali, da so vse robne upodobitve oblike unitarno ekvivalentne upodobitvam 
     $$\rho_\lambda: C^*(S) \to \C,\quad \rho_\lambda(T_f + K) = f(\lambda).$$ 
     Dokazati moramo še, da so vse takšne upodobitve $\rho_\lambda$ res robne za $\mathcal{T}(C(\T))$.
     

@@ -211,7 +211,7 @@ iz uvoda.
 \begin{lema}\label{lem:1.2}
     Če je $\mathfrak{A}$ $C^*$-algebra, potem je vsak pozitiven element $M_n (\mathfrak{A})$
     vsota $n$ pozitivnih matrik oblike $[a_i ^* a_j]_{i, j}$ za 
-    neke $\{a_1, \dots, a_n\} \subseteq A$.
+    neke $\{a_1, \dots, a_n\} \subseteq \mathfrak{A}$.
 \end{lema}
 
 \begin{dokaz}
@@ -336,8 +336,8 @@ pozitivnih in povsem pozitivnih preslikav na operatorskih sistemih.
 \end{definicija}
 
 \begin{opomba}
-    V splošni literaturi (glej na primer \cite{paulsen2002}) so operatorski sistemi običajno definirani zgolj kot podprostori $C^*$-algebre,
-    torej brez zahteve, da vsebujejo enico. V tem magistrskem delu bomo obravnavali zgolj enotske operatorske prostore,
+    V splošni literaturi (glej na primer \cite{paulsen2002}) so operatorski prostori običajno definirani zgolj kot podprostori $C^*$-algebre,
+    torej brez zahteve, da vsebujejo enico. V tem magistrskem delu bomo obravnavali samo enotske operatorske prostore,
     zato dodamo to kot del definicije.
 \end{opomba}
 
@@ -353,7 +353,7 @@ $\varphi: \mathcal{M} \to \mathfrak{B}$ na operatorskem prostoru $\mathcal{M}$.
 
 \begin{zgled}
     Če je $\varphi: \mathfrak{A} \to \mathfrak{B}$ povsem pozitivna preslikava
-    in $\mathcal{M} \subseteq \mathfrak{A}$ poljuben operatorski prostor,
+    in $\mathcal{S} \subseteq \mathfrak{A}$ poljuben operatorski sistem,
     potem je tudi $\varphi|_\mathcal{S}: \mathcal{S} \to \mathfrak{B}$ povsem pozitivna preslikava.
 \end{zgled}
 
@@ -363,7 +363,7 @@ $\varphi: \mathcal{M} \to \mathfrak{B}$ na operatorskem prostoru $\mathcal{M}$.
     \ref{zgl:1.3}.
 \end{zgled}
 
-Operatorski sistemi imajo pomembno vlogo v teoriji se v teoriji povsem pozitivnih preslikav, saj je vsak njihov
+Operatorski sistemi imajo pomembno vlogo v teoriji povsem pozitivnih preslikav, saj je vsak njihov
 element linearna kombinacija pozitivnih elementov.
 Res, vsak element v operatorskemu sistemu $a \in \mathcal{S}$ je linearna kombinacija dveh sebiadjungiranih elementov 
 $$a = \underbrace{\frac{a + a^*}{2}}_{\real a} + i \cdot \underbrace{\frac{a - a^*}{2i}}_{\imag a},$$
@@ -373,8 +373,8 @@ $$a = \frac{1}{2} (\| a\| + a) - \frac{1}{2} (\| a\| - a),$$
 ki ležita v $\mathcal{S}$. 
 
 Operatorski sistemi so zato `naraven' objekt, na katerem so morfizmi povsem pozitivne preslikave.
-Z oznako $\osys$ označimo kategorijo operatorskih sistemov, v kateri so morfizmi povsem pozitivne preslikave,
-v $\osys_1$ pa enotske povsem pozitivne preslikave.
+Z oznako $\os$ označimo kategorijo operatorskih sistemov, v kateri so morfizmi povsem pozitivne preslikave,
+v $\os_1$ pa enotske povsem pozitivne preslikave.
 
 \begin{zgled}
     Za razliko od operatorskih sistemov lahko operatorski prostori vsebujejo le trivialne sebiadjungirane elemente, torej $\R \cdot 1$.
@@ -392,7 +392,7 @@ v $\osys_1$ pa enotske povsem pozitivne preslikave.
     Od tod sledi $\alpha_0 \in \R$ in $\alpha_j = 0$ za $j \geq 1$.
 \end{zgled}
 
-Kot nam pove zgornji zgled, imajo operatorski sistemi lahko premalo 
+Kot nam pove zgornji zgled, imajo operatorski prostori lahko premalo 
 pozitivnih elementov, da bi povsem pozitivne preslikave na njih bile zanimive.
 Kljub temu pa obstaja vrsta preslikav
 na operatorskem prostoru $\mathcal{M}$, ki jih lahko razširimo do povsem pozitivnih preslikav na operatorskem sistemu $\mathcal{M} + \mathcal{M}^*$.
@@ -432,22 +432,21 @@ V nadaljevanju tega razdelka bomo opisali to konstrukcijo.
 \end{lema}
 
 \begin{dokaz}
-    Ker za vsak $a \in \mathcal{S}_+$ velja
-    $$-\| a\| \leq a\leq \| a\|,$$
+    Predpostavimo, da je $\varphi$ pozitiven, in dokazujemo, da velja $\| \varphi\| = \varphi(1)$.
+    Najprej dokažimo trditev za sebiadjungiran $a \in \mathcal{S}$.
+    Po prejšnji trditvi je $\varphi(a) \in \R$. Ker velja
+    $-\| a\| \leq a\leq \| a\|,$
     sledi 
-    $$\varphi(a) \leq \varphi(\|a\|),\quad \forall a \in \mathcal{S}.$$
-    Za $a, b \in \mathcal{S}$ definiramo seskvilinearno formo $\langle a, b\rangle := \varphi(b^* a)$,
-    od koder po Cauchy-Schwarzevi neenakosti sledi
-    \begin{equation}
-        |\varphi(b^* a)|^2 \leq \varphi (b^* b) \cdot \varphi(a^* a). \label{eq:1.2}
-    \end{equation}
-    Če vstavimo $b = 1$, dobimo 
-    \begin{align*}
-        |\varphi(a)|^2 &\leq \varphi(a^* a) \cdot \varphi(1) \leq \varphi(\| a^* a\|) \cdot \varphi(1)\\
-        & = \| a^* a\| \cdot \varphi(1)^2 = \| a\|^2 \cdot \varphi(1)^2.
+    $$-\varphi(\| a\|) \leq \varphi(a) \leq \varphi(\|a\|)$$
+    in zato $$|\varphi(a)| \leq \varphi(\| a\|) \leq \| \varphi \| \cdot \varphi (1).$$
+    Sedaj vzemimo poljuben $a \in \mathcal{S}$ ter $\lambda \in \C$,
+    tako da je $\varphi(\lambda a) = |\varphi (a)|$. Ker je $\| a\| - \real(\lambda a) \geq \| \real (\lambda a)\| - \real(\lambda a) \geq 0$,
+    sledi \begin{align*}
+        |\varphi(a)| &= \varphi(\lambda a) = \real \varphi(\lambda a)\\ 
+        &= \varphi(\real (\lambda a)) \leq \varphi(\| a\|)\\ 
+        &\leq \| a\| \cdot \varphi(1).
     \end{align*}
-    Če enačbo korenimo, dobimo $\| \varphi\| \leq \varphi(1)$.
-    Ker je $\varphi(1) \leq \| \varphi\|$, smo implikacijo v desno dokazali.
+
     Za implikacijo v levo vzamemo
     $a \in \mathcal{S}_+$ in $\varphi (a) := \alpha + i \beta.$
     Za vsak $t \in \R$ je
@@ -477,11 +476,10 @@ Za poljubno pozitivno preslikavo $\varphi: \mathcal{S} \to \mathfrak{B}$ imamo n
 \end{trditev}
 
 \begin{dokaz}
-    Za sebiadjungiran $a \in \mathcal{S}$ velja
+    Za sebiadjungiran $a \in \mathcal{S}$ ponovno velja
     $$-\| a\| \leq a \leq \| a\|$$
-    in posledično $$-\varphi(\| a\|) \leq \varphi(a) \leq \varphi (\| a\|).$$
-    Od tod sledi $| \varphi (a)| \leq \| a \| \cdot \varphi (1)$.
-    Sedaj za poljuben $a \in \mathcal{S}$ dobimo 
+    $| \varphi (a)| \leq \| a \| \cdot \varphi (1)$.
+    Za poljuben $a \in \mathcal{S}$ pa dobimo 
     \begin{align*}
         \| \varphi(a)\| &= \| \varphi \left(\real a + i \cdot \imag a\right) \| \\
         &\leq \| \varphi (\real a)\| + \| \varphi (\imag a)\| \\
@@ -546,7 +544,7 @@ moč razširiti do pozitivne preslikave na operatorskem sistemu $\mathcal{M} + \
 
 \begin{dokaz}
     Po izreku GNS lahko (kot bomo v nadaljevanju pogosto storili) 
-    brez škode za splošnost predpostavili, da je $\mathfrak{B} = \bh$ 
+    brez škode za splošnost predpostavimo, da je $\mathfrak{B} = \bh$ 
     za nek Hilbertov prostor $\mathcal{H}$.
     Fiksirajmo nek $x \in \mathcal{H}$, tako da velja $\| x\| = 1$.
     Oglejmo si funkcional
@@ -697,8 +695,8 @@ Takšnim preslikavam pravimo povsem omejene preslikave. Ta razdelek je namenjen 
 \end{dokaz}
 
 \begin{opomba}
-    Z oznako $\os$ bomo označevali kategorijo operatorskih prostorov, v kateri so morfizmi povsem omejene preslikave, 
-    v $\os_1$ pa enotske povsem omejene preslikave.
+    Z oznako $\op$ bomo označevali kategorijo operatorskih prostorov, v kateri so morfizmi povsem omejene preslikave, 
+    v $\op_1$ pa enotske povsem omejene preslikave.
 \end{opomba}
 
 Oglejmo si nekatere zglede povsem omejenih preslikav.
@@ -808,7 +806,7 @@ V preostanku tega poglavja dokažemo, da to velja tudi v splošnem. Argumentom, 
         Če vstavimo $y = Ax$, dobimo
         $$\langle Ax, Ax \rangle \leq \langle Qx, x \rangle$$ za vse $x$.
         Ker je leva stran enačbe enaka $\langle A^* A x, x \rangle$, dobimo $A^* A \leq Q$.
-        Obratno, če velja $A^* A \leq Q$, potem po Cauchy-Schwarzove neenakosti sledi
+        Obratno, če velja $A^* A \leq Q$, potem po Cauchy-Schwarzovi neenakosti sledi
         \begin{align*}
             |\langle Ax, y \rangle|^2 &\leq \| Ax \|^2 \cdot \| y\|^2 \\
             &\leq \langle A^* A x, x \rangle \cdot \langle y, y \rangle \\
@@ -865,7 +863,7 @@ V preostanku tega poglavja dokažemo, da to velja tudi v splošnem. Argumentom, 
     S tem smo dokazali $\| \varphi \| \leq \| \varphi(1)\|$.
 \end{dokaz}
 
-\begin{posledica}[Cauchy-Schwarz za $2$-pozitivne preslikave]
+\begin{posledica}[Cauchy-Schwarz za 2-pozitivne preslikave]
     Naj bosta $\mathfrak{A}, \mathfrak{B}$ $C^*$-algebri in $\varphi: \mathfrak{A} \to \mathfrak{B}$ 
     $2$-pozitivna preslikava. Potem velja $$\varphi (a^* b) \varphi (b^* a) \leq  \| \varphi (a^* a ) \| \cdot \varphi (b^* b)$$
     in v posebnem
@@ -1031,7 +1029,7 @@ $\varphi: C(X) \to \mathfrak{B}$ in $\varphi: \mathfrak{A} \to C(X)$ obstaja pre
 
 \begin{dokaz}
     Brez škode za splošnost predpostavimo, da je $\mathfrak{B} = \bh$ za nek Hilbertov prostor $\mathcal{H}$.
-            Fiksirajmo neka vektorja $u, v\in \mathcal{H}$. Po Rieszovem reprezentacijskem izreku \cite[Theorem 6.18, str. 129]{rudin1987} obstaja (enolična) 
+            Fiksirajmo neka vektorja $u, v\in \mathcal{H}$. Po Riesz-Markov-Kakutanijevem izreku (\cite[Theorem 6.18, str. 129]{rudin1987}) obstaja (enolična) 
             regularna kompleksna Borelova mera $\mu_{u, v}$,
             tako da velja
             $$\langle \varphi(a) v, u \rangle = \int_X a \, d\mu_{u, v},\quad \forall a \in \mathfrak{A}.$$
@@ -1092,7 +1090,7 @@ $\varphi: C(X) \to \mathfrak{B}$ in $\varphi: \mathfrak{A} \to C(X)$ obstaja pre
     še ni nujno povsem pozitivna.
     Protiprimer smo že srečali v zgledu \ref{zgl:1.6}, kjer smo definirali 
     pozitivno preslikavo $\varphi: \mathcal{S} \to M_2 (\C)$ na operatorskem sistemu $\mathcal{S} = \lin\{1, z, \overline{z}\} \subseteq C(\T)$,
-    tako da $\varphi$ ni povsem pozitivna.
+    ki ni povsem pozitivna.
     Težava je v tem, da razcep iz leme \ref{lem:1.2} ne velja za poljuben operatorski sistem, temveč zgolj za celotno $C^*$-algebro $\mathfrak{A}$.
 \end{opomba}
 
@@ -1105,7 +1103,6 @@ Sedaj dokažimo podobno trditev še za primer, ko je kodomena $C(X)$.
 
 
 \begin{dokaz}
-    \begin{enumerate}
         Vzemimo poljubno pozitivno matriko $A = [a_{ij}] \in M_n(\mathcal{S})$ in $b_1, \dots, b_n \in C(X)$. Dokazati želimo, da velja
         $\sum_{i, j} ^n b_j^* \varphi(a_{ij}) b_i \geq 0$. Za poljuben $x \in X$ imamo
         \begin{align*}
@@ -1118,7 +1115,6 @@ Sedaj dokažimo podobno trditev še za primer, ko je kodomena $C(X)$.
                 b_1 (x) \\ \vdots \\ b_n (x)
             \end{bmatrix} \right) (x) \geq 0. \qedhere
         \end{align*}
-    \end{enumerate}
 \end{dokaz}
 
 \begin{posledica}
@@ -1239,7 +1235,7 @@ To ilustriramo v naslednjih dveh zgledih.
     s skalarnim produktom
     $$\langle (x_1, x_2, \dots), (y_1, y_2, \dots) \rangle := \sum_{n = 1} ^\infty \langle x_i, y_i \rangle.$$
     Nazadnje definiramo še operator 
-    $$V: \mathcal{K} \to \mathcal{K},\quad (x_1, x_2,x_3, \dots) \mapsto (T x_1, D_T x_2, x_3, \dots),$$
+    $$V: \mathcal{K} \to \mathcal{K},\quad (x_1, x_2,x_3, \dots) \mapsto (T x_1, D_T x_1, x_2, \dots),$$
     ki je izometrija, saj velja
     \begin{align*}
         \| V(x_1, x_2, x_3, \dots)\|^2 &= \| T x_1\|^2 + \| D_T x_2\|^2 + \sum_{n = 3} ^\infty \| x_n\|^2 \\
@@ -1284,14 +1280,14 @@ Za ilustracijo tega argumenta dokažimo naslednjo trditev.
 
 \begin{zgled}\label{zgl:1.7}
     Naj bo $T \in \bh$ skrčitev in
-    $$\mathcal{M} := \C [z] \subseteq \C (T)$$
-    operatorski sistem. Potem je preslikava 
+    $$\mathcal{M} := \C [z] \subseteq C (\T)$$
+    operatorski prostor. Potem je preslikava 
     $$\varphi: \mathcal{M} \to \bh,\quad p \mapsto p(T)$$
     enotska skrčitev po von Neumannovi neenakosti. To pomeni, da 
     jo lahko razširimo do pozitivne preslikave $$\tilde{\varphi}: \mathcal{M} + \mathcal{M}^* \to \bh,\quad p + q^* \mapsto p(T) + q(T)^*.$$
     Po Stone-Weierstrassovem izreku je
     \begin{equation*}
-        \mathcal{M} + \mathcal{M}^* = \{p (z) + \overline{q ({z})}\ |\ \text{$p, q$ polinoma}\}. 
+        \mathcal{M} + \mathcal{M}^* = \{p (z) + \overline{q ({z})}\ |\ \text{$p, q$ polinoma}\}
     \end{equation*}
     gosta podmnožica v $C(\T)$, zato lahko $\tilde{\varphi}$ razširimo do pozitivne preslikave $\psi: C(\T) \to \bh$.
     Po trditvi \ref{trd:1.2} sledi, da je tudi povsem pozitivna.
@@ -1316,14 +1312,14 @@ Takoj lahko navedemo dve posledici tega dejstva.
     $$\psi (C(\T)) = \overline{\{p(a) |\ p \in \C[z]\}} \subseteq \mathfrak{A}.$$ 
     Posledično je preslikava
     $$\varphi \circ \psi: C(\T) \to \mathfrak{B}$$ pozitivna, 
-    zato je po trditvi \ref{trd:1.2} povsem pozitivna 
+    zato je po trditvi \ref{trd:1.2} povsem pozitivna. 
     Od tod sledi 
     $$\| \varphi(a)\| = \| (\varphi \circ \psi) (z)\| \leq \| (\varphi \circ \psi) (1) \| = \| \varphi (1)\|$$
     in posledično $\| \varphi \| = \| \varphi(1)\|$.
 \end{dokaz}
 
 \begin{posledica}[Matrična von Neumannova neenakost]
-    Naj bo $T \in \bh$ skrčitev in $p = [p_{ij}]_{i, j} \in M_n(\C [z])$ kompleksna matrični polinom. 
+    Naj bo $T \in \bh$ skrčitev in $p = [p_{ij}]_{i, j} \in M_n(\C [z])$ kompleksni matrični polinom. 
     Potem velja
     $$\| p(T)\| = \| [p_{ij} (T)]_{i, j}\| \leq \sup \{\|[p_{ij}(z)]_{i, j}\|\ |\ z \in \mathbb{T}\}.$$
 \end{posledica}
@@ -1342,7 +1338,7 @@ v začetku tega poglavja. Vemo pa, da je za povsem pozitivno preslikavo $\psi: \
 \begin{equation}
     \mathfrak{A} \to  \bk,\quad A \mapsto V^* \psi (a) V \label{eq:1.1}
 \end{equation}
-povsem pozitivna preslikava. To pomeni, da sta dilatacija in kompresija povsem pozitivni preslikavi na $\bh$.
+povsem pozitivna preslikava. 
 
 \begin{zgled}
     Denimo, da sta $\mathcal{H} \subseteq \mathcal{K}$ Hilbertova prostora.
@@ -1578,7 +1574,7 @@ Gre za `nekomutativno posplošitev' Radon-Nikodymovega izreka.
 Najprej na množici $\PP(\mathfrak{A}, \mathfrak{B})$ definiramo delno urejenost  
 $$\varphi \leq \psi \quad \Leftrightarrow \quad \psi - \varphi \in \PP(\mathfrak{A}, \mathfrak{B}).$$
 Nadalje za poljubno podmnožico $C^*$-algebre $\mathcal{S} \subseteq \mathfrak{A}$ definiramo njen \emph{komutant} kot
-$$\mathcal{S}' := \{a \in A\ |\ as = sa,\ \forall s \in \mathcal{S}\}.$$
+$$\mathcal{S}' := \{a \in \mathfrak{A}\ |\ as = sa,\ \forall s \in \mathcal{S}\}.$$
 Sedaj velja naslednje.
 
 \begin{trditev} \label{trd:1.4}
@@ -1611,7 +1607,7 @@ Sedaj velja naslednje.
     Slednjega nato napolnimo do Hilbertovega prostora $\mathcal{K}$.
 
     Po neenakosti \eqref{eq:1.5} $\langle \cdot, \cdot \rangle_\varphi$ inducira omejen polskalarni produkt na $\mathcal{K}$.
-    Po Rieszovem izreku obstaja operator $T \in \bk$, tako da je
+    Po Rieszovovem izreku obstaja operator $T \in \bk$, tako da je
     $$\langle u, v \rangle_{\varphi} = \langle T u, v \rangle_{\psi},\quad \forall u, v \in \mathcal{K}.$$
     Potem za vsak $a \in \mathfrak{A}$ in $x, y \in \mathcal{H}$ velja
     \begin{align*}
@@ -1958,7 +1954,7 @@ sta linearni in druga drugi inverzni.
 
 \begin{posledica}
     Naj bo $\mathcal{M} \subseteq \mathfrak{A}$ operatorski sistem.
-    Za enotsko linearno preslikavo $\varphi: \mathcal{M} \to M_m (\C)$ so naslednje trditve ekvivalentne:
+    Za enotsko linearno preslikavo $\varphi: \mathcal{M} \to M_n (\C)$ so naslednje trditve ekvivalentne:
     \begin{enumerate}
         \item $\varphi$ je povsem skrčitev;
         \item $\varphi$ je $n$-skrčitev;
@@ -2048,7 +2044,7 @@ Najprej to dokažemo za $n = 1$: naslednji rezultat je zgolj različica Hahn-Ban
 \begin{posledica}
     Naj bo $\mathcal{M} \subseteq \mathfrak{A}$ operatorski prostor.
     Če je $\varphi: \mathcal{M} \to M_n (\C)$ enotska povsem skrčitev,
-    potem ima povsem pozitivna razširitev $\psi: \mathfrak{A} \to M_n (\C)$.
+    potem ima povsem pozitivno razširitev $\psi: \mathfrak{A} \to M_n (\C)$.
 \end{posledica}
 
 \begin{dokaz}
@@ -2065,15 +2061,15 @@ Poglavje zaključimo z verzijo izreka \ref{izr:1.2} za operatorske sisteme.
     \begin{enumerate}
         \item $\varphi$ je povsem pozitivna;
         \item $\varphi$ je $n$-pozitivna;
-        \item $\varphi$ je oblike \eqref{eq:1.5}.
+        \item $\varphi$ je oblike \eqref{eq:1.6}.
     \end{enumerate}
 \end{trditev}
 
 \begin{dokaz}
     Dovolj je dokazati implikacijo $(2.) \Rightarrow (3.)$. Če je $\varphi$ $n$-pozitivna,
     je po trditvi \ref{trd:1.7} povsem pozitivna,
-    zato jo lahko po trditvi \ref{izr:aux} razširimo do povsem pozitivne preslikave $\psi: M_n (\C) \to M_m (\C)$, ki mora biti oblike \eqref{eq:1.5}.
-    Torej je tudi $\varphi$ oblike \eqref{eq:1.5}.
+    zato jo lahko po trditvi \ref{izr:aux} razširimo do povsem pozitivne preslikave $\psi: M_n (\C) \to M_m (\C)$, ki mora biti oblike \eqref{eq:1.6}.
+    Torej je tudi $\varphi$ oblike \eqref{eq:1.6}.
 \end{dokaz}
 
 \section{Arvesonov razširitveni izrek}\label{sec:8}
@@ -2082,7 +2078,7 @@ V poglavju \ref{sec:2} smo dokazali, da lahko vsako povsem pozitivno preslikavo
 na operatorskem prostoru razširimo do povsem pozitivne preslikave na pripadajočem operatorskem sistemu.
 Iz tamkajšnje diskusije je sledilo, da so operatorski sistemi naraven objekt, na katerem so morfizmi povsem pozitivne preslikave.
 
-Naravno vprašanje je, če imamo 
+Naravno vprašanje je, ali imamo 
 izrek Hahn-Banachovega tipa, ki bi nam povedal, da 
 lahko povsem pozitivno preslikavo $$
 \varphi : \mathcal{S} \to \bh
@@ -2179,10 +2175,11 @@ $$Z := \overline{\lin \{x \otimes y\ |\ x \in X, y \in Y\}} \leq \mathcal{B} (X,
 \end{dokaz}
 
 Če identificiramo prostor $\mathcal{B} (X, Y^*)$ z $Z^*$, ga lahko opremimo s šibko-$*$ topologijo.
-Tej topologiji pravimo \emph{omejeno šibka (OŠ) topologija}.
+Tej topologiji pravimo \emph{omejeno šibka (OŠ) topologija}. Zaradi naslednje trditve v literaturi zasledimo tudi izraz 
+\emph{topologija šibke-$*$ konvergence po točkah} (ang.~\emph{point-$*$ topology}).
 
 \begin{lema}
-    Naj bo $(L_\lambda)_{\lambda}$ omejena mreža v $\mathcal{B}(X, Y^*)$.
+    Naj bo $(L_\lambda)_{\lambda}$ omejeno posplošeno zaporedje v $\mathcal{B}(X, Y^*)$.
     Potem konvergira $L_\lambda \xrightarrow{} L$ v OŠ topologiji natanko tedaj, ko $L_\lambda (x) \xrightarrow{} L(x)$ v šibki-$*$ topologiji za vse $x \in X$.
 \end{lema}
 
@@ -2191,7 +2188,7 @@ Tej topologiji pravimo \emph{omejeno šibka (OŠ) topologija}.
     $$L_\lambda (x) (y) = \Phi (L_\lambda) (x \otimes y) \to \Phi (L) (x \otimes y) = L(x) (y)$$
     za vse $x \in X$ in $y \in Y$, torej $L_\lambda (x) \to L (x)$ v šibki-$*$ topologiji na $Y^*$. 
     
-    Sedaj dokažimo še implikacijo $(\Leftarrow)$. Ker je mreža $(L_\lambda)_\lambda$ omejena z normo, obstaja $M$, tako da je $\| L_\lambda \| \leq M$ za vsak $\lambda \in \Lambda$.
+    Sedaj dokažimo še implikacijo $(\Leftarrow)$. Ker je posplošeno zaporedje $(L_\lambda)_\lambda$ omejeno z normo, obstaja $M$, tako da je $\| L_\lambda \| \leq M$ za vsak $\lambda \in \Lambda$.
     Če konvergira $L_\lambda (x) \xrightarrow{} L(x)$ v šibki-$*$ topologiji za vse $x \in X$, tedaj
     $$\Phi (L_\lambda) (x \otimes y) = L_\lambda (x) (y) \to L(x) (y) = \Phi (L) (x \otimes y)$$
     za vse $x \otimes y \in \mathcal{B}(X, Y^*)^*$. Posledično $\Phi (L_\lambda)(z) \to \Phi(L) (z)$ za vse $z \in \lin \{x \otimes y\ |\ x \in X, y \in Y\}$. 
@@ -2215,7 +2212,7 @@ $$\bh \cong L^1 (\mathcal{H})^*,\quad T \mapsto (S \mapsto \tr(TS))$$
 pri čemer $L^1 (\mathcal{H})$ označuje Banachov prostor operatorjev s sledjo, opremljen z normo $\| S \|_1 = \tr (|S|)$.
 
 \begin{lema}
-    Če je $\{L_\lambda\}_\lambda \subseteq \mathcal{B} (X, \bh)$ omejena mreža,
+    Če je $\{L_\lambda\}_\lambda \subseteq \mathcal{B} (X, \bh)$ omejeno posplošeno zaporedje,
     potem $L_\lambda \to L$ konvergira v OŠ topologiji natanko tedaj, ko za vse $x \in X$ in $u, v \in \mathcal{H}$ velja
     $\langle L_\lambda (x) u, v \rangle \to \langle L(x) u, v \rangle$.
 \end{lema}
@@ -2240,14 +2237,14 @@ pri čemer $L^1 (\mathcal{H})$ označuje Banachov prostor operatorjev s sledjo, 
     Topologiji na $\bh$, inducirani z družino polnorm 
     $$T \mapsto |\langle Tu, v\rangle|,\quad u, v \in \mathcal{H},$$
     pravimo \emph{šibka operatorska topologija} (od tod naprej ŠOT).
-    Prejšnja lema nam torej pove, da omejena mreža $\{L_\lambda\}_{\lambda \in \Lambda} \subseteq \mathcal{B}(X, \bh)$
+    Prejšnja lema nam torej pove, da omejeno posplošeno zaporedje $\{L_\lambda\}_{\lambda \in \Lambda} \subseteq \mathcal{B}(X, \bh)$
     konvergira v OŠ topologiji natanko tedaj, ko $\{L_\lambda (x)\}_{\lambda \in \Lambda}$
     konvergira v ŠOT za vsak $x \in X$.
 \end{opomba}
 
 \begin{lema}\label{lem:1.5}
     Naj bo $\mathfrak{A}$ $C^*$-algebra in $\mathcal{S} \subseteq \mathfrak{A}$ zaprt operatorski sistem. Potem je 
-    $$\PP_r (\mathcal{S}, \bh) := \{L \in \mathcal{B} (\mathcal{S}, \bh)\ |\ \textrm{$L$ p.p.~in$\| L\| \leq r$}\}$$
+    $$\PP_r (\mathcal{S}, \bh) := \{L \in \mathcal{B} (\mathcal{S}, \bh)\ |\ \textrm{$L$ p.p.~in $\| L\| \leq r$}\}$$
     kompaktna množica v OŠ topologiji.
 \end{lema}
 
@@ -2255,7 +2252,7 @@ pri čemer $L^1 (\mathcal{H})$ označuje Banachov prostor operatorjev s sledjo, 
     Po Banach-Alaoglujevem izreku je
     $$B_r (\mathcal{S}, \bh) := \{L \in \mathcal{B} (\mathcal{S}, \bh)\ |\ \| L\| \leq r\}$$
     kompaktna množica v OŠ topologiji. Preostane le še pokazati, da je $\PP_r$ zaprt podprostor $B_r$.
-    Naj bo $(L_\lambda)_\lambda$ mreža v $\PP_r$, ki konvergira v OŠ topologiji k nekemu $L \in B_r$.
+    Naj bo $(L_\lambda)_\lambda$ posplošeno zaporedje v $\PP_r$, ki konvergira v OŠ topologiji k nekemu $L \in B_r$.
     Dokazati moramo, da je $L$ povsem pozitivna. Naj bo $n \in \N$ in $[a_{ij}]_{i, j} \in M_n (\mathcal{S})$ pozitivna matrika.
     Potem za poljubne $x_1, \dots, x_n \in \mathcal{H}$ velja
     $$\sum_{i, j} ^n \langle L_\lambda  ([a_{ij}]_{i, j})x_j, x_i \rangle \to \sum_{i, j} ^n \langle L  ([a_{ij}]_{i, j}) x_j, x_i \rangle.$$
@@ -2285,9 +2282,9 @@ Sedaj lahko dokažemo glavni izrek poglavja.
     \end{bmatrix}$$
     in vidimo, da velja $\| \psi_{\mathcal{F}} \| = \| \varphi_{\mathcal{F}} ' \| = \| \varphi_{\mathcal{F}} \| \leq \| \varphi\|$.
 
-    Opazimo, da je $\{\psi_{\mathcal{F}}\}$ mreža v $\PP_{\| \varphi\|} (\mathfrak{A}, \bh)$,
+    Opazimo, da je $\{\psi_{\mathcal{F}}\}$ posplošeno zaporedje v $\PP_{\| \varphi\|} (\mathfrak{A}, \bh)$,
     pri čemer $\mathcal{F}$ teče po vseh končnih podprostorih v $\mathcal{H}$.
-    Ker je $\PP_{\| \varphi\|} (\mathfrak{A}, \bh)$ kompaktna množica, ima mreža $\{\psi_{\mathcal{F}}\}$
+    Ker je $\PP_{\| \varphi\|} (\mathfrak{A}, \bh)$ kompaktna množica, ima posplošeno zaporedje $\{\psi_{\mathcal{F}}\}$
     stekališče v $\psi \in \PP_{\| \varphi\|} (\mathfrak{A}, \bh)$. 
 
     Dokazujemo, da je $\psi\big|_{\mathcal{S}} = \varphi$. Fiksirajmo $a \in \mathcal{S}$. 
